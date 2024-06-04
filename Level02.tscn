@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://d2e78wma2tsq0"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_5d8c1"]
+[ext_resource type="Texture2D" uid="uid://da1ipk5rpfqib" path="res://Assets/checker.png" id="1_c20hp"]
+[ext_resource type="Texture2D" uid="uid://6u5pehsvujx6" path="res://Assets/goal.png" id="2_i4kii"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nl0y6"]
+friction = 0.1
+bounce = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x0w0b"]
+radius = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_r1pdd"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eqa8s"]
+size = Vector3(50, 10, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_762mm"]
+size = Vector3(50, 10, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mpg0u"]
+albedo_texture = ExtResource("1_c20hp")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xkbba"]
+size = Vector3(10, 5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1gtad"]
+albedo_texture = ExtResource("2_i4kii")
+
+[sub_resource type="BoxMesh" id="BoxMesh_3jjul"]
+material = SubResource("StandardMaterial3D_1gtad")
+size = Vector3(10, 5, 1)
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_5d8c1")
+metadata/NextLevel = "res://Level01.tscn"
+metadata/Level = "Level02"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.085417, 0.996345, 0, -0.996345, 0.085417, 0, 30.5478, 46.221)
+shadow_enabled = true
+
+[node name="Ball" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9672, 37.419, 44.7742)
+physics_material_override = SubResource("PhysicsMaterial_nl0y6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
+shape = SubResource("SphereShape3D_x0w0b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ball"]
+mesh = SubResource("SphereMesh_r1pdd")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.992332, -0.123601, 0, 0.123601, 0.992332, 0.386248, 84.9504, 89.4251)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
+fov = 37.8493
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389248, -5.04956, -0.57489)
+rotation_edit_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_eqa8s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_762mm")
+surface_material_override/0 = SubResource("StandardMaterial3D_mpg0u")
+
+[node name="Goal" type="Area3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8047, 6.842, -50)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Goal"]
+shape = SubResource("BoxShape3D_xkbba")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Goal"]
+mesh = SubResource("BoxMesh_3jjul")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,116 @@
+[gd_scene load_steps=13 format=3 uid="uid://d0240xxixbpwr"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_hcc8s"]
+[ext_resource type="PackedScene" path="res://ball.tscn" id="2_5v74f"]
+[ext_resource type="Texture2D" uid="uid://da1ipk5rpfqib" path="res://Assets/checker.png" id="2_pn3o3"]
+[ext_resource type="Texture2D" uid="uid://6u5pehsvujx6" path="res://Assets/goal.png" id="3_r7gqd"]
+[ext_resource type="PackedScene" path="res://donut.tscn" id="4_m4o4t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c6pdw"]
+size = Vector3(30, 10, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_guqmc"]
+size = Vector3(30, 10, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cu0h4"]
+albedo_texture = ExtResource("2_pn3o3")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a3p64"]
+size = Vector3(10, 5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8fov"]
+albedo_texture = ExtResource("3_r7gqd")
+
+[sub_resource type="BoxMesh" id="BoxMesh_2057y"]
+material = SubResource("StandardMaterial3D_l8fov")
+size = Vector3(10, 5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
+size = Vector3(1000, 1, 1000)
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_hcc8s")
+metadata/NextLevel = "res://Level02.tscn"
+metadata/Level = "Level01"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.085417, 0.996345, 0, -0.996345, 0.085417, 0, 30.5478, 46.221)
+shadow_enabled = true
+
+[node name="Ball" parent="." instance=ExtResource("2_5v74f")]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.992332, -0.123601, 0, 0.123601, 0.992332, 0.386248, 84.9504, 89.4251)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
+fov = 37.8493
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389248, -5.04956, -0.57489)
+rotation_edit_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_c6pdw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_guqmc")
+surface_material_override/0 = SubResource("StandardMaterial3D_cu0h4")
+
+[node name="Goal" type="Area3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.968, 6.842, -50)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Goal"]
+shape = SubResource("BoxShape3D_a3p64")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Goal"]
+mesh = SubResource("BoxMesh_2057y")
+
+[node name="donut2" parent="Ground" groups=["collectables"] instance=ExtResource("4_m4o4t")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 7.71747, 6.64733, 0.375103)
+
+[node name="donut3" parent="Ground" groups=["collectables"] instance=ExtResource("4_m4o4t")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -8.5331, 6.47519, 9.13771)
+
+[node name="donut4" parent="Ground" groups=["collectables"] instance=ExtResource("4_m4o4t")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 7.0674, 6.47519, 17.4398)
+
+[node name="donut5" parent="Ground" groups=["collectables"] instance=ExtResource("4_m4o4t")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -8.38359, 6.47519, -11.1789)
+
+[node name="MurderDeathKill" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -72.7698, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MurderDeathKill"]
+shape = SubResource("BoxShape3D_tm63d")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="lblScore" type="Label" parent="."]
+offset_left = 769.0
+offset_right = 1143.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 47
+text = "Score: 0
+"
+horizontal_alignment = 2
+
+[node name="lblTime" type="Label" parent="."]
+offset_right = 367.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 47
+text = "Time: 0
+"
+
+[node name="PlayTimeTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]
+[connection signal="body_entered" from="MurderDeathKill" to="." method="_on_murder_death_kill_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="PlayTimeTimer" to="." method="_on_play_time_timer_timeout"]
+
+[editable path="Ball"]

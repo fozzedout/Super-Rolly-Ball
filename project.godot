@@ -46,6 +46,12 @@ Move_Right={
 ]
 }
 
+[physics]
+
+3d/default_gravity=50.0
+3d/default_linear_damp=0.001
+3d/default_angular_damp=0.001
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

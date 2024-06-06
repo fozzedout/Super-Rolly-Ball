@@ -11,13 +11,23 @@ config_version=5
 [application]
 
 config/name="Super Rolly Ball"
-run/main_scene="res://Level01.tscn"
+run/main_scene="res://Levels/Level01.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Globals="*res://globals.gd"
+
+[file_customization]
+
+folder_colors={
+"res://Assets-Scenes/": "orange",
+"res://Assets/": "red",
+"res://Levels/": "yellow",
+"res://Scenes/": "green",
+"res://exports/": "gray"
+}
 
 [filesystem]
 

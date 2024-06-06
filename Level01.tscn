@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://ball.tscn" id="2_5v74f"]
 [ext_resource type="Texture2D" uid="uid://da1ipk5rpfqib" path="res://Assets/checker.png" id="2_pn3o3"]
 [ext_resource type="Texture2D" uid="uid://6u5pehsvujx6" path="res://Assets/goal.png" id="3_r7gqd"]
-[ext_resource type="PackedScene" path="res://donut.tscn" id="4_m4o4t"]
+[ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://donut.tscn" id="4_m4o4t"]
 [ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="6_lirog"]
 [ext_resource type="PackedScene" uid="uid://dbgfrc1dy6qkh" path="res://railing.tscn" id="7_sobm3"]
 

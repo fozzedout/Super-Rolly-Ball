@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dvt53ak6vyqg3"]
+[gd_scene load_steps=20 format=3 uid="uid://dvt53ak6vyqg3"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_7a4w0"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="2_uhsdd"]
@@ -6,10 +6,29 @@
 [ext_resource type="Texture2D" uid="uid://6u5pehsvujx6" path="res://Assets/goal.png" id="4_wqdhm"]
 [ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="5_687s2"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="6_xv6me"]
+[ext_resource type="PackedScene" uid="uid://d071c8wqoxdc1" path="res://TatScenes/Collectibles/donut.tscn" id="7_dd1fa"]
 [ext_resource type="PackedScene" uid="uid://dbgfrc1dy6qkh" path="res://Assets-Scenes/railing.tscn" id="7_klwhh"]
 [ext_resource type="PackedScene" uid="uid://l82qlkwdv7db" path="res://TatScenes/Blocks/RegularPieces/1x2.tscn" id="8_qx3gu"]
 [ext_resource type="PackedScene" uid="uid://dgjjygg4s0asn" path="res://TatScenes/Blocks/RegularPieces/1x5.tscn" id="9_s6wx1"]
 [ext_resource type="PackedScene" uid="uid://cg7sut6b2dmkw" path="res://TatScenes/Blocks/RegularPieces/1x10.tscn" id="10_a8pbx"]
+
+[sub_resource type="Environment" id="Environment_vtr6s"]
+background_mode = 1
+background_color = Color(0.096357, 0.162658, 0.349906, 1)
+background_energy_multiplier = 5.38
+ambient_light_color = Color(0.0316549, 0.0316549, 0.0316549, 1)
+ambient_light_energy = 7.48
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_exposure = 1.17
+tonemap_white = 1.84
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 0.56
+adjustment_enabled = true
+adjustment_brightness = 2.85
+adjustment_contrast = 1.67
+adjustment_saturation = 2.56
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c6pdw"]
 size = Vector3(30, 10, 100)
@@ -38,9 +57,27 @@ script = ExtResource("1_7a4w0")
 metadata/NextLevel = "res://Level02.tscn"
 metadata/Level = "Level01"
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.085417, 0.996345, 0, -0.996345, 0.085417, 0, 30.5478, 46.221)
+[node name="UpperLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, -6.76539e-16, 1.19292e-16, 1.19292e-16, 0.34202, 0.939693, -6.76539e-16, -0.939693, 0.34202, 0.0133831, 35.3937, 17.7189)
+light_color = Color(0.837526, 0.850158, 0.855564, 1)
+light_energy = 1.566
+light_indirect_energy = 1.572
+light_volumetric_fog_energy = 3.163
 shadow_enabled = true
+shadow_bias = 0.758
+shadow_normal_bias = 0.0
+shadow_reverse_cull_face = true
+shadow_transmittance_bias = -0.42
+shadow_opacity = 0.33
+shadow_blur = 6.909
+directional_shadow_split_1 = 0.133
+directional_shadow_split_2 = 0.013
+directional_shadow_split_3 = 0.151
+directional_shadow_blend_splits = true
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vtr6s")
 
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
@@ -95,6 +132,8 @@ transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 4.0
 
 [node name="donut5" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("6_xv6me")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -3.15716, 1.42563, -11.7538)
+
+[node name="Donut" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("7_dd1fa")]
 
 [node name="Fences" type="Node3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.379782, 4.60772, 0)

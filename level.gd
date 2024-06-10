@@ -10,8 +10,8 @@ func _ready():
 	$lblTime.text = "Time: " + str(time) + "    Best: " + str(globals.ts[get_meta("Level")]["Time"])
 	$lblScore.text = "Best: " + str(globals.ts[get_meta("Level")]["Score"]) + "    Score: " + str(score)
 	
-	AudioServer.set_bus_mute(globals.bus_index, globals.ts["Muted"])
-	AudioServer.set_bus_volume_db(globals.bus_index, linear_to_db(globals.ts["Volume"]))
+	#AudioServer.set_bus_mute(globals.bus_index, globals.ts["Muted"])
+	#AudioServer.set_bus_volume_db(globals.bus_index, linear_to_db(globals.ts["Volume"]))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://ql12odtp13h3"]
+
+[ext_resource type="Texture2D" uid="uid://dxtgqm6m2ox67" path="res://Assets/TatModels/ExtraParts/1x2x1Ramp_wood1.png" id="1_drckq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jd0ph"]
+resource_name = "Woodline"
+cull_mode = 2
+albedo_texture = ExtResource("1_drckq")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rod35"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 4.00003, 2.00001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"name": "Woodline",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 255, 127, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 127, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_s43qy"]
+resource_name = "1x2x1Ramp_Cube_024"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 4.00003, 2.00001),
+"attribute_data": PackedByteArray(193, 225, 199, 106, 193, 225, 172, 105, 141, 0, 199, 106, 193, 225, 113, 255, 226, 74, 172, 105, 141, 0, 113, 255, 253, 75, 199, 106, 193, 225, 87, 31, 226, 74, 199, 106, 253, 75, 113, 255, 141, 0, 172, 105, 226, 74, 113, 255, 108, 151, 199, 106, 108, 151, 172, 105, 82, 150, 87, 31, 108, 151, 28, 181, 226, 74, 141, 0, 82, 150, 172, 105, 82, 150, 199, 106, 108, 151, 87, 31, 253, 75, 87, 31, 82, 150, 28, 181, 141, 0, 141, 0, 253, 75, 172, 105),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_jd0ph"),
+"name": "Woodline",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 255, 255, 254, 255, 255, 255, 0, 0, 255, 255, 254, 255, 170, 233, 0, 0, 255, 255, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 170, 233, 0, 0, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 255, 127, 254, 255, 255, 255, 255, 255, 255, 127, 254, 255, 170, 233, 255, 255, 255, 127, 254, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 170, 233, 255, 255, 255, 127, 0, 0, 255, 255, 255, 127, 255, 127, 255, 127, 255, 63, 255, 63, 255, 127, 255, 127, 255, 127, 4, 181, 245, 149, 255, 63, 255, 127, 255, 255, 255, 127, 255, 127, 255, 63, 255, 63, 255, 127, 255, 255, 255, 127, 4, 181, 245, 149, 255, 63, 255, 127, 255, 127, 255, 127, 255, 127, 255, 63, 255, 191, 255, 127, 255, 127, 255, 127, 4, 181, 245, 149, 255, 191, 255, 127, 254, 255, 255, 127, 255, 127, 255, 63, 255, 191, 255, 127, 255, 255, 255, 127, 4, 181, 245, 149, 255, 191, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_rod35")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_urhbd"]
+size = Vector3(4, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wqbae"]
+size = Vector3(4.43115, 2, 2)
+
+[node name="1x2x1Ramp" type="StaticBody3D"]
+
+[node name="1x2x1Ramp" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_s43qy")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_urhbd")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.894934, 0.446198, 3.48787e-16, -0.446198, 0.894934, -3.48787e-16, -4.67769e-16, 1.56513e-16, 1, -0.469193, 1.10884, 2.08163e-12)
+shape = SubResource("BoxShape3D_wqbae")

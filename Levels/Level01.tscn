@@ -320,6 +320,15 @@ transform = Transform3D(277.522, 0, 0, 0, 136.628, 0, 0, 0, 60.0078, -0.00280762
 mesh = SubResource("QuadMesh_1wrm2")
 surface_material_override/0 = SubResource("StandardMaterial3D_cs0qq")
 
+[node name="TimerReload" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerStart" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
 [node name="GoalScreen" type="Node2D" parent="."]
 visible = false
 
@@ -397,15 +406,6 @@ theme_override_font_sizes/font_size = 40
 text = "Main Menu"
 script = ExtResource("11_lto2i")
 metadata/LoadScene = "res://Scenes/MainMenu.tscn"
-
-[node name="TimerStart" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-autostart = true
-
-[node name="TimerReload" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
 
 [node name="lblLevelResult" type="Label" parent="."]
 offset_left = 283.0
@@ -489,9 +489,9 @@ stream = ExtResource("18_p4jpw")
 [connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]
 [connection signal="body_entered" from="Ground/MurderDeathKill" to="." method="_on_murder_death_kill_body_entered"]
+[connection signal="timeout" from="TimerReload" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerStart" to="." method="_on_timer_start_timeout"]
 [connection signal="pressed" from="GoalScreen/btnNextLevel" to="GoalScreen/btnNextLevel" method="_on_pressed" binds= ["res://Levels/Level02.tscn"]]
 [connection signal="pressed" from="GoalScreen/btnMainMenu" to="GoalScreen/btnMainMenu" method="_on_pressed" binds= ["res://Scenes/MainMenu.tscn"]]
-[connection signal="timeout" from="TimerStart" to="." method="_on_timer_start_timeout"]
-[connection signal="timeout" from="TimerReload" to="." method="_on_timer_timeout"]
 
 [editable path="Ball"]

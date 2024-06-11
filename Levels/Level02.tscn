@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d2e78wma2tsq0"]
+[gd_scene load_steps=34 format=3 uid="uid://d2e78wma2tsq0"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_5d8c1"]
 [ext_resource type="Texture2D" uid="uid://da1ipk5rpfqib" path="res://Assets/checker.png" id="1_c20hp"]
@@ -12,6 +12,38 @@
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="10_o4a1o"]
 [ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="11_j6b47"]
 [ext_resource type="Script" path="res://globals.gd" id="11_jx6vc"]
+[ext_resource type="AudioStream" uid="uid://dxa1p4f6paw01" path="res://Assets/hit portal.ogg" id="13_owpc4"]
+[ext_resource type="AudioStream" uid="uid://d3i4t3u8lb23m" path="res://Assets/ready start.ogg" id="14_b1md6"]
+[ext_resource type="AudioStream" uid="uid://3rpt22iy2xky" path="res://Assets/fall out.ogg" id="15_gm04q"]
+[ext_resource type="AudioStream" uid="uid://cmcp8switxcqt" path="res://Assets/time up.ogg" id="16_fv6kr"]
+[ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="17_cv5wq"]
+[ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="18_d2rjc"]
+
+[sub_resource type="Environment" id="Environment_1jaht"]
+background_mode = 1
+background_color = Color(0.00447858, 0.00638158, 0.0458453, 1)
+background_energy_multiplier = 5.38
+ambient_light_source = 1
+ambient_light_color = Color(0.0316549, 0.0316549, 0.0316549, 1)
+ambient_light_energy = 7.48
+reflected_light_source = 1
+tonemap_mode = 2
+tonemap_exposure = 1.17
+tonemap_white = 1.84
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 0.56
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 2.57
+glow_strength = 1.02
+glow_bloom = 1.0
+glow_blend_mode = 1
+glow_hdr_luminance_cap = 42.99
+adjustment_enabled = true
+adjustment_brightness = 2.85
+adjustment_contrast = 1.67
+adjustment_saturation = 2.56
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jo5da"]
 size = Vector3(30, 10, 100)
@@ -58,6 +90,38 @@ size = Vector3(1000, 1, 1000)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_toc3d"]
 albedo_texture = ExtResource("8_p41px")
 
+[sub_resource type="Animation" id="Animation_x8fa6"]
+resource_name = "FadeStart"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lblLevelResult:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lblLevelResult:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tkawt"]
+_data = {
+"FadeStart": SubResource("Animation_x8fa6")
+}
+
 [node name="Level" type="Node3D"]
 script = ExtResource("1_5d8c1")
 metadata/NextLevel = "res://Levels/Level01.tscn"
@@ -66,6 +130,9 @@ metadata/Level = "Level02"
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.654741, 0.755853, 0, -0.755853, 0.654741, 0, 30.5478, 46.221)
 shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1jaht")
 
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
@@ -363,14 +430,19 @@ transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 57.292
 [node name="Railing76" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
 transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 52.2927, 1.26594, -20.8221)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Backdrop" type="MeshInstance3D" parent="."]
 transform = Transform3D(277.522, 0, 0, 0, 136.628, 0, 0, 0, 60.0078, -0.00280762, -28.6082, -98.4433)
 mesh = SubResource("QuadMesh_re8x1")
 surface_material_override/0 = SubResource("StandardMaterial3D_toc3d")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_228wm")
-autoplay = true
+[node name="TimerReload" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerStart" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
 
 [node name="GoalScreen" type="Node2D" parent="."]
 visible = false
@@ -433,6 +505,7 @@ theme_override_fonts/font = ExtResource("10_o4a1o")
 theme_override_font_sizes/font_size = 40
 text = "Next Level"
 script = ExtResource("11_jx6vc")
+metadata/LoadScene = "res://Levels/Level02.tscn"
 
 [node name="btnMainMenu" type="Button" parent="GoalScreen"]
 offset_left = 601.0
@@ -447,6 +520,21 @@ theme_override_fonts/font = ExtResource("10_o4a1o")
 theme_override_font_sizes/font_size = 40
 text = "Main Menu"
 script = ExtResource("11_jx6vc")
+metadata/LoadScene = "res://Scenes/MainMenu.tscn"
+
+[node name="lblLevelResult" type="Label" parent="."]
+offset_left = 283.0
+offset_top = 108.0
+offset_right = 839.0
+offset_bottom = 218.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.85098, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_o4a1o")
+theme_override_font_sizes/font_size = 80
+text = "READY"
+horizontal_alignment = 1
 
 [node name="Hud" type="Node2D" parent="."]
 
@@ -480,32 +568,45 @@ text = "Time: 0
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tkawt")
+}
 
-[node name="lblLevelResult" type="Label" parent="."]
-visible = false
-offset_left = 283.0
-offset_top = 108.0
-offset_right = 839.0
-offset_bottom = 218.0
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 0.85098, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("10_o4a1o")
-theme_override_font_sizes/font_size = 80
-text = "Goal!"
-horizontal_alignment = 1
+[node name="Audio" type="Node" parent="."]
 
-[node name="Collected" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("8_228wm")
+autoplay = true
+
+[node name="Collected" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("11_j6b47")
+
+[node name="HitPortal" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("13_owpc4")
+
+[node name="ReadyStart" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("14_b1md6")
+autoplay = true
+
+[node name="FallOut" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("15_gm04q")
+
+[node name="TimeUp" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("16_fv6kr")
+
+[node name="Perfect" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("17_cv5wq")
+
+[node name="Goal" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("18_d2rjc")
 
 [connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]
 [connection signal="body_entered" from="Ground/MurderDeathKill" to="." method="_on_murder_death_kill_body_entered"]
+[connection signal="timeout" from="TimerReload" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerStart" to="." method="_on_timer_start_timeout"]
+[connection signal="pressed" from="GoalScreen/btnNextLevel" to="GoalScreen/btnNextLevel" method="_on_pressed" binds= ["res://Levels/Level02.tscn"]]
 [connection signal="pressed" from="GoalScreen/btnMainMenu" to="GoalScreen/btnMainMenu" method="_on_pressed" binds= ["res://Scenes/MainMenu.tscn"]]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Ball"]

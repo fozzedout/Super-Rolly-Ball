@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://jth5km4qofs4"]
 
 [ext_resource type="Texture2D" uid="uid://cl8w306xxc8i6" path="res://Assets/main-menu-background.jpg" id="1_8bh12"]
-[ext_resource type="Script" path="res://Scenes/Misc.gd" id="1_kx0xj"]
+[ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_kx0xj"]
 [ext_resource type="Script" path="res://globals.gd" id="3_n3t6g"]
 [ext_resource type="Texture2D" uid="uid://fjdqkxbqo4mp" path="res://Assets/audio.png" id="4_1rlk6"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="5_8fgpb"]

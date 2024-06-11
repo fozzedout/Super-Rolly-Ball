@@ -60,7 +60,7 @@ func _on_area_3d_area_entered(donut):
 
 
 
-func _on_murder_death_kill_body_entered(body):
+func _on_murder_death_kill_body_entered(_body):
 	goal_screen("FALL OUT!")
 
 func _on_timer_timeout():

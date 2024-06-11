@@ -124,7 +124,6 @@ _data = {
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_5d8c1")
-metadata/NextLevel = "res://Levels/Level01.tscn"
 metadata/Level = "Level02"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -505,7 +504,6 @@ theme_override_fonts/font = ExtResource("10_o4a1o")
 theme_override_font_sizes/font_size = 40
 text = "Next Level"
 script = ExtResource("11_jx6vc")
-metadata/LoadScene = "res://Levels/Level02.tscn"
 
 [node name="btnMainMenu" type="Button" parent="GoalScreen"]
 offset_left = 601.0
@@ -520,7 +518,6 @@ theme_override_fonts/font = ExtResource("10_o4a1o")
 theme_override_font_sizes/font_size = 40
 text = "Main Menu"
 script = ExtResource("11_jx6vc")
-metadata/LoadScene = "res://Scenes/MainMenu.tscn"
 
 [node name="lblLevelResult" type="Label" parent="."]
 offset_left = 283.0

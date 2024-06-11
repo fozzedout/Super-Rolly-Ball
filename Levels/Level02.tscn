@@ -1,9 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://d2e78wma2tsq0"]
+[gd_scene load_steps=37 format=3 uid="uid://d2e78wma2tsq0"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_5d8c1"]
 [ext_resource type="Texture2D" uid="uid://da1ipk5rpfqib" path="res://Assets/checker.png" id="1_c20hp"]
 [ext_resource type="Texture2D" uid="uid://6u5pehsvujx6" path="res://Assets/goal.png" id="2_i4kii"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="2_rns3p"]
+[ext_resource type="Texture2D" uid="uid://b0c1u283xo2nf" path="res://Assets/TatModels/Sky.png" id="2_s2swr"]
 [ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="5_aofnd"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="6_g065k"]
 [ext_resource type="PackedScene" uid="uid://dbgfrc1dy6qkh" path="res://Assets-Scenes/railing.tscn" id="7_p56t5"]
@@ -19,10 +20,16 @@
 [ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="17_cv5wq"]
 [ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="18_d2rjc"]
 
-[sub_resource type="Environment" id="Environment_1jaht"]
-background_mode = 1
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6nyyj"]
+panorama = ExtResource("2_s2swr")
+
+[sub_resource type="Sky" id="Sky_1noyv"]
+sky_material = SubResource("PanoramaSkyMaterial_6nyyj")
+
+[sub_resource type="Environment" id="Environment_y4lmy"]
+background_mode = 2
 background_color = Color(0.00447858, 0.00638158, 0.0458453, 1)
-background_energy_multiplier = 5.38
+sky = SubResource("Sky_1noyv")
 ambient_light_source = 1
 ambient_light_color = Color(0.0316549, 0.0316549, 0.0316549, 1)
 ambient_light_energy = 7.48
@@ -129,9 +136,12 @@ metadata/Level = "Level02"
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.654741, 0.755853, 0, -0.755853, 0.654741, 0, 30.5478, 46.221)
 shadow_enabled = true
+shadow_transmittance_bias = 0.58
+shadow_opacity = 0.5
+shadow_blur = 3.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_1jaht")
+environment = SubResource("Environment_y4lmy")
 
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)

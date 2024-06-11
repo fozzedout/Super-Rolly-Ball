@@ -1,0 +1,401 @@
+[gd_scene load_steps=33 format=3 uid="uid://c8fosf3euevf"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_vl8h5"]
+[ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="2_dt73r"]
+[ext_resource type="Texture2D" uid="uid://da1ipk5rpfqib" path="res://Assets/checker.png" id="3_l0n4d"]
+[ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="4_c5f71"]
+[ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="5_ljx4h"]
+[ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="6_06jh5"]
+[ext_resource type="Texture2D" uid="uid://be2xqjsum35p1" path="res://Assets/background.jpg" id="8_w0xes"]
+[ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="9_3x4oj"]
+[ext_resource type="Script" path="res://globals.gd" id="10_13lyp"]
+[ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="11_pkj68"]
+[ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="12_yrlvo"]
+[ext_resource type="AudioStream" uid="uid://dxa1p4f6paw01" path="res://Assets/hit portal.ogg" id="13_xy48s"]
+[ext_resource type="AudioStream" uid="uid://d3i4t3u8lb23m" path="res://Assets/ready start.ogg" id="14_sf1ea"]
+[ext_resource type="AudioStream" uid="uid://3rpt22iy2xky" path="res://Assets/fall out.ogg" id="15_idgsx"]
+[ext_resource type="AudioStream" uid="uid://cmcp8switxcqt" path="res://Assets/time up.ogg" id="16_45u2a"]
+[ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="17_cv7nw"]
+[ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="18_25wpp"]
+
+[sub_resource type="Environment" id="Environment_qj4n2"]
+background_mode = 1
+background_color = Color(0.00447858, 0.00638158, 0.0458453, 1)
+background_energy_multiplier = 5.38
+ambient_light_source = 1
+ambient_light_color = Color(0.0316549, 0.0316549, 0.0316549, 1)
+ambient_light_energy = 7.48
+reflected_light_source = 1
+tonemap_mode = 2
+tonemap_exposure = 1.17
+tonemap_white = 1.84
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 0.56
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 2.57
+glow_strength = 1.02
+glow_bloom = 1.0
+glow_blend_mode = 1
+glow_hdr_luminance_cap = 42.99
+adjustment_enabled = true
+adjustment_brightness = 2.85
+adjustment_contrast = 1.67
+adjustment_saturation = 2.56
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c6pdw"]
+size = Vector3(30, 10, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_guqmc"]
+size = Vector3(30, 10, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cu0h4"]
+albedo_texture = ExtResource("3_l0n4d")
+uv1_triplanar = true
+uv2_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_381m5"]
+size = Vector3(30, 10, 58)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8si8j"]
+size = Vector3(30, 10, 58)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ui40e"]
+albedo_texture = ExtResource("3_l0n4d")
+uv1_triplanar = true
+uv2_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2kh8r"]
+size = Vector3(30, 10, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uqkke"]
+size = Vector3(30, 10, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_meg6i"]
+albedo_texture = ExtResource("3_l0n4d")
+uv1_triplanar = true
+uv2_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
+size = Vector3(1000, 1, 1000)
+
+[sub_resource type="QuadMesh" id="QuadMesh_1wrm2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cs0qq"]
+albedo_texture = ExtResource("8_w0xes")
+
+[sub_resource type="Animation" id="Animation_x8fa6"]
+resource_name = "FadeStart"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lblLevelResult:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lblLevelResult:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tkawt"]
+_data = {
+"FadeStart": SubResource("Animation_x8fa6")
+}
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_vl8h5")
+metadata/Level = "Level03"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.654741, 0.755853, 0, -0.755853, 0.654741, 0, 30.5478, 46.221)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qj4n2")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 20)
+fov = 37.8493
+
+[node name="Ball" parent="." instance=ExtResource("2_dt73r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386, 1, 47)
+
+[node name="Ground" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389248, -5.04956, -0.57489)
+
+[node name="Areas" type="Node3D" parent="Ground"]
+
+[node name="Area" type="StaticBody3D" parent="Ground/Areas"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 39, 0, 48)
+rotation_edit_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Area"]
+shape = SubResource("BoxShape3D_c6pdw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Areas/Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = SubResource("BoxMesh_guqmc")
+surface_material_override/0 = SubResource("StandardMaterial3D_cu0h4")
+
+[node name="Area2" type="StaticBody3D" parent="Ground/Areas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, -17)
+rotation_edit_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22)
+shape = SubResource("BoxShape3D_381m5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Areas/Area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22)
+mesh = SubResource("BoxMesh_8si8j")
+surface_material_override/0 = SubResource("StandardMaterial3D_ui40e")
+
+[node name="Area3" type="StaticBody3D" parent="Ground/Areas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, -39)
+rotation_edit_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Area3"]
+shape = SubResource("BoxShape3D_2kh8r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Areas/Area3"]
+mesh = SubResource("BoxMesh_uqkke")
+surface_material_override/0 = SubResource("StandardMaterial3D_meg6i")
+
+[node name="flagGreen" parent="Ground" instance=ExtResource("4_c5f71")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.324834, 5, 47.4969)
+
+[node name="Goal" parent="Ground" instance=ExtResource("5_ljx4h")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -22, 2.32811, -38.6363)
+
+[node name="MurderDeathKill" type="Area3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389248, -19.9504, 0.57489)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/MurderDeathKill"]
+shape = SubResource("BoxShape3D_tm63d")
+
+[node name="Collectables" type="Node3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.03776, 0)
+
+[node name="donut2" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("6_06jh5")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 27.8474, 1.59777, 3.80021)
+
+[node name="donut6" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("6_06jh5")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 51.8474, 1.59777, -41.1998)
+
+[node name="donut10" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("6_06jh5")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 41.8474, 1.59777, -41.1998)
+
+[node name="donut11" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("6_06jh5")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 29.8474, 1.59777, -41.1998)
+
+[node name="donut3" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("6_06jh5")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 28.2237, 1.42563, 14.5628)
+
+[node name="donut4" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("6_06jh5")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 29.0879, 1.42563, 24.8649)
+
+[node name="donut9" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("6_06jh5")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 61.0879, 1.42563, 45.8649)
+
+[node name="donut8" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("6_06jh5")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 72.0879, 1.42563, 46.8649)
+
+[node name="donut7" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("6_06jh5")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 81.0879, 1.42563, 47.8649)
+
+[node name="donut5" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("6_06jh5")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 27.8428, 1.42563, -7.7538)
+
+[node name="Backdrop" type="MeshInstance3D" parent="."]
+transform = Transform3D(1077.52, 0, 0, 0, 530.479, 0, 0, 0, 232.989, -0.00280762, -86.8935, -595.089)
+mesh = SubResource("QuadMesh_1wrm2")
+surface_material_override/0 = SubResource("StandardMaterial3D_cs0qq")
+
+[node name="TimerReload" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerStart" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="GoalScreen" type="Node2D" parent="."]
+visible = false
+
+[node name="lblClearScore" type="Label" parent="GoalScreen"]
+offset_left = 128.0
+offset_top = 241.0
+offset_right = 945.0
+offset_bottom = 310.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.55, 0.82, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_3x4oj")
+theme_override_font_sizes/font_size = 50
+text = "Clear Score: 00000000"
+metadata/_edit_use_anchors_ = true
+
+[node name="lblDonutBonus" type="Label" parent="GoalScreen"]
+offset_left = 128.0
+offset_top = 310.0
+offset_right = 902.0
+offset_bottom = 379.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_3x4oj")
+theme_override_font_sizes/font_size = 50
+text = "Donut Bonus      ×2"
+metadata/_edit_use_anchors_ = true
+
+[node name="lblLevelScore" type="Label" parent="GoalScreen"]
+offset_left = 128.0
+offset_top = 379.0
+offset_right = 945.0
+offset_bottom = 448.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.45098, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_3x4oj")
+theme_override_font_sizes/font_size = 50
+text = "Level Score: 00000000
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="btnNextLevel" type="Button" parent="GoalScreen"]
+offset_left = 128.0
+offset_top = 528.0
+offset_right = 559.0
+offset_bottom = 632.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../btnMainMenu")
+focus_neighbor_right = NodePath("../btnMainMenu")
+focus_next = NodePath("../btnMainMenu")
+focus_previous = NodePath("../btnMainMenu")
+theme_override_fonts/font = ExtResource("9_3x4oj")
+theme_override_font_sizes/font_size = 40
+text = "Next Level"
+script = ExtResource("10_13lyp")
+
+[node name="btnMainMenu" type="Button" parent="GoalScreen"]
+offset_left = 601.0
+offset_top = 528.0
+offset_right = 1032.0
+offset_bottom = 632.0
+focus_neighbor_left = NodePath("../btnNextLevel")
+focus_neighbor_right = NodePath("../btnNextLevel")
+focus_next = NodePath("../btnNextLevel")
+focus_previous = NodePath("../btnNextLevel")
+theme_override_fonts/font = ExtResource("9_3x4oj")
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
+script = ExtResource("10_13lyp")
+
+[node name="lblLevelResult" type="Label" parent="."]
+offset_left = 283.0
+offset_top = 108.0
+offset_right = 839.0
+offset_bottom = 218.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.85098, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_3x4oj")
+theme_override_font_sizes/font_size = 80
+text = "READY"
+horizontal_alignment = 1
+
+[node name="Hud" type="Node2D" parent="."]
+
+[node name="lblDonuts" type="Label" parent="Hud"]
+offset_left = 601.0
+offset_right = 1144.0
+offset_bottom = 65.0
+rotation = 0.00281793
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(1, 1, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_3x4oj")
+theme_override_font_sizes/font_size = 47
+text = "Donuts: 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="lblTime" type="Label" parent="Hud"]
+offset_left = 15.0
+offset_right = 559.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(1, 0.686275, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_3x4oj")
+theme_override_font_sizes/font_size = 47
+text = "Time: 0"
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tkawt")
+}
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("11_pkj68")
+autoplay = true
+
+[node name="Collected" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("12_yrlvo")
+
+[node name="HitPortal" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("13_xy48s")
+
+[node name="ReadyStart" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("14_sf1ea")
+autoplay = true
+
+[node name="FallOut" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("15_idgsx")
+
+[node name="TimeUp" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("16_45u2a")
+
+[node name="Perfect" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("17_cv7nw")
+
+[node name="Goal" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("18_25wpp")
+
+[connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]
+[connection signal="body_entered" from="Ground/MurderDeathKill" to="." method="_on_murder_death_kill_body_entered"]
+[connection signal="timeout" from="TimerReload" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerStart" to="." method="_on_timer_start_timeout"]
+[connection signal="pressed" from="GoalScreen/btnNextLevel" to="GoalScreen/btnNextLevel" method="_on_pressed" binds= ["res://Levels/Level04.tscn"]]
+[connection signal="pressed" from="GoalScreen/btnMainMenu" to="GoalScreen/btnMainMenu" method="_on_pressed" binds= ["res://Scenes/MainMenu.tscn"]]
+
+[editable path="Ball"]

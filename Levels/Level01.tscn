@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://d0240xxixbpwr"]
+[gd_scene load_steps=31 format=3 uid="uid://d0240xxixbpwr"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_hcc8s"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="2_5v74f"]
 [ext_resource type="Texture2D" uid="uid://da1ipk5rpfqib" path="res://Assets/checker.png" id="2_pn3o3"]
+[ext_resource type="Texture2D" uid="uid://b0c1u283xo2nf" path="res://Assets/TatModels/Sky.png" id="2_yolr3"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="4_m4o4t"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="5_rx5en"]
 [ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="6_lirog"]
@@ -19,10 +20,16 @@
 [ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="17_ccueb"]
 [ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="18_p4jpw"]
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_iiykm"]
+panorama = ExtResource("2_yolr3")
+
+[sub_resource type="Sky" id="Sky_1noyv"]
+sky_material = SubResource("PanoramaSkyMaterial_iiykm")
+
 [sub_resource type="Environment" id="Environment_qj4n2"]
-background_mode = 1
+background_mode = 2
 background_color = Color(0.00447858, 0.00638158, 0.0458453, 1)
-background_energy_multiplier = 5.38
+sky = SubResource("Sky_1noyv")
 ambient_light_source = 1
 ambient_light_color = Color(0.0316549, 0.0316549, 0.0316549, 1)
 ambient_light_energy = 7.48
@@ -103,6 +110,9 @@ metadata/Level = "Level01"
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.654741, 0.755853, 0, -0.755853, 0.654741, 0, 30.5478, 46.221)
 shadow_enabled = true
+shadow_transmittance_bias = 0.58
+shadow_opacity = 0.5
+shadow_blur = 3.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qj4n2")

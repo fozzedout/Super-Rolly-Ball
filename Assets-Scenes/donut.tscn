@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dugtji6l40t6b"]
 
-[ext_resource type="PackedScene" uid="uid://vrovgh5k7njp" path="res://Assets/TatModels/Collectibles/Donut.glb" id="1_k5yd7"]
+[ext_resource type="PackedScene" uid="uid://25t6dtdgx5nn" path="res://Assets/TatModels/Collectibles/Star.glb" id="1_360u4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1402g"]
 size = Vector3(0.247635, 0.0908051, 0.276819)
@@ -11,5 +11,5 @@ size = Vector3(0.247635, 0.0908051, 0.276819)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000663757, 0.0451623, 0.00196916)
 shape = SubResource("BoxShape3D_1402g")
 
-[node name="Donut2" parent="." instance=ExtResource("1_k5yd7")]
-transform = Transform3D(0.0804683, 0.074995, 0.0007817, -0.0713549, 0.0769072, -0.0330721, -0.0230942, 0.0236861, 0.104908, -0.0829212, -0.0523964, -0.0255853)
+[node name="Star2" parent="." instance=ExtResource("1_360u4")]
+transform = Transform3D(0.0860365, 1.2848e-17, 0.122873, 5.2318e-17, 0.15, -5.2318e-17, -0.122873, 7.28648e-17, 0.0860365, 0, 0, 0)

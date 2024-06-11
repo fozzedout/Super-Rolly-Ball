@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1iwt8mq428p1"]
+[gd_scene load_steps=6 format=3 uid="uid://b1iwt8mq428p1"]
 
 [ext_resource type="Script" path="res://Scenes/LevelSelection.gd" id="1_32lux"]
 [ext_resource type="Texture2D" uid="uid://be2xqjsum35p1" path="res://Assets/background.jpg" id="2_8shww"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="3_ax8tm"]
+[ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="4_refuw"]
+[ext_resource type="Script" path="res://globals.gd" id="5_i5xjj"]
 
 [node name="LevelSelection" type="Node2D"]
 script = ExtResource("1_32lux")
@@ -24,6 +26,7 @@ offset_right = 319.0
 offset_bottom = 108.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_refuw")
 theme_override_font_sizes/font_size = 36
 text = "Level Selection"
 
@@ -32,17 +35,21 @@ offset_left = 858.0
 offset_top = 546.0
 offset_right = 1089.0
 offset_bottom = 604.0
+theme_override_fonts/font = ExtResource("4_refuw")
 theme_override_font_sizes/font_size = 26
-text = "Level 2"
-metadata/Level = "res://Levels/Level02.tscn"
+text = "Main Menu"
+script = ExtResource("5_i5xjj")
+metadata/Level = "res://Scenes/MainMenu.tscn"
 
 [node name="btnLevel01" type="Button" parent="."]
 offset_left = 60.0
 offset_top = 141.0
 offset_right = 291.0
 offset_bottom = 199.0
+theme_override_fonts/font = ExtResource("4_refuw")
 theme_override_font_sizes/font_size = 26
-text = "Level 1"
+text = "1"
+script = ExtResource("5_i5xjj")
 metadata/Level = "res://Levels/Level01.tscn"
 
 [node name="btnLevel02" type="Button" parent="."]
@@ -50,11 +57,13 @@ offset_left = 60.0
 offset_top = 215.0
 offset_right = 291.0
 offset_bottom = 273.0
+theme_override_fonts/font = ExtResource("4_refuw")
 theme_override_font_sizes/font_size = 26
-text = "Level 2"
+text = "2"
+script = ExtResource("5_i5xjj")
 metadata/Level = "res://Levels/Level02.tscn"
 
 [connection signal="ready" from="." to="." method="_on_ready"]
-[connection signal="pressed" from="btnBack" to="." method="_on_pressed" binds= ["res://Scenes/MainMenu.tscn"]]
-[connection signal="pressed" from="btnLevel01" to="." method="_on_pressed" binds= ["res://Levels/Level01.tscn"]]
-[connection signal="pressed" from="btnLevel02" to="." method="_on_pressed" binds= ["res://Levels/Level02.tscn"]]
+[connection signal="pressed" from="btnBack" to="btnBack" method="_on_pressed" binds= ["res://Scenes/MainMenu.tscn"]]
+[connection signal="pressed" from="btnLevel01" to="btnLevel01" method="_on_pressed" binds= ["res://Levels/Level01.tscn"]]
+[connection signal="pressed" from="btnLevel02" to="btnLevel02" method="_on_pressed" binds= ["res://Levels/Level02.tscn"]]

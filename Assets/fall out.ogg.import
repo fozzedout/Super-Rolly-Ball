@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://3rpt22iy2xky"
+path="res://.godot/imported/fall out.ogg-4d5be4c37b3f8006266b8877a8a7c89d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/fall out.ogg"
+dest_files=["res://.godot/imported/fall out.ogg-4d5be4c37b3f8006266b8877a8a7c89d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

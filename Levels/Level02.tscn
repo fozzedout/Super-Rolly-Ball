@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d2e78wma2tsq0"]
+[gd_scene load_steps=25 format=3 uid="uid://d2e78wma2tsq0"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_5d8c1"]
 [ext_resource type="Texture2D" uid="uid://da1ipk5rpfqib" path="res://Assets/checker.png" id="1_c20hp"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://be2xqjsum35p1" path="res://Assets/background.jpg" id="8_p41px"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="10_o4a1o"]
 [ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="11_j6b47"]
+[ext_resource type="Script" path="res://globals.gd" id="11_jx6vc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jo5da"]
 size = Vector3(30, 10, 100)
@@ -431,6 +432,7 @@ focus_previous = NodePath("../btnMainMenu")
 theme_override_fonts/font = ExtResource("10_o4a1o")
 theme_override_font_sizes/font_size = 40
 text = "Next Level"
+script = ExtResource("11_jx6vc")
 
 [node name="btnMainMenu" type="Button" parent="GoalScreen"]
 offset_left = 601.0
@@ -444,6 +446,7 @@ focus_previous = NodePath("../btnNextLevel")
 theme_override_fonts/font = ExtResource("10_o4a1o")
 theme_override_font_sizes/font_size = 40
 text = "Main Menu"
+script = ExtResource("11_jx6vc")
 
 [node name="Hud" type="Node2D" parent="."]
 
@@ -502,8 +505,7 @@ stream = ExtResource("11_j6b47")
 [connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]
 [connection signal="body_entered" from="Ground/MurderDeathKill" to="." method="_on_murder_death_kill_body_entered"]
-[connection signal="pressed" from="GoalScreen/btnNextLevel" to="." method="_on_btn_next_level_pressed"]
-[connection signal="pressed" from="GoalScreen/btnMainMenu" to="." method="_on_btn_main_menu_pressed"]
+[connection signal="pressed" from="GoalScreen/btnMainMenu" to="GoalScreen/btnMainMenu" method="_on_pressed" binds= ["res://Scenes/MainMenu.tscn"]]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Ball"]

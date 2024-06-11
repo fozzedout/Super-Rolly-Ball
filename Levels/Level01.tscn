@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d0240xxixbpwr"]
+[gd_scene load_steps=30 format=3 uid="uid://d0240xxixbpwr"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_hcc8s"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="2_5v74f"]
@@ -11,6 +11,13 @@
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="9_jr058"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="10_q561n"]
 [ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="11_5ytuc"]
+[ext_resource type="Script" path="res://globals.gd" id="11_lto2i"]
+[ext_resource type="AudioStream" uid="uid://dxa1p4f6paw01" path="res://Assets/hit portal.ogg" id="12_ymou1"]
+[ext_resource type="AudioStream" uid="uid://d3i4t3u8lb23m" path="res://Assets/ready start.ogg" id="13_vn5q5"]
+[ext_resource type="AudioStream" uid="uid://3rpt22iy2xky" path="res://Assets/fall out.ogg" id="15_btc1e"]
+[ext_resource type="AudioStream" uid="uid://cmcp8switxcqt" path="res://Assets/time up.ogg" id="16_gycoy"]
+[ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="17_ccueb"]
+[ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="18_p4jpw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c6pdw"]
 size = Vector3(30, 10, 100)
@@ -46,6 +53,38 @@ size = Vector3(1000, 1, 1000)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cs0qq"]
 albedo_texture = ExtResource("8_6pp7m")
 
+[sub_resource type="Animation" id="Animation_x8fa6"]
+resource_name = "FadeStart"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lblLevelResult:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lblLevelResult:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tkawt"]
+_data = {
+"FadeStart": SubResource("Animation_x8fa6")
+}
+
 [node name="Level" type="Node3D"]
 script = ExtResource("1_hcc8s")
 metadata/NextLevel = "res://Levels/Level02.tscn"
@@ -63,7 +102,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 20)
 fov = 37.8493
 
 [node name="Ball" parent="." instance=ExtResource("2_5v74f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386, 7.636, 47)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386, 1, 47)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389248, -5.04956, -0.57489)
@@ -277,10 +316,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cs0qq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.504466, 4.57869, -33.4742)
 shadow_enabled = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_jr058")
-autoplay = true
-
 [node name="GoalScreen" type="Node2D" parent="."]
 visible = false
 
@@ -341,6 +376,8 @@ focus_previous = NodePath("../btnMainMenu")
 theme_override_fonts/font = ExtResource("10_q561n")
 theme_override_font_sizes/font_size = 40
 text = "Next Level"
+script = ExtResource("11_lto2i")
+metadata/LoadScene = "res://Levels/Level02.tscn"
 
 [node name="btnMainMenu" type="Button" parent="GoalScreen"]
 offset_left = 601.0
@@ -354,8 +391,15 @@ focus_previous = NodePath("../btnNextLevel")
 theme_override_fonts/font = ExtResource("10_q561n")
 theme_override_font_sizes/font_size = 40
 text = "Main Menu"
+script = ExtResource("11_lto2i")
+metadata/LoadScene = "res://Scenes/MainMenu.tscn"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="TimerStart" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
@@ -371,7 +415,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("10_q561n")
 theme_override_font_sizes/font_size = 80
-text = "Goal!"
+text = "READY"
 horizontal_alignment = 1
 
 [node name="Hud" type="Node2D" parent="."]
@@ -406,14 +450,42 @@ text = "Time: 0
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_jr058")
+autoplay = true
+
 [node name="Collected" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_5ytuc")
+
+[node name="HitPortal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ymou1")
+
+[node name="ReadyStart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_vn5q5")
+
+[node name="FallOut" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_btc1e")
+
+[node name="TimeUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_gycoy")
+
+[node name="Perfect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_ccueb")
+
+[node name="Goal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_p4jpw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tkawt")
+}
 
 [connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]
 [connection signal="body_entered" from="Ground/MurderDeathKill" to="." method="_on_murder_death_kill_body_entered"]
-[connection signal="pressed" from="GoalScreen/btnNextLevel" to="." method="_on_btn_next_level_pressed"]
-[connection signal="pressed" from="GoalScreen/btnMainMenu" to="." method="_on_btn_main_menu_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="GoalScreen/btnNextLevel" to="GoalScreen/btnNextLevel" method="_on_pressed" binds= ["res://Levels/Level02.tscn"]]
+[connection signal="pressed" from="GoalScreen/btnMainMenu" to="GoalScreen/btnMainMenu" method="_on_pressed" binds= ["res://Scenes/MainMenu.tscn"]]
+[connection signal="timeout" from="TimerStart" to="." method="_on_timer_start_timeout"]
+[connection signal="timeout" from="TimerReload" to="." method="_on_timer_timeout"]
 
 [editable path="Ball"]

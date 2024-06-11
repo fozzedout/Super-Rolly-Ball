@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cmcp8switxcqt"
+path="res://.godot/imported/time up.ogg-195443627abaaefca9704424efc451f1.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/time up.ogg"
+dest_files=["res://.godot/imported/time up.ogg-195443627abaaefca9704424efc451f1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

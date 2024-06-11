@@ -3,33 +3,33 @@ extends Node3D
 var globals
 var time : float = 0
 var donuts : int = 0
+var doTimer : bool = false
 
 func _ready():
 	globals = get_node("/root/Globals")
 	globals.load_game()
-	$Hud/lblTime.text = "Time: " + str(globals.ts[get_meta("Level")]["Par"])
-	$Hud/lblDonuts.text = "Donuts: " + str(donuts)
+	time = globals.ts[get_meta("Level")]["Par"]
+	$Ball.freeze = true
 
-	AudioServer.set_bus_mute(globals.bus_index, globals.ts["Muted"])
 	AudioServer.set_bus_volume_db(globals.bus_index, linear_to_db(globals.ts["Volume"]))
+	$ReadyStart.play()
 
 func _physics_process(delta):
-	if not $lblLevelResult.visible:
-		time += delta
-		if globals != null:
-			$Hud/lblTime.text = "Time: %0.2f" % (globals.ts[get_meta("Level")]["Par"] - time)
-			#$Hud/lblTime.text = "Time: " + str(time) + "    Best: " + str(globals.ts[get_meta("Level")]["Time"])
+	if doTimer:
+		time -= delta
 		
-	if time >= globals.ts[get_meta("Level")]["Par"] and $Timer.is_stopped():
+	if time <= 0 and $TimerReload.is_stopped():
+		time = 0
 		goal_screen("TIME UP!")
+
+	$Hud/lblTime.text = "Time: %0.2f" % time
+	$Hud/lblDonuts.text = "Donuts: " + str(donuts)
 
 	var direction = Input.get_vector("Move_Left","Move_Right","Move_Up","Move_Down")
 	
-	# rotate the ground around the ball
 	$Ground.global_translate (-$Ball.global_position)
 	
 	if direction == Vector2.ZERO:
-		# not intentionally moving anywhere, reset the ground to 0
 		var rot = (-$Ground.rotation_degrees.x) / 10
 		if rot: $Ground.transform = $Ground.transform.rotated( Vector3(1, 0, 0), deg_to_rad( rot ) )
 		if abs(rot) < 0.01: $Ground.rotation_degrees.x = 0
@@ -53,44 +53,45 @@ func _on_goal_body_entered(body):
 		goal_screen("GOAL!")
 
 
-func _on_area_3d_area_entered(area):
-	if area.is_in_group("collectables"):
+func _on_area_3d_area_entered(donut):
+	if donut.is_in_group("collectables"):
 		$Collected.pitch_scale = randf_range(0.8,1.2); $Collected.play()
 		donuts += 1
-		$Hud/lblDonuts.text = "Donuts: " + str(donuts)
-		area.queue_free()
+		donut.queue_free()
 
 
 
 func _on_murder_death_kill_body_entered(body):
-	if body is RigidBody3D:
-		goal_screen("FALL OUT!")
-
-
-func _on_btn_next_level_pressed():
-	get_tree().change_scene_to_file(get_meta("NextLevel"))
+	goal_screen("FALL OUT!")
 
 func _on_timer_timeout():
 	get_tree().reload_current_scene()
 
 func goal_screen(title):
-	$Ball.freeze = true
+	$Ball.freeze = true; doTimer = false
 	$lblLevelResult.text = title; $lblLevelResult.show()
-	var score = round((globals.ts[get_meta("Level")]["Par"] - time) * 100 * max(1, (donuts * (1 if $Ground/Collectables.get_child_count() > 0 else 10)) ))
+	if title == "GOAL!" and $Ground/Collectables.get_child_count() == 0: $lblLevelResult.text = "PERFECT!"
+	match $lblLevelResult.text:
+		"GOAL!": $HitPortal.play(); $Goal.play()
+		"PERFECT!" : $HitPortal.play(); $Perfect.play()
+		"FALL OUT!" : $FallOut.play()
+		"TIME UP!" : $TimeUp.play()
+
 	if title == "GOAL!":
+		var score = round(time * 100 * max(1, (donuts * (1 if $Ground/Collectables.get_child_count() > 0 else 10)) ))
 		$GoalScreen.show()
-		if $Ground/Collectables.get_child_count() == 0: $lblLevelResult.text = "PERFECT!"
-		$GoalScreen/lblClearScore.text = "Clear Score: %8d" % round((globals.ts[get_meta("Level")]["Par"] - time) * 100)
-		if donuts >= 2: $GoalScreen/lblDonutBonus.text = "Donut Bonus      x%d" % (donuts * (1 if $Ground/Collectables.get_child_count() > 0 else 10))
-		else: $GoalScreen/lblDonutBonus.text = ""
+		$GoalScreen/lblClearScore.text = "Clear Score: %8d" % (time * 100)
+		$GoalScreen/lblDonutBonus.text = ("Donut Bonus      x%d" % (donuts * (1 if $Ground/Collectables.get_child_count() > 0 else 10))) if donuts >= 2 else ""
 		$GoalScreen/lblLevelScore.text = "Level Score: %8d" % score
 		$GoalScreen/btnNextLevel.grab_focus()
-		if globals.ts[get_meta("Level")]["Time"] == 0 or globals.ts[get_meta("Level")]["Time"] > time: globals.ts[get_meta("Level")]["Time"] = time
+		if globals.ts[get_meta("Level")]["Time"] < time: globals.ts[get_meta("Level")]["Time"] = time
 		if globals.ts[get_meta("Level")]["Score"] < score: globals.ts[get_meta("Level")]["Score"] = score
 		globals.save_game()
 
-	else: $Timer.start()
+	else: $TimerReload.start()
 
 
-func _on_btn_main_menu_pressed():
-	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+func _on_timer_start_timeout():
+	$Ball.freeze = false; doTimer = true
+	$lblLevelResult.text = "START!"
+	$AnimationPlayer.play("FadeStart")

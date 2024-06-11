@@ -68,9 +68,10 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Credits:
 Jaxah
+J.A Tat
 
 Assets:
-Kenney: https://www.kenney.nl"
+Kenney: kenney.nl"
 
 [connection signal="pressed" from="btnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="btnLevelSelect" to="." method="_on_btn_level_select_pressed"]

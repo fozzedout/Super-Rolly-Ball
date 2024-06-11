@@ -7,8 +7,6 @@ func _ready():
 	globals.load_game()
 	
 	$btnStart.grab_focus()
-	
-	globals.bus_index = AudioServer.get_bus_index("Master")
 	$audio_volume.value = globals.ts["Volume"]
 	$btnAudio.button_pressed = not globals.ts["Muted"]
 

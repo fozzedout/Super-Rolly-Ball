@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d0240xxixbpwr"]
+[gd_scene load_steps=21 format=3 uid="uid://d0240xxixbpwr"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_hcc8s"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="2_5v74f"]
@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dbgfrc1dy6qkh" path="res://Assets-Scenes/railing.tscn" id="7_sobm3"]
 [ext_resource type="Texture2D" uid="uid://be2xqjsum35p1" path="res://Assets/background.jpg" id="8_6pp7m"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="9_jr058"]
-[ext_resource type="PackedScene" uid="uid://d10853eshr4k6" path="res://Assets/TatModels/modularPlatformA.glb" id="8_03mgp"]
-[ext_resource type="PackedScene" uid="uid://ccw2i05bg1nu7" path="res://Assets/TatModels/modularPlatformB.glb" id="9_id0w0"]
+[ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="10_q561n"]
+[ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="11_5ytuc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c6pdw"]
 size = Vector3(30, 10, 100)
@@ -26,7 +26,7 @@ uv2_triplanar = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_a3p64"]
 size = Vector3(10, 10, 0.1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33o7j"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5yrn8"]
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("3_r7gqd")
 emission_enabled = true
@@ -35,7 +35,7 @@ emission_on_uv2 = true
 uv1_offset = Vector3(0.35, 0.3, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2057y"]
-material = SubResource("StandardMaterial3D_33o7j")
+material = SubResource("StandardMaterial3D_5yrn8")
 size = Vector3(10, 10, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
@@ -110,7 +110,7 @@ transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 4.0
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -3.15716, 1.42563, -11.7538)
 
 [node name="Fences" type="Node3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.379782, 4.60772, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.379782, 2.95837, 0)
 
 [node name="Railing" parent="Ground/Fences" instance=ExtResource("7_sobm3")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 14.7927, 1.26594, 46.6779)
@@ -268,32 +268,6 @@ transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -7.707
 [node name="Railing52" parent="Ground/Fences" instance=ExtResource("7_sobm3")]
 transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -12.7073, 1.26594, 49.1779)
 
-[node name="modularPlatformA" parent="Ground" instance=ExtResource("8_03mgp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3763, 5.04956, 33.7034)
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
-[node name="lblScore" type="Label" parent="."]
-offset_left = 769.0
-offset_right = 1143.0
-offset_bottom = 65.0
-theme_override_font_sizes/font_size = 47
-text = "Score: 0
-"
-horizontal_alignment = 2
-
-[node name="lblTime" type="Label" parent="."]
-offset_right = 367.0
-offset_bottom = 65.0
-theme_override_font_sizes/font_size = 47
-text = "Time: 0
-"
-
-[node name="PlayTimeTimer" type="Timer" parent="."]
-autostart = true
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(277.522, 0, 0, 0, 136.628, 0, 0, 0, 60.0078, -0.00280762, -28.6082, -98.4433)
 mesh = SubResource("QuadMesh_1wrm2")
@@ -307,10 +281,139 @@ shadow_enabled = true
 stream = ExtResource("9_jr058")
 autoplay = true
 
+[node name="GoalScreen" type="Node2D" parent="."]
+visible = false
+
+[node name="lblClearScore" type="Label" parent="GoalScreen"]
+offset_left = 128.0
+offset_top = 241.0
+offset_right = 945.0
+offset_bottom = 310.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.55, 0.82, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_q561n")
+theme_override_font_sizes/font_size = 50
+text = "Clear Score: 00000000"
+metadata/_edit_use_anchors_ = true
+
+[node name="lblDonutBonus" type="Label" parent="GoalScreen"]
+offset_left = 128.0
+offset_top = 310.0
+offset_right = 902.0
+offset_bottom = 379.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_q561n")
+theme_override_font_sizes/font_size = 50
+text = "Donut Bonus      ×2"
+metadata/_edit_use_anchors_ = true
+
+[node name="lblLevelScore" type="Label" parent="GoalScreen"]
+offset_left = 128.0
+offset_top = 379.0
+offset_right = 945.0
+offset_bottom = 448.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.45098, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_q561n")
+theme_override_font_sizes/font_size = 50
+text = "Level Score: 00000000
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="btnNextLevel" type="Button" parent="GoalScreen"]
+offset_left = 128.0
+offset_top = 528.0
+offset_right = 559.0
+offset_bottom = 632.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../btnMainMenu")
+focus_neighbor_right = NodePath("../btnMainMenu")
+focus_next = NodePath("../btnMainMenu")
+focus_previous = NodePath("../btnMainMenu")
+theme_override_fonts/font = ExtResource("10_q561n")
+theme_override_font_sizes/font_size = 40
+text = "Next Level"
+
+[node name="btnMainMenu" type="Button" parent="GoalScreen"]
+offset_left = 601.0
+offset_top = 528.0
+offset_right = 1032.0
+offset_bottom = 632.0
+focus_neighbor_left = NodePath("../btnNextLevel")
+focus_neighbor_right = NodePath("../btnNextLevel")
+focus_next = NodePath("../btnNextLevel")
+focus_previous = NodePath("../btnNextLevel")
+theme_override_fonts/font = ExtResource("10_q561n")
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="lblLevelResult" type="Label" parent="."]
+visible = false
+offset_left = 283.0
+offset_top = 108.0
+offset_right = 839.0
+offset_bottom = 218.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.85098, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_q561n")
+theme_override_font_sizes/font_size = 80
+text = "Goal!"
+horizontal_alignment = 1
+
+[node name="Hud" type="Node2D" parent="."]
+
+[node name="lblDonuts" type="Label" parent="Hud"]
+offset_left = 762.0
+offset_right = 1144.0
+offset_bottom = 65.0
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(1, 1, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_q561n")
+theme_override_font_sizes/font_size = 47
+text = "Donuts: 0
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="lblTime" type="Label" parent="Hud"]
+offset_left = 15.0
+offset_right = 382.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(1, 0.686275, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10_q561n")
+theme_override_font_sizes/font_size = 47
+text = "Time: 0
+"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Collected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_5ytuc")
+
 [connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]
 [connection signal="body_entered" from="Ground/MurderDeathKill" to="." method="_on_murder_death_kill_body_entered"]
+[connection signal="pressed" from="GoalScreen/btnNextLevel" to="." method="_on_btn_next_level_pressed"]
+[connection signal="pressed" from="GoalScreen/btnMainMenu" to="." method="_on_btn_main_menu_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="PlayTimeTimer" to="." method="_on_play_time_timer_timeout"]
 
 [editable path="Ball"]

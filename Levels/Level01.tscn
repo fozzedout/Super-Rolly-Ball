@@ -1,10 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://d0240xxixbpwr"]
+[gd_scene load_steps=28 format=3 uid="uid://d0240xxixbpwr"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_hcc8s"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="2_5v74f"]
 [ext_resource type="Texture2D" uid="uid://da1ipk5rpfqib" path="res://Assets/checker.png" id="2_pn3o3"]
-[ext_resource type="Texture2D" uid="uid://6u5pehsvujx6" path="res://Assets/goal.png" id="3_r7gqd"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="4_m4o4t"]
+[ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="5_rx5en"]
 [ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="6_lirog"]
 [ext_resource type="PackedScene" uid="uid://dbgfrc1dy6qkh" path="res://Assets-Scenes/railing.tscn" id="7_sobm3"]
 [ext_resource type="Texture2D" uid="uid://be2xqjsum35p1" path="res://Assets/background.jpg" id="8_6pp7m"]
@@ -19,6 +19,32 @@
 [ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="17_ccueb"]
 [ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="18_p4jpw"]
 
+[sub_resource type="Environment" id="Environment_qj4n2"]
+background_mode = 1
+background_color = Color(0.00447858, 0.00638158, 0.0458453, 1)
+background_energy_multiplier = 5.38
+ambient_light_source = 1
+ambient_light_color = Color(0.0316549, 0.0316549, 0.0316549, 1)
+ambient_light_energy = 7.48
+reflected_light_source = 1
+tonemap_mode = 2
+tonemap_exposure = 1.17
+tonemap_white = 1.84
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 0.56
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 2.57
+glow_strength = 1.02
+glow_bloom = 1.0
+glow_blend_mode = 1
+glow_hdr_luminance_cap = 42.99
+adjustment_enabled = true
+adjustment_brightness = 2.85
+adjustment_contrast = 1.67
+adjustment_saturation = 2.56
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_c6pdw"]
 size = Vector3(30, 10, 100)
 
@@ -29,21 +55,6 @@ size = Vector3(30, 10, 100)
 albedo_texture = ExtResource("2_pn3o3")
 uv1_triplanar = true
 uv2_triplanar = true
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_a3p64"]
-size = Vector3(10, 10, 0.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5yrn8"]
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_r7gqd")
-emission_enabled = true
-emission = Color(0.366595, 0.366595, 0.366595, 1)
-emission_on_uv2 = true
-uv1_offset = Vector3(0.35, 0.3, 0)
-
-[sub_resource type="BoxMesh" id="BoxMesh_2057y"]
-material = SubResource("StandardMaterial3D_5yrn8")
-size = Vector3(10, 10, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
 size = Vector3(1000, 1, 1000)
@@ -94,6 +105,9 @@ metadata/Level = "Level01"
 transform = Transform3D(1, 0, 0, 0, 0.654741, 0.755853, 0, -0.755853, 0.654741, 0, 30.5478, 46.221)
 shadow_enabled = true
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qj4n2")
+
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
 
@@ -115,17 +129,11 @@ shape = SubResource("BoxShape3D_c6pdw")
 mesh = SubResource("BoxMesh_guqmc")
 surface_material_override/0 = SubResource("StandardMaterial3D_cu0h4")
 
-[node name="Goal" type="Area3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.968, 7.842, -35)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Goal"]
-shape = SubResource("BoxShape3D_a3p64")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Goal"]
-mesh = SubResource("BoxMesh_2057y")
-
 [node name="flagGreen" parent="Ground" instance=ExtResource("6_lirog")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.324834, 5, 47.4969)
+
+[node name="Goal" parent="Ground" instance=ExtResource("5_rx5en")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.32811, -38.6363)
 
 [node name="MurderDeathKill" type="Area3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389248, -19.9504, 0.57489)
@@ -307,14 +315,10 @@ transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -7.707
 [node name="Railing52" parent="Ground/Fences" instance=ExtResource("7_sobm3")]
 transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -12.7073, 1.26594, 49.1779)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Backdrop" type="MeshInstance3D" parent="."]
 transform = Transform3D(277.522, 0, 0, 0, 136.628, 0, 0, 0, 60.0078, -0.00280762, -28.6082, -98.4433)
 mesh = SubResource("QuadMesh_1wrm2")
 surface_material_override/0 = SubResource("StandardMaterial3D_cs0qq")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.504466, 4.57869, -33.4742)
-shadow_enabled = true
 
 [node name="GoalScreen" type="Node2D" parent="."]
 visible = false
@@ -404,7 +408,6 @@ wait_time = 2.0
 one_shot = true
 
 [node name="lblLevelResult" type="Label" parent="."]
-visible = false
 offset_left = 283.0
 offset_top = 108.0
 offset_right = 839.0
@@ -450,35 +453,38 @@ text = "Time: 0
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_jr058")
-autoplay = true
-
-[node name="Collected" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_5ytuc")
-
-[node name="HitPortal" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_ymou1")
-
-[node name="ReadyStart" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_vn5q5")
-
-[node name="FallOut" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_btc1e")
-
-[node name="TimeUp" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_gycoy")
-
-[node name="Perfect" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_ccueb")
-
-[node name="Goal" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_p4jpw")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_tkawt")
 }
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("9_jr058")
+autoplay = true
+
+[node name="Collected" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("11_5ytuc")
+
+[node name="HitPortal" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("12_ymou1")
+
+[node name="ReadyStart" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("13_vn5q5")
+autoplay = true
+
+[node name="FallOut" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("15_btc1e")
+
+[node name="TimeUp" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("16_gycoy")
+
+[node name="Perfect" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("17_ccueb")
+
+[node name="Goal" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("18_p4jpw")
 
 [connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]

@@ -12,7 +12,6 @@ func _ready():
 	$Ball.freeze = true
 
 	AudioServer.set_bus_volume_db(globals.bus_index, linear_to_db(globals.ts["Volume"]))
-	$ReadyStart.play()
 
 func _physics_process(delta):
 	if doTimer:
@@ -55,7 +54,7 @@ func _on_goal_body_entered(body):
 
 func _on_area_3d_area_entered(donut):
 	if donut.is_in_group("collectables"):
-		$Collected.pitch_scale = randf_range(0.8,1.2); $Collected.play()
+		$Audio/Collected.pitch_scale = randf_range(0.8,1.2); $Audio/Collected.play()
 		donuts += 1
 		donut.queue_free()
 
@@ -72,10 +71,10 @@ func goal_screen(title):
 	$lblLevelResult.text = title; $lblLevelResult.show()
 	if title == "GOAL!" and $Ground/Collectables.get_child_count() == 0: $lblLevelResult.text = "PERFECT!"
 	match $lblLevelResult.text:
-		"GOAL!": $HitPortal.play(); $Goal.play()
-		"PERFECT!" : $HitPortal.play(); $Perfect.play()
-		"FALL OUT!" : $FallOut.play()
-		"TIME UP!" : $TimeUp.play()
+		"GOAL!": $Audio/HitPortal.play(); $Audio/Goal.play()
+		"PERFECT!" : $Audio/HitPortal.play(); $Audio/Perfect.play()
+		"FALL OUT!" : $Audio/FallOut.play()
+		"TIME UP!" : $Audio/TimeUp.play()
 
 	if title == "GOAL!":
 		var score = round(time * 100 * max(1, (donuts * (1 if $Ground/Collectables.get_child_count() > 0 else 10)) ))

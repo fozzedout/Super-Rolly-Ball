@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtl7bibncsqdd"]
+
+[ext_resource type="PackedScene" uid="uid://cuxsw4fahqcq5" path="res://TatScenes/Blocks/ExtraPieces/slide.tscn" id="1_j08r6"]
+[ext_resource type="PackedScene" uid="uid://dgjjygg4s0asn" path="res://TatScenes/Blocks/RegularPieces/1x5.tscn" id="2_cuukf"]
+[ext_resource type="PackedScene" uid="uid://bxvqwixeooeg1" path="res://TatScenes/Blocks/RegularPieces/5x5.tscn" id="3_k4l4v"]
+
+[node name="WideSlide" instance=ExtResource("1_j08r6")]
+
+[node name="1x10" parent="." index="0"]
+transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 16, 10, 2.08165e-12)
+
+[node name="1x6" parent="." index="9" instance=ExtResource("2_cuukf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 19, 2.08165e-12)
+
+[node name="5x11" parent="." index="10" instance=ExtResource("3_k4l4v")]
+transform = Transform3D(1, -8.16006e-17, 2.24196e-16, 2.24196e-16, 0.642788, -0.766044, -8.16006e-17, 0.766044, 0.642788, 10, 15.5, 3.5)
+
+[node name="5x12" parent="." index="11" instance=ExtResource("3_k4l4v")]
+transform = Transform3D(1, -1.24591e-16, 2.67186e-16, 2.67186e-16, 0.766044, -0.642788, -1.24591e-16, 0.642788, 0.766044, 10, 8.84, 10.1)
+
+[node name="5x13" parent="." index="12" instance=ExtResource("3_k4l4v")]
+transform = Transform3D(1, -1.74393e-16, 3.02058e-16, 3.02058e-16, 0.866025, -0.5, -1.74393e-16, 0.5, 0.866025, 10, 3.92441, 17.0263)
+
+[node name="5x14" parent="." index="13" instance=ExtResource("3_k4l4v")]
+transform = Transform3D(1, -2.29495e-16, 3.27752e-16, 3.27752e-16, 0.939693, -0.34202, -2.29495e-16, 0.34202, 0.939693, 10, 0.521061, 24.3987)
+
+[node name="5x15" parent="." index="14" instance=ExtResource("3_k4l4v")]
+transform = Transform3D(1, -2.88221e-16, 3.43488e-16, 3.43488e-16, 0.984808, -0.173648, -2.88221e-16, 0.173648, 0.984808, 10, -1.63628, 32.6963)
+
+[node name="5x16" parent="." index="15" instance=ExtResource("3_k4l4v")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 10, -2.27557, 39.6847)

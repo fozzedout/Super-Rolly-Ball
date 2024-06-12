@@ -66,9 +66,6 @@ metadata/Level = "Level06"
 
 [node name="Skybox" parent="." instance=ExtResource("2_p6c77")]
 
-[node name="DirectionalLight3D" parent="Skybox" index="0"]
-transform = Transform3D(0.857167, 0.364187, -0.364187, 2.4663e-16, 0.707107, 0.707107, 0.515038, -0.606109, 0.606109, 0, 30.5478, 46.221)
-
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
 

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxphfml0vx017"]
+
+[ext_resource type="PackedScene" uid="uid://eteh41schqa3" path="res://TatScenes/Blocks/ExtraPieces/wide_slide_ramp_low.tscn" id="1_6wfmi"]
+[ext_resource type="PackedScene" uid="uid://bxvqwixeooeg1" path="res://TatScenes/Blocks/RegularPieces/5x5.tscn" id="2_ahi7q"]
+
+[node name="WideSlide_ramp_far" instance=ExtResource("1_6wfmi")]
+
+[node name="5x19" parent="." index="18" instance=ExtResource("2_ahi7q")]
+transform = Transform3D(1, -4.96191e-16, 3.16108e-16, 3.16109e-16, 0.906308, 0.422618, -4.96191e-16, -0.422618, 0.906308, 2.08165e-12, 2.28933, 55.4024)
+
+[node name="5x20" parent="." index="19" instance=ExtResource("2_ahi7q")]
+transform = Transform3D(1, -4.96191e-16, 3.16108e-16, 3.16109e-16, 0.906308, 0.422618, -4.96191e-16, -0.422618, 0.906308, 10, 2.28933, 55.4024)

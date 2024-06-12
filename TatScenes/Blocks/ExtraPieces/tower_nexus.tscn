@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh5w87djsjqbs"]
+
+[ext_resource type="PackedScene" uid="uid://32wl7xvykjud" path="res://TatScenes/Blocks/ExtraPieces/tower_core.tscn" id="1_k16u0"]
+
+[node name="TowerNexus" type="Node3D"]
+
+[node name="TowerCore" parent="." instance=ExtResource("1_k16u0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -32, 2.08165e-12)
+
+[node name="TowerCore2" parent="." instance=ExtResource("1_k16u0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -16, 2.08165e-12)
+
+[node name="TowerCore3" parent="." instance=ExtResource("1_k16u0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)

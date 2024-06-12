@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://d0240xxixbpwr"]
+[gd_scene load_steps=25 format=3 uid="uid://d0240xxixbpwr"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_hcc8s"]
 [ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_4vemo"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="5_rx5en"]
 [ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="6_lirog"]
 [ext_resource type="PackedScene" uid="uid://dbgfrc1dy6qkh" path="res://Assets-Scenes/railing.tscn" id="7_sobm3"]
-[ext_resource type="Texture2D" uid="uid://be2xqjsum35p1" path="res://Assets/background.jpg" id="8_6pp7m"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="9_jr058"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="10_q561n"]
 [ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="11_5ytuc"]
@@ -33,11 +32,6 @@ uv2_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
 size = Vector3(1000, 1, 1000)
-
-[sub_resource type="QuadMesh" id="QuadMesh_1wrm2"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cs0qq"]
-albedo_texture = ExtResource("8_6pp7m")
 
 [sub_resource type="Animation" id="Animation_x8fa6"]
 resource_name = "FadeStart"
@@ -290,11 +284,6 @@ transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -7.707
 
 [node name="Railing52" parent="Ground/Fences" instance=ExtResource("7_sobm3")]
 transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -12.7073, 1.26594, 49.1779)
-
-[node name="Backdrop" type="MeshInstance3D" parent="."]
-transform = Transform3D(277.522, 0, 0, 0, 136.628, 0, 0, 0, 60.0078, -0.00280762, -28.6082, -98.4433)
-mesh = SubResource("QuadMesh_1wrm2")
-surface_material_override/0 = SubResource("StandardMaterial3D_cs0qq")
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

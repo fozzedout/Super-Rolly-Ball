@@ -2,7 +2,7 @@ extends Node3D
 
 var globals
 var time : float = 0
-var donuts : int = 0
+var stars : int = 0
 var doTimer : bool = false
 
 func _ready():
@@ -22,7 +22,7 @@ func _physics_process(delta):
 		goal_screen("TIME UP!")
 
 	$Hud/lblTime.text = "Time: %0.2f" % time
-	$Hud/lblDonuts.text = "Donuts: " + str(donuts)
+	$Hud/lblDonuts.text = "Stars: " + str(stars)
 
 	var direction = Input.get_vector("Move_Left","Move_Right","Move_Up","Move_Down")
 	
@@ -52,11 +52,11 @@ func _on_goal_body_entered(body):
 		goal_screen("GOAL!")
 
 
-func _on_area_3d_area_entered(donut):
-	if donut.is_in_group("collectables"):
+func _on_area_3d_area_entered(star):
+	if star.is_in_group("collectables"):
 		$Audio/Collected.pitch_scale = randf_range(0.8,1.2); $Audio/Collected.play()
-		donuts += 1
-		donut.queue_free()
+		stars += 1
+		star.queue_free()
 
 
 
@@ -77,10 +77,10 @@ func goal_screen(title):
 		"TIME UP!" : $Audio/TimeUp.play()
 
 	if title == "GOAL!":
-		var score = round(time * 100 * max(1, (donuts * (1 if $Ground/Collectables.get_child_count() > 0 else 10)) ))
+		var score = round(time * 100 * max(1, (stars * (1 if $Ground/Collectables.get_child_count() > 0 else 10)) ))
 		$GoalScreen.show()
 		$GoalScreen/lblClearScore.text = "Clear Score: %8d" % (time * 100)
-		$GoalScreen/lblDonutBonus.text = ("Donut Bonus      x%d" % (donuts * (1 if $Ground/Collectables.get_child_count() > 0 else 10))) if donuts >= 2 else ""
+		$GoalScreen/lblDonutBonus.text = ("Star Bonus      x%d" % (stars * (1 if $Ground/Collectables.get_child_count() > 0 else 10))) if stars >= 2 else ""
 		$GoalScreen/lblLevelScore.text = "Level Score: %8d" % score
 		$GoalScreen/btnNextLevel.grab_focus()
 		if globals.ts[get_meta("Level")]["Time"] < time: globals.ts[get_meta("Level")]["Time"] = time

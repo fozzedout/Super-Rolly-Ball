@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://drob57mi4pom"]
+
+[ext_resource type="PackedScene" uid="uid://cknfptwfiw5k" path="res://Assets/rail-high.glb" id="1_iq12x"]
+[ext_resource type="Texture2D" uid="uid://b00dl06e0burs" path="res://Assets/TatModels/RegularParts(Converted)/1x2_wood1.png" id="2_6758w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqcup"]
+albedo_texture = ExtResource("2_6758w")
+
+[node name="rail-high2" instance=ExtResource("1_iq12x")]
+
+[node name="rail-high" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_rqcup")

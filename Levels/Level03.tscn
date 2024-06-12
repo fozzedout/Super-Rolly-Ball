@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://level.gd" id="1_vl8h5"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="2_dt73r"]
 [ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_u53t4"]
-[ext_resource type="Texture2D" uid="uid://da1ipk5rpfqib" path="res://Assets/checker.png" id="3_l0n4d"]
+[ext_resource type="Texture2D" uid="uid://bddov3xqvd1os" path="res://Assets/TatModels/RegularParts(Converted)/8x8_wood1.png" id="4_38gqf"]
 [ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="4_c5f71"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="5_ljx4h"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="6_06jh5"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cmcp8switxcqt" path="res://Assets/time up.ogg" id="16_45u2a"]
 [ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="17_cv7nw"]
 [ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="18_25wpp"]
+[ext_resource type="PackedScene" uid="uid://cgfh5dx7qcmys" path="res://TatScenes/Blocks/RegularPieces/1x1.tscn" id="18_e3w4k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c6pdw"]
 size = Vector3(30, 10, 100)
@@ -25,7 +26,7 @@ size = Vector3(30, 10, 100)
 size = Vector3(30, 10, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cu0h4"]
-albedo_texture = ExtResource("3_l0n4d")
+albedo_texture = ExtResource("4_38gqf")
 uv1_triplanar = true
 uv2_triplanar = true
 
@@ -35,21 +36,11 @@ size = Vector3(30, 10, 58)
 [sub_resource type="BoxMesh" id="BoxMesh_8si8j"]
 size = Vector3(30, 10, 58)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ui40e"]
-albedo_texture = ExtResource("3_l0n4d")
-uv1_triplanar = true
-uv2_triplanar = true
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_2kh8r"]
 size = Vector3(30, 10, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_uqkke"]
 size = Vector3(30, 10, 100)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_meg6i"]
-albedo_texture = ExtResource("3_l0n4d")
-uv1_triplanar = true
-uv2_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
 size = Vector3(1000, 1, 1000)
@@ -85,6 +76,13 @@ tracks/1/keys = {
 _data = {
 "FadeStart": SubResource("Animation_x8fa6")
 }
+
+[sub_resource type="Curve3D" id="Curve3D_4e5mj"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 6.82247, 13.2583, -4.35517, 0, 0, 0, 0, 0, 0, 0.0158348, 0.0398536, -0.0175514, 0, 0, 0, 0, 0, 0, 0.994253, 12.1321, -9.01938, 0, 0, 0, 0, 0, 0, 4.7014, 12.6182, -7.60915, 0, 0, 0, 0, 0, 0, 6.82247, 13.2583, -4.35517),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_vl8h5")
@@ -134,7 +132,7 @@ shape = SubResource("BoxShape3D_381m5")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Areas/Area2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22)
 mesh = SubResource("BoxMesh_8si8j")
-surface_material_override/0 = SubResource("StandardMaterial3D_ui40e")
+surface_material_override/0 = SubResource("StandardMaterial3D_cu0h4")
 
 [node name="Area3" type="StaticBody3D" parent="Ground/Areas"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, -39)
@@ -145,7 +143,7 @@ shape = SubResource("BoxShape3D_2kh8r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Areas/Area3"]
 mesh = SubResource("BoxMesh_uqkke")
-surface_material_override/0 = SubResource("StandardMaterial3D_meg6i")
+surface_material_override/0 = SubResource("StandardMaterial3D_cu0h4")
 
 [node name="flagGreen" parent="Ground" instance=ExtResource("4_c5f71")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.324834, 5, 47.4969)
@@ -353,6 +351,15 @@ stream = ExtResource("17_cv7nw")
 [node name="Goal" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("18_25wpp")
 
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.35016, -0.422924, 30.9586)
+curve = SubResource("Curve3D_4e5mj")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.537415, -0.719749, 0.439483, 2.98023e-08, 0.521136, 0.853472, -0.843318, 0.45867, -0.280066, 6.82247, 13.2583, -4.35517)
+
+[node name="1x1" parent="Path3D/PathFollow3D" instance=ExtResource("18_e3w4k")]
+
 [connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]
 [connection signal="body_entered" from="Ground/MurderDeathKill" to="." method="_on_murder_death_kill_body_entered"]
@@ -362,3 +369,4 @@ stream = ExtResource("18_25wpp")
 [connection signal="pressed" from="GoalScreen/btnMainMenu" to="GoalScreen/btnMainMenu" method="_on_pressed" binds= ["res://Scenes/MainMenu.tscn"]]
 
 [editable path="Ball"]
+[editable path="Path3D/PathFollow3D/1x1"]

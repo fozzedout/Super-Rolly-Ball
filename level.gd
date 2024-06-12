@@ -14,8 +14,7 @@ func _ready():
 	AudioServer.set_bus_volume_db(globals.bus_index, linear_to_db(globals.ts["Volume"]))
 
 func _physics_process(delta):
-	if doTimer:
-		time -= delta
+	if doTimer: time -= delta
 		
 	if time <= 0 and $TimerReload.is_stopped():
 		time = 0
@@ -48,8 +47,7 @@ func _physics_process(delta):
 	$CameraPivot/Camera3D.look_at($Ball.global_position)
 
 func _on_goal_body_entered(body):
-	if body is RigidBody3D:
-		goal_screen("GOAL!")
+	if body is RigidBody3D: goal_screen("GOAL!")
 
 
 func _on_area_3d_area_entered(star):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c8fosf3euevf"]
+[gd_scene load_steps=28 format=3 uid="uid://c8fosf3euevf"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_vl8h5"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="2_dt73r"]
@@ -17,7 +17,6 @@
 [ext_resource type="AudioStream" uid="uid://cmcp8switxcqt" path="res://Assets/time up.ogg" id="16_45u2a"]
 [ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="17_cv7nw"]
 [ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="18_25wpp"]
-[ext_resource type="PackedScene" uid="uid://cgfh5dx7qcmys" path="res://TatScenes/Blocks/RegularPieces/1x1.tscn" id="18_e3w4k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c6pdw"]
 size = Vector3(30, 10, 100)
@@ -77,22 +76,11 @@ _data = {
 "FadeStart": SubResource("Animation_x8fa6")
 }
 
-[sub_resource type="Curve3D" id="Curve3D_4e5mj"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 6.82247, 13.2583, -4.35517, 0, 0, 0, 0, 0, 0, 0.0158348, 0.0398536, -0.0175514, 0, 0, 0, 0, 0, 0, 0.994253, 12.1321, -9.01938, 0, 0, 0, 0, 0, 0, 4.7014, 12.6182, -7.60915, 0, 0, 0, 0, 0, 0, 6.82247, 13.2583, -4.35517),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
-}
-point_count = 5
-
 [node name="Level" type="Node3D"]
 script = ExtResource("1_vl8h5")
 metadata/Level = "Level03"
 
 [node name="Skybox" parent="." instance=ExtResource("2_u53t4")]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.654741, 0.755853, 0, -0.755853, 0.654741, 0, 30.5478, 46.221)
-shadow_enabled = true
 
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
@@ -351,15 +339,6 @@ stream = ExtResource("17_cv7nw")
 [node name="Goal" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("18_25wpp")
 
-[node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.35016, -0.422924, 30.9586)
-curve = SubResource("Curve3D_4e5mj")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.537415, -0.719749, 0.439483, 2.98023e-08, 0.521136, 0.853472, -0.843318, 0.45867, -0.280066, 6.82247, 13.2583, -4.35517)
-
-[node name="1x1" parent="Path3D/PathFollow3D" instance=ExtResource("18_e3w4k")]
-
 [connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]
 [connection signal="body_entered" from="Ground/MurderDeathKill" to="." method="_on_murder_death_kill_body_entered"]
@@ -369,4 +348,3 @@ transform = Transform3D(-0.537415, -0.719749, 0.439483, 2.98023e-08, 0.521136, 0
 [connection signal="pressed" from="GoalScreen/btnMainMenu" to="GoalScreen/btnMainMenu" method="_on_pressed" binds= ["res://Scenes/MainMenu.tscn"]]
 
 [editable path="Ball"]
-[editable path="Path3D/PathFollow3D/1x1"]

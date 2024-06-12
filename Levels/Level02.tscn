@@ -77,13 +77,6 @@ metadata/Level = "Level02"
 
 [node name="Skybox" parent="." instance=ExtResource("2_efqvo")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.654741, 0.755853, 0, -0.755853, 0.654741, 0, 30.5478, 46.221)
-shadow_enabled = true
-shadow_transmittance_bias = 0.58
-shadow_opacity = 0.5
-shadow_blur = 3.0
-
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
 

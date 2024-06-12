@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq1jp08vlql0i"]
+
+[ext_resource type="PackedScene" uid="uid://c8cgyxjjmsxgj" path="res://TatScenes/Blocks/TunnelsAndHalfpipes/4xHalfpipe.tscn" id="1_3hhhd"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="2xTunnelWide" parent="." instance=ExtResource("1_3hhhd")]
+
+[node name="2xTunnelWide2" parent="." instance=ExtResource("1_3hhhd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 8)

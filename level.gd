@@ -93,4 +93,3 @@ func goal_screen(title):
 func _on_timer_start_timeout():
 	$Ball.freeze = false; doTimer = true
 	$lblLevelResult.text = "START!"
-	$AnimationPlayer.play("FadeStart")

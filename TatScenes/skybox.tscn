@@ -12,6 +12,7 @@ sky_material = SubResource("PanoramaSkyMaterial_6nyyj")
 background_mode = 2
 background_color = Color(0.00447858, 0.00638158, 0.0458453, 1)
 sky = SubResource("Sky_1noyv")
+sky_rotation = Vector3(3.14159, 3.48787e-16, 3.48787e-16)
 ambient_light_source = 1
 ambient_light_color = Color(0.0316549, 0.0316549, 0.0316549, 1)
 ambient_light_energy = 7.48

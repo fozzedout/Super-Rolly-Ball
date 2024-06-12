@@ -56,7 +56,7 @@ _data = {
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_y8bky")
-metadata/Level = "Level06"
+metadata/Level = "Level12"
 
 [node name="Skybox" parent="." instance=ExtResource("2_dcxjo")]
 
@@ -270,7 +270,7 @@ stream = ExtResource("18_kwt6i")
 [connection signal="body_entered" from="Ground/MurderDeathKill" to="." method="_on_murder_death_kill_body_entered"]
 [connection signal="timeout" from="TimerReload" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerStart" to="." method="_on_timer_start_timeout"]
-[connection signal="pressed" from="GoalScreen/btnNextLevel" to="GoalScreen/btnNextLevel" method="_on_pressed" binds= ["res://Levels/Level07.tscn"]]
+[connection signal="pressed" from="GoalScreen/btnNextLevel" to="GoalScreen/btnNextLevel" method="_on_pressed" binds= ["res://Levels/Level13.tscn"]]
 [connection signal="pressed" from="GoalScreen/btnMainMenu" to="GoalScreen/btnMainMenu" method="_on_pressed" binds= ["res://Scenes/MainMenu.tscn"]]
 
 [editable path="Ball"]

@@ -74,7 +74,7 @@ _data = {
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_aagwc")
-metadata/Level = "Level06"
+metadata/Level = "Level07"
 
 [node name="Skybox" parent="." instance=ExtResource("2_4yg60")]
 

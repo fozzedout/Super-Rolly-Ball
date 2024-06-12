@@ -1,14 +1,14 @@
-[gd_scene load_steps=31 format=3 uid="uid://d2e78wma2tsq0"]
+[gd_scene load_steps=27 format=3 uid="uid://d2e78wma2tsq0"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_5d8c1"]
-[ext_resource type="Texture2D" uid="uid://da1ipk5rpfqib" path="res://Assets/checker.png" id="1_c20hp"]
 [ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_efqvo"]
-[ext_resource type="Texture2D" uid="uid://6u5pehsvujx6" path="res://Assets/goal.png" id="2_i4kii"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="2_rns3p"]
+[ext_resource type="Texture2D" uid="uid://bddov3xqvd1os" path="res://Assets/TatModels/RegularParts(Converted)/8x8_wood1.png" id="4_4uogi"]
 [ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="5_aofnd"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="6_g065k"]
 [ext_resource type="PackedScene" uid="uid://dbgfrc1dy6qkh" path="res://Assets-Scenes/railing.tscn" id="7_p56t5"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="8_228wm"]
+[ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="8_sxars"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="10_o4a1o"]
 [ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="11_j6b47"]
 [ext_resource type="Script" path="res://globals.gd" id="11_jx6vc"]
@@ -26,7 +26,7 @@ size = Vector3(30, 10, 100)
 size = Vector3(30, 10, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kujuy"]
-albedo_texture = ExtResource("1_c20hp")
+albedo_texture = ExtResource("4_4uogi")
 uv1_triplanar = true
 uv2_triplanar = true
 
@@ -35,26 +35,6 @@ size = Vector3(60, 10, 30)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fs4nh"]
 size = Vector3(60, 10, 30)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kg05q"]
-albedo_texture = ExtResource("1_c20hp")
-uv1_triplanar = true
-uv2_triplanar = true
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_r2377"]
-size = Vector3(10, 10, 0.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33o7j"]
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("2_i4kii")
-emission_enabled = true
-emission = Color(0.366595, 0.366595, 0.366595, 1)
-emission_on_uv2 = true
-uv1_offset = Vector3(0.35, 0.3, 0)
-
-[sub_resource type="BoxMesh" id="BoxMesh_2jkxb"]
-material = SubResource("StandardMaterial3D_33o7j")
-size = Vector3(10, 10, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwnik"]
 size = Vector3(1000, 1, 1000)
@@ -137,19 +117,10 @@ shape = SubResource("BoxShape3D_uglra")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/GroundArea2"]
 mesh = SubResource("BoxMesh_fs4nh")
-surface_material_override/0 = SubResource("StandardMaterial3D_kg05q")
+surface_material_override/0 = SubResource("StandardMaterial3D_kujuy")
 
 [node name="flagGreen" parent="Ground" instance=ExtResource("5_aofnd")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.064414, -0.0495601, 46.922)
-
-[node name="Goal" type="Area3D" parent="Ground"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 64.4212, 2.79244, -35.5749)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Goal"]
-shape = SubResource("BoxShape3D_r2377")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Goal"]
-mesh = SubResource("BoxMesh_2jkxb")
 
 [node name="MurderDeathKill" type="Area3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)
@@ -400,6 +371,9 @@ transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 57.292
 [node name="Railing76" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
 transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 52.2927, 1.26594, -20.8221)
 
+[node name="Goal" parent="Ground" instance=ExtResource("8_sxars")]
+transform = Transform3D(-1.31134e-07, 1.04636e-15, 3, 1.04636e-15, 3, -1.04636e-15, -3, 1.04636e-15, -1.31134e-07, 68.892, -1.31138, -32.0861)
+
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
@@ -565,8 +539,8 @@ stream = ExtResource("17_cv5wq")
 stream = ExtResource("18_d2rjc")
 
 [connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]
 [connection signal="body_entered" from="Ground/MurderDeathKill" to="." method="_on_murder_death_kill_body_entered"]
+[connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]
 [connection signal="timeout" from="TimerReload" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerStart" to="." method="_on_timer_start_timeout"]
 [connection signal="pressed" from="GoalScreen/btnNextLevel" to="GoalScreen/btnNextLevel" method="_on_pressed" binds= ["res://Levels/Level03.tscn"]]

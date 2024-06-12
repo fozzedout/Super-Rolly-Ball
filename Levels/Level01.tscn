@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://level.gd" id="1_hcc8s"]
 [ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_4vemo"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="2_5v74f"]
-[ext_resource type="Texture2D" uid="uid://da1ipk5rpfqib" path="res://Assets/checker.png" id="2_pn3o3"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="4_m4o4t"]
+[ext_resource type="Texture2D" uid="uid://bddov3xqvd1os" path="res://Assets/TatModels/RegularParts(Converted)/8x8_wood1.png" id="4_sbtec"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="5_rx5en"]
 [ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="6_lirog"]
 [ext_resource type="PackedScene" uid="uid://dbgfrc1dy6qkh" path="res://Assets-Scenes/railing.tscn" id="7_sobm3"]
@@ -25,10 +25,8 @@ size = Vector3(30, 10, 100)
 [sub_resource type="BoxMesh" id="BoxMesh_guqmc"]
 size = Vector3(30, 10, 100)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cu0h4"]
-albedo_texture = ExtResource("2_pn3o3")
-uv1_triplanar = true
-uv2_triplanar = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mu226"]
+albedo_texture = ExtResource("4_sbtec")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
 size = Vector3(1000, 1, 1000)
@@ -97,7 +95,7 @@ shape = SubResource("BoxShape3D_c6pdw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("BoxMesh_guqmc")
-surface_material_override/0 = SubResource("StandardMaterial3D_cu0h4")
+surface_material_override/0 = SubResource("StandardMaterial3D_mu226")
 
 [node name="flagGreen" parent="Ground" instance=ExtResource("6_lirog")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.324834, 5, 47.4969)

@@ -32,7 +32,7 @@ project/assembly_name="Super Rolly Ball"
 folder_colors={
 "res://Assets-Scenes/": "orange",
 "res://Assets/": "red",
-"res://Assets/TatModels/": "teal",
+"res://Assets/TatModels/": "blue",
 "res://Levels/": "yellow",
 "res://Scenes/": "green",
 "res://TatLevelTest/": "green",

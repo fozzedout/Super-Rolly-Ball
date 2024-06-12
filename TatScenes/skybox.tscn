@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://d01bknlxvp10s"]
+
+[ext_resource type="Texture2D" uid="uid://b0c1u283xo2nf" path="res://Assets/TatModels/Sky.png" id="1_66rau"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6nyyj"]
+panorama = ExtResource("1_66rau")
+
+[sub_resource type="Sky" id="Sky_1noyv"]
+sky_material = SubResource("PanoramaSkyMaterial_6nyyj")
+
+[sub_resource type="Environment" id="Environment_y4lmy"]
+background_mode = 2
+background_color = Color(0.00447858, 0.00638158, 0.0458453, 1)
+sky = SubResource("Sky_1noyv")
+sky_rotation = Vector3(3.14159, 3.48787e-16, 3.48787e-16)
+ambient_light_source = 1
+ambient_light_color = Color(0.0316549, 0.0316549, 0.0316549, 1)
+ambient_light_energy = 7.48
+reflected_light_source = 1
+tonemap_mode = 2
+tonemap_exposure = 1.17
+tonemap_white = 1.84
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 0.56
+glow_normalized = true
+glow_intensity = 2.57
+glow_strength = 1.02
+glow_bloom = 1.0
+glow_blend_mode = 1
+glow_hdr_luminance_cap = 42.99
+fog_enabled = true
+fog_light_color = Color(0.561814, 0.596245, 0.650348, 1)
+fog_light_energy = 0.1
+adjustment_enabled = true
+adjustment_brightness = 2.85
+adjustment_contrast = 1.67
+adjustment_saturation = 2.56
+
+[node name="Skybox" type="WorldEnvironment"]
+environment = SubResource("Environment_y4lmy")

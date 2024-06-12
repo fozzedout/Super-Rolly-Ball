@@ -1,15 +1,14 @@
-[gd_scene load_steps=37 format=3 uid="uid://d2e78wma2tsq0"]
+[gd_scene load_steps=31 format=3 uid="uid://d2e78wma2tsq0"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_5d8c1"]
 [ext_resource type="Texture2D" uid="uid://da1ipk5rpfqib" path="res://Assets/checker.png" id="1_c20hp"]
+[ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_efqvo"]
 [ext_resource type="Texture2D" uid="uid://6u5pehsvujx6" path="res://Assets/goal.png" id="2_i4kii"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="2_rns3p"]
-[ext_resource type="Texture2D" uid="uid://b0c1u283xo2nf" path="res://Assets/TatModels/Sky.png" id="2_s2swr"]
 [ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="5_aofnd"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="6_g065k"]
 [ext_resource type="PackedScene" uid="uid://dbgfrc1dy6qkh" path="res://Assets-Scenes/railing.tscn" id="7_p56t5"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="8_228wm"]
-[ext_resource type="Texture2D" uid="uid://be2xqjsum35p1" path="res://Assets/background.jpg" id="8_p41px"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="10_o4a1o"]
 [ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="11_j6b47"]
 [ext_resource type="Script" path="res://globals.gd" id="11_jx6vc"]
@@ -19,38 +18,6 @@
 [ext_resource type="AudioStream" uid="uid://cmcp8switxcqt" path="res://Assets/time up.ogg" id="16_fv6kr"]
 [ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="17_cv5wq"]
 [ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="18_d2rjc"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6nyyj"]
-panorama = ExtResource("2_s2swr")
-
-[sub_resource type="Sky" id="Sky_1noyv"]
-sky_material = SubResource("PanoramaSkyMaterial_6nyyj")
-
-[sub_resource type="Environment" id="Environment_y4lmy"]
-background_mode = 2
-background_color = Color(0.00447858, 0.00638158, 0.0458453, 1)
-sky = SubResource("Sky_1noyv")
-ambient_light_source = 1
-ambient_light_color = Color(0.0316549, 0.0316549, 0.0316549, 1)
-ambient_light_energy = 7.48
-reflected_light_source = 1
-tonemap_mode = 2
-tonemap_exposure = 1.17
-tonemap_white = 1.84
-sdfgi_enabled = true
-sdfgi_use_occlusion = true
-sdfgi_bounce_feedback = 0.56
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 2.57
-glow_strength = 1.02
-glow_bloom = 1.0
-glow_blend_mode = 1
-glow_hdr_luminance_cap = 42.99
-adjustment_enabled = true
-adjustment_brightness = 2.85
-adjustment_contrast = 1.67
-adjustment_saturation = 2.56
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jo5da"]
 size = Vector3(30, 10, 100)
@@ -92,11 +59,6 @@ size = Vector3(10, 10, 0.1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwnik"]
 size = Vector3(1000, 1, 1000)
 
-[sub_resource type="QuadMesh" id="QuadMesh_re8x1"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_toc3d"]
-albedo_texture = ExtResource("8_p41px")
-
 [sub_resource type="Animation" id="Animation_x8fa6"]
 resource_name = "FadeStart"
 tracks/0/type = "value"
@@ -133,15 +95,14 @@ _data = {
 script = ExtResource("1_5d8c1")
 metadata/Level = "Level02"
 
+[node name="Skybox" parent="." instance=ExtResource("2_efqvo")]
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.654741, 0.755853, 0, -0.755853, 0.654741, 0, 30.5478, 46.221)
 shadow_enabled = true
 shadow_transmittance_bias = 0.58
 shadow_opacity = 0.5
 shadow_blur = 3.0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_y4lmy")
 
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
@@ -438,11 +399,6 @@ transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 57.292
 
 [node name="Railing76" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
 transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 52.2927, 1.26594, -20.8221)
-
-[node name="Backdrop" type="MeshInstance3D" parent="."]
-transform = Transform3D(277.522, 0, 0, 0, 136.628, 0, 0, 0, 60.0078, -0.00280762, -28.6082, -98.4433)
-mesh = SubResource("QuadMesh_re8x1")
-surface_material_override/0 = SubResource("StandardMaterial3D_toc3d")
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

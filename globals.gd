@@ -1,6 +1,26 @@
 extends Node
 
-var ts = { "Volume" : 0, "Level01" : {"Time" : 0, "Par" : 20, "Score" : 0}, "Level02" : {"Time" : 0, "Par" : 50, "Score" : 0}, "Level03" : {"Time" : 0, "Par" : 50, "Score" : 0} }
+var ts = { "Volume" : 0, 
+"Level01" : {"Time" : 0, "Par" : 20, "Score" : 0}, 
+"Level02" : {"Time" : 0, "Par" : 40, "Score" : 0}, 
+"Level03" : {"Time" : 0, "Par" : 50, "Score" : 0}, 
+"Level04" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
+"Level05" : {"Time" : 0, "Par" : 40, "Score" : 0}, 
+"Level06" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
+"Level07" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
+"Level08" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
+"Level09" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
+"Level10" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
+"Level11" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
+"Level12" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
+"Level13" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
+"Level14" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
+"Level15" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
+"Level16" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
+"Level17" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
+"Level18" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
+"Level19" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
+"Level20" : {"Time" : 0, "Par" : 60, "Score" : 0} }
 var bus_index : int = AudioServer.get_bus_index("Master")
 
 func save_game():

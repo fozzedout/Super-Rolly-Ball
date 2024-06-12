@@ -20,10 +20,10 @@ stream = ExtResource("3_ax8tm")
 autoplay = true
 
 [node name="Label" type="Label" parent="."]
-offset_left = 60.0
-offset_top = 58.0
-offset_right = 319.0
-offset_bottom = 108.0
+offset_left = 84.0
+offset_top = 56.0
+offset_right = 549.0
+offset_bottom = 106.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("4_refuw")
@@ -31,39 +31,234 @@ theme_override_font_sizes/font_size = 36
 text = "Level Selection"
 
 [node name="btnBack" type="Button" parent="."]
-offset_left = 858.0
-offset_top = 546.0
-offset_right = 1089.0
-offset_bottom = 604.0
+offset_left = 784.0
+offset_top = 570.0
+offset_right = 1077.0
+offset_bottom = 611.0
 theme_override_fonts/font = ExtResource("4_refuw")
 theme_override_font_sizes/font_size = 26
 text = "Main Menu"
 script = ExtResource("5_i5xjj")
-metadata/Level = "res://Scenes/MainMenu.tscn"
 
 [node name="btnLevel01" type="Button" parent="."]
-offset_left = 60.0
-offset_top = 141.0
-offset_right = 291.0
-offset_bottom = 199.0
+offset_left = 80.0
+offset_top = 136.0
+offset_right = 373.0
+offset_bottom = 177.0
 theme_override_fonts/font = ExtResource("4_refuw")
 theme_override_font_sizes/font_size = 26
 text = "1"
 script = ExtResource("5_i5xjj")
-metadata/Level = "res://Levels/Level01.tscn"
 
 [node name="btnLevel02" type="Button" parent="."]
-offset_left = 60.0
-offset_top = 215.0
-offset_right = 291.0
-offset_bottom = 273.0
+offset_left = 80.0
+offset_top = 210.0
+offset_right = 373.0
+offset_bottom = 251.0
 theme_override_fonts/font = ExtResource("4_refuw")
 theme_override_font_sizes/font_size = 26
 text = "2"
 script = ExtResource("5_i5xjj")
-metadata/Level = "res://Levels/Level02.tscn"
+
+[node name="btnLevel03" type="Button" parent="."]
+offset_left = 80.0
+offset_top = 282.0
+offset_right = 373.0
+offset_bottom = 323.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "3"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel04" type="Button" parent="."]
+offset_left = 80.0
+offset_top = 354.0
+offset_right = 373.0
+offset_bottom = 395.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "4"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel05" type="Button" parent="."]
+offset_left = 80.0
+offset_top = 426.0
+offset_right = 373.0
+offset_bottom = 467.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "5"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel06" type="Button" parent="."]
+offset_left = 80.0
+offset_top = 498.0
+offset_right = 373.0
+offset_bottom = 539.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "6"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel07" type="Button" parent="."]
+offset_left = 80.0
+offset_top = 570.0
+offset_right = 373.0
+offset_bottom = 611.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "7"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel08" type="Button" parent="."]
+offset_left = 432.0
+offset_top = 136.0
+offset_right = 725.0
+offset_bottom = 177.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "8"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel09" type="Button" parent="."]
+offset_left = 432.0
+offset_top = 210.0
+offset_right = 725.0
+offset_bottom = 251.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "9"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel10" type="Button" parent="."]
+offset_left = 432.0
+offset_top = 282.0
+offset_right = 725.0
+offset_bottom = 323.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "10"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel11" type="Button" parent="."]
+offset_left = 432.0
+offset_top = 354.0
+offset_right = 725.0
+offset_bottom = 395.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "11"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel12" type="Button" parent="."]
+offset_left = 432.0
+offset_top = 426.0
+offset_right = 725.0
+offset_bottom = 467.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "12"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel13" type="Button" parent="."]
+offset_left = 432.0
+offset_top = 498.0
+offset_right = 725.0
+offset_bottom = 539.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "13"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel14" type="Button" parent="."]
+offset_left = 432.0
+offset_top = 570.0
+offset_right = 725.0
+offset_bottom = 611.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "14"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel15" type="Button" parent="."]
+offset_left = 784.0
+offset_top = 136.0
+offset_right = 1077.0
+offset_bottom = 177.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "15"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel16" type="Button" parent="."]
+offset_left = 784.0
+offset_top = 210.0
+offset_right = 1077.0
+offset_bottom = 251.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "16"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel17" type="Button" parent="."]
+offset_left = 784.0
+offset_top = 282.0
+offset_right = 1077.0
+offset_bottom = 323.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "17"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel18" type="Button" parent="."]
+offset_left = 784.0
+offset_top = 354.0
+offset_right = 1077.0
+offset_bottom = 395.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "18"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel19" type="Button" parent="."]
+offset_left = 784.0
+offset_top = 426.0
+offset_right = 1077.0
+offset_bottom = 467.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "19"
+script = ExtResource("5_i5xjj")
+
+[node name="btnLevel20" type="Button" parent="."]
+offset_left = 784.0
+offset_top = 498.0
+offset_right = 1077.0
+offset_bottom = 539.0
+theme_override_fonts/font = ExtResource("4_refuw")
+theme_override_font_sizes/font_size = 26
+text = "20"
+script = ExtResource("5_i5xjj")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="btnBack" to="btnBack" method="_on_pressed" binds= ["res://Scenes/MainMenu.tscn"]]
 [connection signal="pressed" from="btnLevel01" to="btnLevel01" method="_on_pressed" binds= ["res://Levels/Level01.tscn"]]
 [connection signal="pressed" from="btnLevel02" to="btnLevel02" method="_on_pressed" binds= ["res://Levels/Level02.tscn"]]
+[connection signal="pressed" from="btnLevel03" to="btnLevel03" method="_on_pressed" binds= ["res://Levels/Level03.tscn"]]
+[connection signal="pressed" from="btnLevel04" to="btnLevel04" method="_on_pressed" binds= ["res://Levels/Level04.tscn"]]
+[connection signal="pressed" from="btnLevel05" to="btnLevel05" method="_on_pressed" binds= ["res://Levels/Level05.tscn"]]
+[connection signal="pressed" from="btnLevel06" to="btnLevel06" method="_on_pressed" binds= ["res://Levels/Level06.tscn"]]
+[connection signal="pressed" from="btnLevel07" to="btnLevel07" method="_on_pressed" binds= ["res://Levels/Level07.tscn"]]
+[connection signal="pressed" from="btnLevel08" to="btnLevel08" method="_on_pressed" binds= ["res://Levels/Level08.tscn"]]
+[connection signal="pressed" from="btnLevel09" to="btnLevel09" method="_on_pressed" binds= ["res://Levels/Level09.tscn"]]
+[connection signal="pressed" from="btnLevel10" to="btnLevel10" method="_on_pressed" binds= ["res://Levels/Level10.tscn"]]
+[connection signal="pressed" from="btnLevel11" to="btnLevel11" method="_on_pressed" binds= ["res://Levels/Level11.tscn"]]
+[connection signal="pressed" from="btnLevel12" to="btnLevel12" method="_on_pressed" binds= ["res://Levels/Level12.tscn"]]
+[connection signal="pressed" from="btnLevel13" to="btnLevel13" method="_on_pressed" binds= ["res://Levels/Level13.tscn"]]
+[connection signal="pressed" from="btnLevel14" to="btnLevel14" method="_on_pressed" binds= ["res://Levels/Level14.tscn"]]
+[connection signal="pressed" from="btnLevel15" to="btnLevel15" method="_on_pressed" binds= ["res://Levels/Level15.tscn"]]
+[connection signal="pressed" from="btnLevel16" to="btnLevel16" method="_on_pressed" binds= ["res://Levels/Level16.tscn"]]
+[connection signal="pressed" from="btnLevel17" to="btnLevel17" method="_on_pressed" binds= ["res://Levels/Level17.tscn"]]
+[connection signal="pressed" from="btnLevel18" to="btnLevel18" method="_on_pressed" binds= ["res://Levels/Level18.tscn"]]
+[connection signal="pressed" from="btnLevel19" to="btnLevel19" method="_on_pressed" binds= ["res://Levels/Level19.tscn"]]
+[connection signal="pressed" from="btnLevel20" to="btnLevel20" method="_on_pressed" binds= ["res://Levels/Level20.tscn"]]

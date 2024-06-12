@@ -103,7 +103,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cu0h4")
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.324834, 5, 47.4969)
 
 [node name="Goal" parent="Ground" instance=ExtResource("5_rx5en")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.32811, -38.6363)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2.32811, -38.6363)
 
 [node name="MurderDeathKill" type="Area3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389248, -19.9504, 0.57489)

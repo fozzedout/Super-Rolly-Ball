@@ -5,7 +5,6 @@ var globals
 func _ready():
 	globals = get_node("/root/Globals")
 	globals.load_game()
-	
 	$btnStart.grab_focus()
 	$audio_volume.value = globals.ts["Volume"]
 

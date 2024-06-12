@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://f2kebhg7s7k4"]
+
+[ext_resource type="PackedScene" uid="uid://cq64jd86rh3q5" path="res://TatScenes/Blocks/RegularPieces/2x2.tscn" id="1_tjv45"]
+
+[node name="2xTunnel" type="Node3D"]
+
+[node name="2x4" parent="." instance=ExtResource("1_tjv45")]
+
+[node name="2x6" parent="." instance=ExtResource("1_tjv45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 6, 2.08165e-12)
+
+[node name="2x2" parent="." instance=ExtResource("1_tjv45")]
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 3, 3)
+
+[node name="2x7" parent="." instance=ExtResource("1_tjv45")]
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 3, -3)
+
+[node name="2x3" parent="." instance=ExtResource("1_tjv45")]
+
+[node name="2x5" parent="." instance=ExtResource("1_tjv45")]

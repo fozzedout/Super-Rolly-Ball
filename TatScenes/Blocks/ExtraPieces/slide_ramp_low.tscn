@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dspiunibc0kfb"]
+
+[ext_resource type="PackedScene" uid="uid://cuxsw4fahqcq5" path="res://TatScenes/Blocks/ExtraPieces/slide.tscn" id="1_opg07"]
+[ext_resource type="PackedScene" uid="uid://bxvqwixeooeg1" path="res://TatScenes/Blocks/RegularPieces/5x5.tscn" id="2_qf0aw"]
+
+[node name="SlideRampLow" instance=ExtResource("1_opg07")]
+
+[node name="5x11" parent="." index="9" instance=ExtResource("2_qf0aw")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 2.0825e-16, 0.939531, 0.342463, -4.47143e-16, -0.342463, 0.939531, 2.08165e-12, -0.615551, 48.4888)

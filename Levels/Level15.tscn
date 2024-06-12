@@ -1,0 +1,277 @@
+[gd_scene load_steps=22 format=3 uid="uid://b0y2t7gffhmxe"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_62yro"]
+[ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_ouax1"]
+[ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="3_gwox4"]
+[ext_resource type="PackedScene" uid="uid://32wl7xvykjud" path="res://TatScenes/Blocks/ExtraPieces/tower_core.tscn" id="4_2kpo8"]
+[ext_resource type="PackedScene" uid="uid://bipwf0j10or6d" path="res://TatScenes/Blocks/RegularPieces/8x8.tscn" id="5_awo81"]
+[ext_resource type="PackedScene" uid="uid://i831hbbnsgpo" path="res://TatScenes/Blocks/ExtraPieces/slide_ramp_far.tscn" id="6_0dq6k"]
+[ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="12_bqqeh"]
+[ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="13_kbuvd"]
+[ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="15_7v5yy"]
+[ext_resource type="Script" path="res://globals.gd" id="16_qq84k"]
+[ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="17_gpfe0"]
+[ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="18_lly87"]
+[ext_resource type="AudioStream" uid="uid://dxa1p4f6paw01" path="res://Assets/hit portal.ogg" id="19_jwxnu"]
+[ext_resource type="AudioStream" uid="uid://d3i4t3u8lb23m" path="res://Assets/ready start.ogg" id="20_1msur"]
+[ext_resource type="AudioStream" uid="uid://3rpt22iy2xky" path="res://Assets/fall out.ogg" id="21_e7xfn"]
+[ext_resource type="AudioStream" uid="uid://cmcp8switxcqt" path="res://Assets/time up.ogg" id="22_y1lcd"]
+[ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="23_n1tvb"]
+[ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="24_7rhcd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
+size = Vector3(1000, 1, 1000)
+
+[sub_resource type="Animation" id="Animation_x8fa6"]
+resource_name = "FadeStart"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lblLevelResult:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lblLevelResult:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tkawt"]
+_data = {
+"FadeStart": SubResource("Animation_x8fa6")
+}
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_62yro")
+metadata/Level = "Level06"
+
+[node name="Skybox" parent="." instance=ExtResource("2_ouax1")]
+
+[node name="DirectionalLight3D" parent="Skybox" index="0"]
+transform = Transform3D(0.857167, 0.364187, -0.364187, 2.4663e-16, 0.707107, 0.707107, 0.515038, -0.606109, 0.606109, 0, 30.5478, 46.221)
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 20)
+fov = 37.8493
+
+[node name="Ball" parent="." instance=ExtResource("3_gwox4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7665, 28.4449, 83.3379)
+
+[node name="Ground" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389248, -5.04956, -0.57489)
+
+[node name="Areas" type="Node3D" parent="Ground"]
+
+[node name="TowerCore" parent="Ground/Areas" instance=ExtResource("4_2kpo8")]
+
+[node name="8x8" parent="Ground/Areas" instance=ExtResource("5_awo81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.9775, 0, 79.7553)
+
+[node name="8x9" parent="Ground/Areas" instance=ExtResource("5_awo81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.3794, 0, 79.7553)
+
+[node name="SlideRampFar" parent="Ground/Areas" instance=ExtResource("6_0dq6k")]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -23, 2, 80)
+
+[node name="flagGreen" parent="Ground" instance=ExtResource("12_bqqeh")]
+transform = Transform3D(-0.62988, 0, 2.93313, 0, 3, 0, -2.93313, 0, -0.62988, -27.0694, 13.2384, 82.6832)
+
+[node name="Goal" parent="Ground" instance=ExtResource("13_kbuvd")]
+transform = Transform3D(2, -6.97574e-16, 6.97574e-16, 6.97574e-16, 2, -6.97574e-16, -6.97574e-16, 6.97574e-16, 2, 9.5, -2.622, 21.721)
+
+[node name="MurderDeathKill" type="Area3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389248, -19.9504, 0.57489)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/MurderDeathKill"]
+shape = SubResource("BoxShape3D_tm63d")
+
+[node name="Collectables" type="Node3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.03776, 0)
+
+[node name="TimerReload" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerStart" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="GoalScreen" type="Node2D" parent="."]
+visible = false
+
+[node name="lblClearScore" type="Label" parent="GoalScreen"]
+offset_left = 128.0
+offset_top = 241.0
+offset_right = 945.0
+offset_bottom = 310.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.55, 0.82, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_7v5yy")
+theme_override_font_sizes/font_size = 50
+text = "Clear Score: 00000000"
+metadata/_edit_use_anchors_ = true
+
+[node name="lblDonutBonus" type="Label" parent="GoalScreen"]
+offset_left = 128.0
+offset_top = 310.0
+offset_right = 902.0
+offset_bottom = 379.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_7v5yy")
+theme_override_font_sizes/font_size = 50
+text = "Star Bonus       ×2"
+metadata/_edit_use_anchors_ = true
+
+[node name="lblLevelScore" type="Label" parent="GoalScreen"]
+offset_left = 128.0
+offset_top = 379.0
+offset_right = 945.0
+offset_bottom = 448.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.45098, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_7v5yy")
+theme_override_font_sizes/font_size = 50
+text = "Level Score: 00000000
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="btnNextLevel" type="Button" parent="GoalScreen"]
+offset_left = 128.0
+offset_top = 528.0
+offset_right = 559.0
+offset_bottom = 632.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../btnMainMenu")
+focus_neighbor_right = NodePath("../btnMainMenu")
+focus_next = NodePath("../btnMainMenu")
+focus_previous = NodePath("../btnMainMenu")
+theme_override_fonts/font = ExtResource("15_7v5yy")
+theme_override_font_sizes/font_size = 40
+text = "Next Level"
+script = ExtResource("16_qq84k")
+
+[node name="btnMainMenu" type="Button" parent="GoalScreen"]
+offset_left = 601.0
+offset_top = 528.0
+offset_right = 1032.0
+offset_bottom = 632.0
+focus_neighbor_left = NodePath("../btnNextLevel")
+focus_neighbor_right = NodePath("../btnNextLevel")
+focus_next = NodePath("../btnNextLevel")
+focus_previous = NodePath("../btnNextLevel")
+theme_override_fonts/font = ExtResource("15_7v5yy")
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
+script = ExtResource("16_qq84k")
+
+[node name="lblLevelResult" type="Label" parent="."]
+offset_left = 283.0
+offset_top = 108.0
+offset_right = 839.0
+offset_bottom = 218.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.85098, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_7v5yy")
+theme_override_font_sizes/font_size = 80
+text = "READY"
+horizontal_alignment = 1
+
+[node name="Hud" type="Node2D" parent="."]
+
+[node name="lblDonuts" type="Label" parent="Hud"]
+offset_left = 601.0
+offset_right = 1144.0
+offset_bottom = 65.0
+rotation = 0.00281793
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(1, 1, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_7v5yy")
+theme_override_font_sizes/font_size = 47
+text = "Stars: 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="lblTime" type="Label" parent="Hud"]
+offset_left = 15.0
+offset_right = 559.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(1, 0.686275, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_7v5yy")
+theme_override_font_sizes/font_size = 47
+text = "Time: 0"
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tkawt")
+}
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("17_gpfe0")
+autoplay = true
+
+[node name="Collected" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("18_lly87")
+
+[node name="HitPortal" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("19_jwxnu")
+
+[node name="ReadyStart" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("20_1msur")
+autoplay = true
+
+[node name="FallOut" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("21_e7xfn")
+
+[node name="TimeUp" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("22_y1lcd")
+
+[node name="Perfect" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("23_n1tvb")
+
+[node name="Goal" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("24_7rhcd")
+
+[connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]
+[connection signal="body_entered" from="Ground/MurderDeathKill" to="." method="_on_murder_death_kill_body_entered"]
+[connection signal="timeout" from="TimerReload" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerStart" to="." method="_on_timer_start_timeout"]
+[connection signal="pressed" from="GoalScreen/btnNextLevel" to="GoalScreen/btnNextLevel" method="_on_pressed" binds= ["res://Levels/Level07.tscn"]]
+[connection signal="pressed" from="GoalScreen/btnMainMenu" to="GoalScreen/btnMainMenu" method="_on_pressed" binds= ["res://Scenes/MainMenu.tscn"]]
+
+[editable path="Skybox"]
+[editable path="Ball"]

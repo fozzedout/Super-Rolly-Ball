@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwyhgak7xlk1t"]
+[gd_scene load_steps=3 format=3 uid="uid://dwyhgak7xlk1t"]
 
-[ext_resource type="Script" path="res://Levels/Path3D.gd" id="1_0rkca"]
-[ext_resource type="PackedScene" uid="uid://60ryftt000pt" path="res://TatScenes/Blocks/RegularPieces/3x3.tscn" id="2_sr67v"]
+[ext_resource type="Script" path="res://TatScenes/Path3D.gd" id="1_0rkca"]
 
 [sub_resource type="Curve3D" id="Curve3D_lvt4p"]
 _data = {
@@ -17,8 +16,5 @@ script = ExtResource("1_0rkca")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.456, 2.08165e-12, 0.492)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.456, -0.001, 0.492)
 rotation_mode = 0
-
-[node name="3x3" parent="PathFollow3D" instance=ExtResource("2_sr67v")]
-transform = Transform3D(1, 0, 7.91974e-09, 0, 1, 0, 7.36151e-09, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)

@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc72spbomx4ka"]
+
+[ext_resource type="Script" path="res://TatScenes/Path3D.gd" id="1_bqxod"]
+[ext_resource type="PackedScene" uid="uid://cq64jd86rh3q5" path="res://TatScenes/Blocks/RegularPieces/2x2.tscn" id="2_71yo5"]
+
+[sub_resource type="Curve3D" id="Curve3D_lvt4p"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.72244e-06, -19.7024, -2.08852e-12, 0, 0, 0, 0, 0, 0, -0.100598, 17.6626, -2.08784e-12),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="Crusher" type="Node3D"]
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 3.48787e-16, -8.74228e-08, -1, -3.48787e-16, 3.48787e-16, -3.48787e-16, 1, 2.08165e-12, 18.2976, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("1_bqxod")
+move_speed = 10.0
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72244e-06, -19.7024, -2.08852e-12)
+rotation_mode = 0
+
+[node name="CrushHead" type="Node3D" parent="Path3D/PathFollow3D"]
+
+[node name="2x2" parent="Path3D/PathFollow3D/CrushHead" instance=ExtResource("2_71yo5")]
+transform = Transform3D(0.906308, 0.422618, 3.48787e-16, -0.422618, 0.906308, -3.48787e-16, -4.63512e-16, 1.68705e-16, 1, 1.5, 2.08165e-12, 2.08165e-12)
+
+[node name="2x3" parent="Path3D/PathFollow3D/CrushHead" instance=ExtResource("2_71yo5")]
+transform = Transform3D(-0.906308, -0.422618, -8.74228e-08, -0.422618, 0.906308, -3.48788e-16, 7.92319e-08, 3.69465e-08, -1, -1.25, 2.08165e-12, 0.01)
+
+[node name="2x2" parent="." instance=ExtResource("2_71yo5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 7, 2.08165e-12)

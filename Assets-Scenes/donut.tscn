@@ -12,4 +12,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000663757, 0.0451623, 0.001
 shape = SubResource("BoxShape3D_1402g")
 
 [node name="Star2" parent="." instance=ExtResource("1_360u4")]
-transform = Transform3D(0.0860365, 1.2848e-17, 0.122873, 5.2318e-17, 0.15, -5.2318e-17, -0.122873, 7.28648e-17, 0.0860365, 0, 0, 0)
+transform = Transform3D(0.0860365, 1.28481e-17, 0.122873, 5.2318e-17, 0.15, -5.2318e-17, -0.122873, 7.28647e-17, 0.0860365, 0, 0, 0)

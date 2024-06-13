@@ -40,12 +40,13 @@ adjustment_saturation = 2.56
 environment = SubResource("Environment_y4lmy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.857167, 0.364187, -0.364187, 2.4663e-16, 0.707107, 0.707107, 0.515038, -0.606109, 0.606109, 0, 30.5478, 46.221)
-light_energy = 1.1
+transform = Transform3D(0.711151, -0.497124, 0.497124, -0.497124, 0.144424, 0.855576, -0.497124, -0.855576, -0.144424, 0, 30.5478, 46.221)
+rotation_edit_mode = 1
+light_energy = 1.5
 light_indirect_energy = 1.373
 shadow_enabled = true
 shadow_bias = 0.656
 shadow_normal_bias = 4.172
 shadow_transmittance_bias = 0.61
-shadow_opacity = 0.25
-shadow_blur = 4.616
+shadow_opacity = 0.1
+shadow_blur = 0.1

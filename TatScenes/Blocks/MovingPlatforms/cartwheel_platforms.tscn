@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnydlkfp1b4hv"]
+
+[ext_resource type="Script" path="res://TatScenes/Path3D.gd" id="1_sqq82"]
+[ext_resource type="PackedScene" uid="uid://dj5w56sbl0tn4" path="res://TatScenes/Blocks/RegularPieces/4x4.tscn" id="2_fp5ww"]
+[ext_resource type="PackedScene" uid="uid://cgfh5dx7qcmys" path="res://TatScenes/Blocks/RegularPieces/1x1.tscn" id="3_frmsb"]
+
+[sub_resource type="Curve3D" id="Curve3D_lvt4p"]
+_data = {
+"points": PackedVector3Array(11, 0, 0, -11, 0, 0, -2.08862e-12, -19.9852, -2.07468e-12, 0, -11, 0, 0, 11, 0, -19.5322, -0.0503419, -2.08844e-12, -11, 0, 0, 11, 0, 0, -2.07478e-12, 19.6832, -2.08851e-12, 0, 11, 0, 0, -11, 0, 19.5322, 0.0503419, -2.07485e-12, 11, 0, 0, -11, 0, 0, -2.08862e-12, -19.9852, -2.07468e-12),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="CartwheelPlatforms" type="Node3D"]
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("1_sqq82")
+move_speed = 3.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08862e-12, -19.9852, -2.07468e-12)
+rotation_mode = 0
+
+[node name="4x4" parent="Path3D/PathFollow3D" instance=ExtResource("2_fp5ww")]
+
+[node name="Path3D3" type="Path3D" parent="."]
+transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("1_sqq82")
+move_speed = 3.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117683, -2.08844e-12)
+progress = 30.98
+rotation_mode = 0
+
+[node name="4x4" parent="Path3D3/PathFollow3D" instance=ExtResource("2_fp5ww")]
+
+[node name="Path3D2" type="Path3D" parent="."]
+transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("1_sqq82")
+move_speed = 3.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000293735, 19.6832, -2.08851e-12)
+progress = 61.9599
+rotation_mode = 0
+
+[node name="4x4" parent="Path3D2/PathFollow3D" instance=ExtResource("2_fp5ww")]
+
+[node name="Path3D4" type="Path3D" parent="."]
+transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("1_sqq82")
+move_speed = 3.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5317, -0.0847798, -2.07485e-12)
+progress = 92.9399
+rotation_mode = 0
+
+[node name="4x4" parent="Path3D4/PathFollow3D" instance=ExtResource("2_fp5ww")]
+
+[node name="1x1" parent="." instance=ExtResource("3_frmsb")]
+transform = Transform3D(0.5, -0.5, 0.707107, 0.707107, 0.707107, -3.48787e-16, -0.5, 0.5, 0.707107, 0, 0, 0)

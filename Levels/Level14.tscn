@@ -44,38 +44,6 @@ point_count = 5
 [sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
 size = Vector3(1000, 1, 1000)
 
-[sub_resource type="Animation" id="Animation_x8fa6"]
-resource_name = "FadeStart"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("lblLevelResult:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("lblLevelResult:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tkawt"]
-_data = {
-"FadeStart": SubResource("Animation_x8fa6")
-}
-
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8q4f7"]
 panorama = ExtResource("17_k4pf0")
 
@@ -110,7 +78,52 @@ adjustment_brightness = 2.85
 adjustment_contrast = 1.67
 adjustment_saturation = 2.56
 
-[node name="Level" type="Node3D"]
+[sub_resource type="Animation" id="Animation_x8fa6"]
+resource_name = "FadeStart"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lblLevelResult:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lblLevelResult:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("lblLevelResult:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["START!"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tkawt"]
+_data = {
+"FadeStart": SubResource("Animation_x8fa6")
+}
+
+[node name="Level2" type="Node3D"]
 script = ExtResource("1_0sym7")
 metadata/Level = "Level14"
 
@@ -118,7 +131,8 @@ metadata/Level = "Level14"
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 20)
+current = true
 fov = 37.8493
 
 [node name="Ball" parent="." instance=ExtResource("3_qg1gk")]
@@ -136,7 +150,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 rotation_mode = 1
 
 [node name="5x5" parent="Ground/Areas/Elevator/PathFollow3D" instance=ExtResource("5_avknr")]
@@ -325,7 +339,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.0999999, -75.458)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 
 [node name="3x4" parent="Ground/Areas/Elevated/Laybye" instance=ExtResource("4_txlad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.120092, -3, 6)
+
+[node name="3x6" parent="Ground/Areas/Elevated/Laybye" instance=ExtResource("4_txlad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.46949, -3, 0)
+
+[node name="3x7" parent="Ground/Areas/Elevated/Laybye" instance=ExtResource("4_txlad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.58958, -3, 6)
 
 [node name="3x5" parent="Ground/Areas/Elevated/Laybye" instance=ExtResource("4_txlad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -6)
@@ -338,6 +358,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 
 [node name="3x4" parent="Ground/Areas/Elevated/Laybye2" instance=ExtResource("4_txlad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 6)
+
+[node name="3x6" parent="Ground/Areas/Elevated/Laybye2" instance=ExtResource("4_txlad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.00497, -3, 0)
+
+[node name="3x7" parent="Ground/Areas/Elevated/Laybye2" instance=ExtResource("4_txlad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.00497, -3, 6)
 
 [node name="3x5" parent="Ground/Areas/Elevated/Laybye2" instance=ExtResource("4_txlad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -6)
@@ -426,6 +452,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 [node name="3x4" parent="Ground/Areas/Elevated2/Laybye" instance=ExtResource("4_txlad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 6)
 
+[node name="3x6" parent="Ground/Areas/Elevated2/Laybye" instance=ExtResource("4_txlad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61755, -3, 0)
+
+[node name="3x7" parent="Ground/Areas/Elevated2/Laybye" instance=ExtResource("4_txlad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61755, -3, 6)
+
 [node name="3x5" parent="Ground/Areas/Elevated2/Laybye" instance=ExtResource("4_txlad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -6)
 
@@ -437,6 +469,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 
 [node name="3x4" parent="Ground/Areas/Elevated2/Laybye2" instance=ExtResource("4_txlad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 6)
+
+[node name="3x6" parent="Ground/Areas/Elevated2/Laybye2" instance=ExtResource("4_txlad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42466, -3, 0)
+
+[node name="3x7" parent="Ground/Areas/Elevated2/Laybye2" instance=ExtResource("4_txlad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42466, -3, 6)
 
 [node name="3x5" parent="Ground/Areas/Elevated2/Laybye2" instance=ExtResource("4_txlad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -6)
@@ -536,7 +574,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08862e-12, -19.9852, -2.07
 rotation_mode = 0
 
 [node name="4x4" parent="Ground/Areas/Elevated3/CartwheelPlatforms/Path3D/PathFollow3D" instance=ExtResource("12_sgav7")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, -4.37114e-08, -2, 0, 1, -8.74228e-08, 0, 0, 0)
 
 [node name="Path3D3" type="Path3D" parent="Ground/Areas/Elevated3/CartwheelPlatforms"]
 transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -545,12 +583,12 @@ script = ExtResource("12_2spm2")
 move_speed = 5.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevated3/CartwheelPlatforms/Path3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117631, -2.08844e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117639, -2.08844e-12)
 progress = 30.98
 rotation_mode = 0
 
 [node name="4x4" parent="Ground/Areas/Elevated3/CartwheelPlatforms/Path3D3/PathFollow3D" instance=ExtResource("12_sgav7")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, -4.37114e-08, -2, 0, 1, -8.74228e-08, 0, 0, 0)
 
 [node name="Path3D2" type="Path3D" parent="Ground/Areas/Elevated3/CartwheelPlatforms"]
 transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -559,12 +597,12 @@ script = ExtResource("12_2spm2")
 move_speed = 5.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevated3/CartwheelPlatforms/Path3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000259402, 19.6832, -2.08851e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000251773, 19.6832, -2.08851e-12)
 progress = 61.9599
 rotation_mode = 0
 
 [node name="4x4" parent="Ground/Areas/Elevated3/CartwheelPlatforms/Path3D2/PathFollow3D" instance=ExtResource("12_sgav7")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, -4.37114e-08, -2, 0, 1, -8.74228e-08, 0, 0, 0)
 
 [node name="Path3D4" type="Path3D" parent="Ground/Areas/Elevated3/CartwheelPlatforms"]
 transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -578,7 +616,7 @@ progress = 92.9399
 rotation_mode = 0
 
 [node name="4x4" parent="Ground/Areas/Elevated3/CartwheelPlatforms/Path3D4/PathFollow3D" instance=ExtResource("12_sgav7")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, -4.37114e-08, -2, 0, 1, -8.74228e-08, 0, 0, 0)
 
 [node name="1x1" parent="Ground/Areas/Elevated3/CartwheelPlatforms" instance=ExtResource("10_wnpqn")]
 transform = Transform3D(0.5, -0.5, 0.707107, 0.707107, 0.707107, -3.48787e-16, -0.5, 0.5, 0.707107, 0, 0, 0)
@@ -797,12 +835,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.99908, -0.88562, -255.901)
 
 [node name="1x1" parent="Ground/sinkLine26" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, 0, 1.92252)
 
 [node name="1x3" parent="Ground/sinkLine26" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5.36926)
 
 [node name="1x5" parent="Ground/sinkLine26" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5.36926)
 
 [node name="sinkLine14" type="Node3D" parent="Ground"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.99908, -0.88562, -250.535)
@@ -823,16 +862,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.99908, -0.88562, -260.535)
 
 [node name="1x2" parent="Ground/sinkLine27" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2.70963)
 
 [node name="1x4" parent="Ground/sinkLine27" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99205, 0, -2.70963)
 
 [node name="1x6" parent="Ground/sinkLine27" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -2.70963)
 
 [node name="1x7" parent="Ground/sinkLine27" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.97591, 0, -2.70963)
 
 [node name="sinkLine15" type="Node3D" parent="Ground"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.99908, -0.88562, -239.535)
@@ -845,15 +884,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 
 [node name="sinkLine25" type="Node3D" parent="Ground"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.99908, -0.88562, -241.535)
-
-[node name="1x2" parent="Ground/sinkLine25" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-
-[node name="1x3" parent="Ground/sinkLine25" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-
-[node name="1x4" parent="Ground/sinkLine25" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
 [node name="1x6" parent="Ground/sinkLine25" instance=ExtResource("10_wnpqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
@@ -1140,11 +1170,6 @@ theme_override_font_sizes/font_size = 47
 text = "Time: 0"
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_tkawt")
-}
-
 [node name="Audio" type="Node" parent="."]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="Audio"]
@@ -1190,12 +1215,18 @@ shadow_transmittance_bias = 0.61
 shadow_opacity = 0.1
 shadow_blur = 0.1
 
+[node name="ReadyStart" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tkawt")
+}
+autoplay = "FadeStart"
+
 [connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]
 [connection signal="body_entered" from="Ground/MurderDeathKill" to="." method="_on_murder_death_kill_body_entered"]
 [connection signal="timeout" from="TimerReload" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerStart" to="." method="_on_timer_start_timeout"]
-[connection signal="pressed" from="GoalScreen/btnNextLevel" to="GoalScreen/btnNextLevel" method="_on_pressed" binds= ["res://Levels/Level14.tscn"]]
+[connection signal="pressed" from="GoalScreen/btnNextLevel" to="GoalScreen/btnNextLevel" method="_on_pressed" binds= ["res://Levels/Level15.tscn"]]
 [connection signal="pressed" from="GoalScreen/btnMainMenu" to="GoalScreen/btnMainMenu" method="_on_pressed" binds= ["res://Scenes/MainMenu.tscn"]]
 
 [editable path="Ball"]

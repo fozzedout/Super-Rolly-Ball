@@ -184,7 +184,7 @@ script = ExtResource("7_uca6v")
 move_speed = 5.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher5/Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.301821, 16.2413, -0.0381584)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.301822, 16.2413, -0.0381584)
 progress = 35.945
 rotation_mode = 0
 

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bqn0padau2lu7" path="res://TatScenes/Blocks/MovingPlatforms/flowing_platforms.tscn" id="6_k66vx"]
 [ext_resource type="PackedScene" uid="uid://bho4nvmpn2xwa" path="res://TatScenes/Blocks/MovingPlatforms/Fatpusher.tscn" id="6_r120o"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="7_b0yvk"]
-[ext_resource type="PackedScene" uid="uid://bnydlkfp1b4hv" path="res://TatScenes/Blocks/MovingPlatforms/cartwheel_platforms.tscn" id="7_dym63"]
+[ext_resource type="PackedScene" uid="uid://bnydlkfp1b4hv" path="res://TatScenes/Blocks/MovingPlatforms/roundabout_platforms.tscn" id="7_dym63"]
 [ext_resource type="PackedScene" uid="uid://bxvqwixeooeg1" path="res://TatScenes/Blocks/RegularPieces/5x5.tscn" id="7_uuxmi"]
 [ext_resource type="PackedScene" uid="uid://60ryftt000pt" path="res://TatScenes/Blocks/RegularPieces/3x3.tscn" id="8_0jwf0"]
 [ext_resource type="PackedScene" uid="uid://dh5w87djsjqbs" path="res://TatScenes/Blocks/ExtraPieces/tower_nexus.tscn" id="8_pxrbp"]
@@ -32,13 +32,13 @@
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6nyyj"]
 panorama = ExtResource("2_nt1y1")
 
-[sub_resource type="Sky" id="Sky_1noyv"]
+[sub_resource type="Sky" id="Sky_gngg0"]
 sky_material = SubResource("PanoramaSkyMaterial_6nyyj")
 
 [sub_resource type="Environment" id="Environment_y4lmy"]
 background_mode = 2
 background_color = Color(0.00447858, 0.00638158, 0.0458453, 1)
-sky = SubResource("Sky_1noyv")
+sky = SubResource("Sky_gngg0")
 sky_rotation = Vector3(3.14159, 3.48787e-16, 3.48787e-16)
 ambient_light_source = 1
 ambient_light_color = Color(0.0316549, 0.0316549, 0.0316549, 1)

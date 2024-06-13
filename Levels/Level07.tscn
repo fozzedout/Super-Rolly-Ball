@@ -22,21 +22,21 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
 size = Vector3(1000, 1, 1000)
 
-[sub_resource type="Animation" id="Animation_7dkpc"]
-resource_name = "moving_block_1"
+[sub_resource type="Animation" id="Animation_w61i0"]
+resource_name = "moving block"
 length = 4.0
 loop_mode = 2
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Ground/Areas/2x5")
+tracks/0/path = NodePath("Ground/Areas/2x5")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 30, 4, 33, 4, 1, 30, 4, -20)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hj5mv"]
 _data = {
-"moving_block_1": SubResource("Animation_7dkpc")
+"moving block": SubResource("Animation_w61i0")
 }
 
 [sub_resource type="Animation" id="Animation_x8fa6"]
@@ -131,7 +131,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.61075, 4.04956, 45.5749)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.38925, 4.04956, 45.5749)
 
 [node name="2x5" parent="Ground/Areas" instance=ExtResource("5_coxi0")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30, 4, 33)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30, 4, -20)
 
 [node name="flagGreen" parent="Ground" instance=ExtResource("6_87hlp")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.324834, 5, 47.4969)
@@ -323,11 +323,10 @@ stream = ExtResource("17_jt4dr")
 stream = ExtResource("18_7iq7u")
 
 [node name="MovePlatforms" type="AnimationPlayer" parent="."]
-root_node = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_hj5mv")
 }
-autoplay = "moving_block_1"
+autoplay = "moving block"
 speed_scale = 0.5
 
 [node name="ReadyStart" type="AnimationPlayer" parent="."]

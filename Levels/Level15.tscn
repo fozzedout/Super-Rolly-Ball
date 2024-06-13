@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b0y2t7gffhmxe"]
+[gd_scene load_steps=32 format=3 uid="uid://b0y2t7gffhmxe"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_62yro"]
 [ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_ouax1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://TatScenes/Path3D.gd" id="7_uca6v"]
 [ext_resource type="PackedScene" uid="uid://bxvqwixeooeg1" path="res://TatScenes/Blocks/RegularPieces/5x5.tscn" id="8_3o2qc"]
 [ext_resource type="PackedScene" uid="uid://cxkis50lunbny" path="res://TatScenes/Blocks/ExtraPieces/5x5bump.tscn" id="9_6uty8"]
+[ext_resource type="PackedScene" uid="uid://cdsd3iw7jfemt" path="res://TatScenes/Blocks/Railings/BumperRailing/bumper_railingx_8.tscn" id="10_6bw72"]
 [ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="12_bqqeh"]
 [ext_resource type="PackedScene" uid="uid://25t6dtdgx5nn" path="res://Assets/TatModels/Collectibles/Star.glb" id="12_gepml"]
 [ext_resource type="PackedScene" uid="uid://cg7sut6b2dmkw" path="res://TatScenes/Blocks/RegularPieces/1x10.tscn" id="12_s7kod"]
@@ -27,16 +28,19 @@
 
 [sub_resource type="Curve3D" id="Curve3D_lvt4p"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.72244e-06, -19.7024, -2.08852e-12, 0, 0, 0, 0, 0, 0, -0.603641, 52.185, -0.0763168),
-"tilts": PackedFloat32Array(0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.72244e-06, -19.7024, -2.08852e-12, 0, 0, 0, 0, 0, 0, -0.603641, 52.185, -0.0763168, 0, 0, 0, 0, 0, 0, 21.1361, 52.1213, -0.0762939),
+"tilts": PackedFloat32Array(0, 0, 0)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
 size = Vector3(1000, 1, 1000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1402g"]
 size = Vector3(0.247635, 0.365536, 0.276819)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rtsku"]
+size = Vector3(0.247635, 0.195793, 0.276819)
 
 [sub_resource type="Animation" id="Animation_x8fa6"]
 resource_name = "FadeStart"
@@ -139,7 +143,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.3794, 0, 47.7553)
 transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -23, 2, 80)
 
 [node name="FatPusher" type="Node3D" parent="Ground/Areas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.513, 2.6532, 81.5567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.513, -0.3468, 82.8567)
 
 [node name="Path3D" type="Path3D" parent="Ground/Areas/FatPusher"]
 transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 0, 0, 0)
@@ -148,72 +152,16 @@ script = ExtResource("7_uca6v")
 move_speed = 3.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher/Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603641, 52.185, -0.0763168)
-progress = 71.8899
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1361, 52.1212, -0.0762939)
+progress = 93.6297
 rotation_mode = 0
 
 [node name="PushShot" type="Node3D" parent="Ground/Areas/FatPusher/Path3D/PathFollow3D"]
 
 [node name="5x5" parent="Ground/Areas/FatPusher/Path3D/PathFollow3D/PushShot" instance=ExtResource("8_3o2qc")]
 
-[node name="FatPusher4" type="Node3D" parent="Ground/Areas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.7958, 2.6532, 47.6512)
-
-[node name="Path3D" type="Path3D" parent="Ground/Areas/FatPusher4"]
-transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -35, 0, 0)
-curve = SubResource("Curve3D_lvt4p")
-script = ExtResource("7_uca6v")
-move_speed = 5.0
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher4/Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72244e-06, -19.7024, -2.08852e-12)
-rotation_mode = 0
-
-[node name="PushShot" type="Node3D" parent="Ground/Areas/FatPusher4/Path3D/PathFollow3D"]
-
-[node name="8x8" parent="Ground/Areas/FatPusher4/Path3D/PathFollow3D/PushShot" instance=ExtResource("5_awo81")]
-transform = Transform3D(1, 1.21652e-31, 0, 1.21652e-31, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="FatPusher5" type="Node3D" parent="Ground/Areas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.7958, 2.6532, 47.6512)
-
-[node name="Path3D" type="Path3D" parent="Ground/Areas/FatPusher5"]
-transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -35, 0, 0)
-curve = SubResource("Curve3D_lvt4p")
-script = ExtResource("7_uca6v")
-move_speed = 5.0
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher5/Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.301822, 16.2413, -0.0381584)
-progress = 35.945
-rotation_mode = 0
-
-[node name="PushShot" type="Node3D" parent="Ground/Areas/FatPusher5/Path3D/PathFollow3D"]
-
-[node name="8x8" parent="Ground/Areas/FatPusher5/Path3D/PathFollow3D/PushShot" instance=ExtResource("5_awo81")]
-transform = Transform3D(1, 1.21652e-31, 0, 1.21652e-31, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="FatPusher6" type="Node3D" parent="Ground/Areas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.7958, 2.6532, 47.6512)
-
-[node name="Path3D" type="Path3D" parent="Ground/Areas/FatPusher6"]
-transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -35, 0, 0)
-curve = SubResource("Curve3D_lvt4p")
-script = ExtResource("7_uca6v")
-move_speed = 5.0
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher6/Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603641, 52.185, -0.0763168)
-progress = 71.8899
-rotation_mode = 0
-
-[node name="PushShot" type="Node3D" parent="Ground/Areas/FatPusher6/Path3D/PathFollow3D"]
-
-[node name="8x8" parent="Ground/Areas/FatPusher6/Path3D/PathFollow3D/PushShot" instance=ExtResource("5_awo81")]
-transform = Transform3D(1, 1.21652e-31, 0, 1.21652e-31, 1, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="FatPusher2" type="Node3D" parent="Ground/Areas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.513, 2.6532, 71.6971)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.513, -0.3468, 72.8567)
 
 [node name="Path3D" type="Path3D" parent="Ground/Areas/FatPusher2"]
 transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 0, 0, 0)
@@ -222,8 +170,8 @@ script = ExtResource("7_uca6v")
 move_speed = 3.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher2/Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603641, 52.185, -0.0763168)
-progress = 71.8899
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1361, 52.1212, -0.0762939)
+progress = 93.6297
 rotation_mode = 0
 
 [node name="PushShot" type="Node3D" parent="Ground/Areas/FatPusher2/Path3D/PathFollow3D"]
@@ -231,7 +179,7 @@ rotation_mode = 0
 [node name="5x5" parent="Ground/Areas/FatPusher2/Path3D/PathFollow3D/PushShot" instance=ExtResource("8_3o2qc")]
 
 [node name="FatPusher3" type="Node3D" parent="Ground/Areas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.517, 2.59538, 61.9684)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.513, -0.3468, 62.8567)
 
 [node name="Path3D" type="Path3D" parent="Ground/Areas/FatPusher3"]
 transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 0, 0, 0)
@@ -240,13 +188,174 @@ script = ExtResource("7_uca6v")
 move_speed = 3.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher3/Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603641, 52.185, -0.0763168)
-progress = 71.8899
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1361, 52.1212, -0.0762939)
+progress = 93.6297
 rotation_mode = 0
 
 [node name="PushShot" type="Node3D" parent="Ground/Areas/FatPusher3/Path3D/PathFollow3D"]
 
 [node name="5x5" parent="Ground/Areas/FatPusher3/Path3D/PathFollow3D/PushShot" instance=ExtResource("8_3o2qc")]
+
+[node name="FatPusher10" type="Node3D" parent="Ground/Areas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.513, -0.3468, 82.8567)
+
+[node name="Path3D" type="Path3D" parent="Ground/Areas/FatPusher10"]
+transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 0, 0, 0)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("7_uca6v")
+move_speed = 3.0
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher10/Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.393094, 27.1109, -0.0496978)
+progress = 46.8149
+rotation_mode = 0
+
+[node name="PushShot" type="Node3D" parent="Ground/Areas/FatPusher10/Path3D/PathFollow3D"]
+
+[node name="5x5" parent="Ground/Areas/FatPusher10/Path3D/PathFollow3D/PushShot" instance=ExtResource("8_3o2qc")]
+
+[node name="FatPusher11" type="Node3D" parent="Ground/Areas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.513, -0.3468, 72.8567)
+
+[node name="Path3D" type="Path3D" parent="Ground/Areas/FatPusher11"]
+transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 0, 0, 0)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("7_uca6v")
+move_speed = 3.0
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher11/Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.393094, 27.1109, -0.0496978)
+progress = 46.8149
+rotation_mode = 0
+
+[node name="PushShot" type="Node3D" parent="Ground/Areas/FatPusher11/Path3D/PathFollow3D"]
+
+[node name="5x5" parent="Ground/Areas/FatPusher11/Path3D/PathFollow3D/PushShot" instance=ExtResource("8_3o2qc")]
+
+[node name="FatPusher12" type="Node3D" parent="Ground/Areas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.513, -0.3468, 62.8567)
+
+[node name="Path3D" type="Path3D" parent="Ground/Areas/FatPusher12"]
+transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 0, 0, 0)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("7_uca6v")
+move_speed = 3.0
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher12/Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.393094, 27.1109, -0.0496978)
+progress = 46.8149
+rotation_mode = 0
+
+[node name="PushShot" type="Node3D" parent="Ground/Areas/FatPusher12/Path3D/PathFollow3D"]
+
+[node name="5x5" parent="Ground/Areas/FatPusher12/Path3D/PathFollow3D/PushShot" instance=ExtResource("8_3o2qc")]
+
+[node name="FatPusher7" type="Node3D" parent="Ground/Areas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.513, -0.3468, 82.8567)
+
+[node name="Path3D" type="Path3D" parent="Ground/Areas/FatPusher7"]
+transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 0, 0, 0)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("7_uca6v")
+move_speed = 3.0
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher7/Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72244e-06, -19.7024, -2.08852e-12)
+rotation_mode = 0
+
+[node name="PushShot" type="Node3D" parent="Ground/Areas/FatPusher7/Path3D/PathFollow3D"]
+
+[node name="5x5" parent="Ground/Areas/FatPusher7/Path3D/PathFollow3D/PushShot" instance=ExtResource("8_3o2qc")]
+
+[node name="FatPusher8" type="Node3D" parent="Ground/Areas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.513, -0.3468, 72.8567)
+
+[node name="Path3D" type="Path3D" parent="Ground/Areas/FatPusher8"]
+transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 0, 0, 0)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("7_uca6v")
+move_speed = 3.0
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher8/Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72244e-06, -19.7024, -2.08852e-12)
+rotation_mode = 0
+
+[node name="PushShot" type="Node3D" parent="Ground/Areas/FatPusher8/Path3D/PathFollow3D"]
+
+[node name="5x5" parent="Ground/Areas/FatPusher8/Path3D/PathFollow3D/PushShot" instance=ExtResource("8_3o2qc")]
+
+[node name="FatPusher9" type="Node3D" parent="Ground/Areas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.513, -0.3468, 62.8567)
+
+[node name="Path3D" type="Path3D" parent="Ground/Areas/FatPusher9"]
+transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 0, 0, 0)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("7_uca6v")
+move_speed = 3.0
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher9/Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72244e-06, -19.7024, -2.08852e-12)
+rotation_mode = 0
+
+[node name="PushShot" type="Node3D" parent="Ground/Areas/FatPusher9/Path3D/PathFollow3D"]
+
+[node name="5x5" parent="Ground/Areas/FatPusher9/Path3D/PathFollow3D/PushShot" instance=ExtResource("8_3o2qc")]
+
+[node name="FatPusher4" type="Node3D" parent="Ground/Areas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.513, 2.6532, 47.5567)
+
+[node name="Path3D" type="Path3D" parent="Ground/Areas/FatPusher4"]
+transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 0, 0, 0)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("7_uca6v")
+move_speed = 3.0
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher4/Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72244e-06, -19.7024, -2.08852e-12)
+rotation_mode = 0
+
+[node name="PushShot" type="Node3D" parent="Ground/Areas/FatPusher4/Path3D/PathFollow3D"]
+
+[node name="8x8" parent="Ground/Areas/FatPusher4/Path3D/PathFollow3D/PushShot" instance=ExtResource("5_awo81")]
+transform = Transform3D(1, 1.21652e-31, 0, 1.21652e-31, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="FatPusher5" type="Node3D" parent="Ground/Areas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.513, 2.6532, 47.5567)
+
+[node name="Path3D" type="Path3D" parent="Ground/Areas/FatPusher5"]
+transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 0, 0, 0)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("7_uca6v")
+move_speed = 3.0
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher5/Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.393094, 27.1109, -0.0496978)
+progress = 46.8149
+rotation_mode = 0
+
+[node name="PushShot" type="Node3D" parent="Ground/Areas/FatPusher5/Path3D/PathFollow3D"]
+
+[node name="8x8" parent="Ground/Areas/FatPusher5/Path3D/PathFollow3D/PushShot" instance=ExtResource("5_awo81")]
+transform = Transform3D(1, 1.21652e-31, 0, 1.21652e-31, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="FatPusher6" type="Node3D" parent="Ground/Areas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.513, 2.6532, 47.5567)
+
+[node name="Path3D" type="Path3D" parent="Ground/Areas/FatPusher6"]
+transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 0, 0, 0)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("7_uca6v")
+move_speed = 3.0
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher6/Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1361, 52.1212, -0.0762939)
+progress = 93.6297
+rotation_mode = 0
+
+[node name="PushShot" type="Node3D" parent="Ground/Areas/FatPusher6/Path3D/PathFollow3D"]
+
+[node name="8x8" parent="Ground/Areas/FatPusher6/Path3D/PathFollow3D/PushShot" instance=ExtResource("5_awo81")]
+transform = Transform3D(1, 1.21652e-31, 0, 1.21652e-31, 1, 0, 0, 0, 1, 0, 0, 0.5)
 
 [node name="5x5Bump" parent="Ground/Areas" instance=ExtResource("9_6uty8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.5, 1, 51)
@@ -259,6 +368,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 1, 51)
 
 [node name="5x5Bump4" parent="Ground/Areas" instance=ExtResource("9_6uty8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 1, 41)
+
+[node name="BumperRailingx8" parent="Ground/Areas" instance=ExtResource("10_6bw72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.3526, 0, 39)
+
+[node name="BumperRailingx9" parent="Ground/Areas" instance=ExtResource("10_6bw72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.3526, 0, 39)
 
 [node name="flagGreen" parent="Ground" instance=ExtResource("12_bqqeh")]
 transform = Transform3D(-0.62988, 0, 2.93313, 0, 3, 0, -2.93313, 0, -0.62988, -27.0694, 13.2384, 82.6832)
@@ -286,13 +401,20 @@ shape = SubResource("BoxShape3D_1402g")
 transform = Transform3D(0.0860365, 1.28481e-17, 0.122873, 5.2318e-17, 0.15, -5.2318e-17, -0.122873, 7.28647e-17, 0.0860365, 0, 0, 0)
 
 [node name="donut3" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("12_v1vhc")]
-transform = Transform3D(10, -8.6849e-08, -1.01306e-14, 0, -4.37114e-07, -10, -8.6849e-08, 10, -4.37114e-07, 53.4065, -2.76742, 64.6351)
+transform = Transform3D(10, -8.6849e-08, -1.01306e-14, 0, -4.37114e-07, -10, -8.6849e-08, 10, -4.37114e-07, 54.4065, -2.76742, 64.6351)
 
 [node name="donut4" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("12_v1vhc")]
 transform = Transform3D(10, -8.6849e-08, -1.01306e-14, 0, -4.37114e-07, -10, -8.6849e-08, 10, -4.37114e-07, 58.7044, -2.76742, 48.8042)
 
-[node name="donut5" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("12_v1vhc")]
+[node name="donut5" type="Area3D" parent="Ground/Collectables" groups=["collectables"]]
 transform = Transform3D(10, -8.6849e-08, -1.01306e-14, 0, -4.37114e-07, -10, -8.6849e-08, 10, -4.37114e-07, 39.8566, -2.76742, 47.2189)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Collectables/donut5"]
+transform = Transform3D(1, 1.11022e-16, 1.02777e-20, 8.60239e-14, 1, 7.69735e-16, -5.69339e-22, -8.88178e-16, 1, 0.0173965, 0.00803566, -0.000247151)
+shape = SubResource("BoxShape3D_rtsku")
+
+[node name="Star2" parent="Ground/Collectables/donut5" instance=ExtResource("12_gepml")]
+transform = Transform3D(0.0860365, 1.28481e-17, 0.122873, 5.2318e-17, 0.15, -5.2318e-17, -0.122873, 7.28647e-17, 0.0860365, 0, 0, 0)
 
 [node name="donut6" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("12_v1vhc")]
 transform = Transform3D(10, -8.6849e-08, -1.01306e-14, 0, -4.37114e-07, -10, -8.6849e-08, 10, -4.37114e-07, 2.91687, -2.60722, 22.8093)
@@ -323,6 +445,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.055, 0, 23.134)
 
 [node name="1x15" parent="Ground" instance=ExtResource("12_s7kod")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 53.0751, -0.0220566, 63.1919)
+
+[node name="1x19" parent="Ground" instance=ExtResource("12_s7kod")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 55.0751, -0.0220566, 63.1919)
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

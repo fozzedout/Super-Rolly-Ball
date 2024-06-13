@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dve6xnxlol2ff"]
+[gd_scene load_steps=38 format=3 uid="uid://dve6xnxlol2ff"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_y8bky"]
 [ext_resource type="Texture2D" uid="uid://b0c1u283xo2nf" path="res://Assets/TatModels/Sky.png" id="2_nt1y1"]
@@ -10,17 +10,19 @@
 [ext_resource type="PackedScene" uid="uid://bqn0padau2lu7" path="res://TatScenes/Blocks/MovingPlatforms/flowing_platforms.tscn" id="6_k66vx"]
 [ext_resource type="PackedScene" uid="uid://bho4nvmpn2xwa" path="res://TatScenes/Blocks/MovingPlatforms/Fatpusher.tscn" id="6_r120o"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="7_b0yvk"]
-[ext_resource type="PackedScene" uid="uid://bnydlkfp1b4hv" path="res://TatScenes/Blocks/MovingPlatforms/roundabout_platforms.tscn" id="7_dym63"]
 [ext_resource type="PackedScene" uid="uid://bxvqwixeooeg1" path="res://TatScenes/Blocks/RegularPieces/5x5.tscn" id="7_uuxmi"]
 [ext_resource type="PackedScene" uid="uid://60ryftt000pt" path="res://TatScenes/Blocks/RegularPieces/3x3.tscn" id="8_0jwf0"]
 [ext_resource type="PackedScene" uid="uid://dh5w87djsjqbs" path="res://TatScenes/Blocks/ExtraPieces/tower_nexus.tscn" id="8_pxrbp"]
 [ext_resource type="PackedScene" uid="uid://cc72spbomx4ka" path="res://TatScenes/Blocks/MovingPlatforms/crusher.tscn" id="9_m3sy1"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="9_t3lvf"]
 [ext_resource type="Script" path="res://globals.gd" id="10_317gw"]
+[ext_resource type="Script" path="res://TatScenes/Path3D.gd" id="11_1iaew"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="11_3toei"]
 [ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="12_3enaq"]
+[ext_resource type="PackedScene" uid="uid://dj5w56sbl0tn4" path="res://TatScenes/Blocks/RegularPieces/4x4.tscn" id="12_e44xq"]
 [ext_resource type="PackedScene" uid="uid://32wl7xvykjud" path="res://TatScenes/Blocks/ExtraPieces/tower_core.tscn" id="13_1ocwb"]
 [ext_resource type="AudioStream" uid="uid://dxa1p4f6paw01" path="res://Assets/hit portal.ogg" id="13_b2cpb"]
+[ext_resource type="PackedScene" uid="uid://cgfh5dx7qcmys" path="res://TatScenes/Blocks/RegularPieces/1x1.tscn" id="13_rwgi7"]
 [ext_resource type="AudioStream" uid="uid://d3i4t3u8lb23m" path="res://Assets/ready start.ogg" id="14_d6evf"]
 [ext_resource type="AudioStream" uid="uid://3rpt22iy2xky" path="res://Assets/fall out.ogg" id="15_28md0"]
 [ext_resource type="PackedScene" uid="uid://cdsd3iw7jfemt" path="res://TatScenes/Blocks/Railings/BumperRailing/bumper_railingx_8.tscn" id="15_ekmbw"]
@@ -62,6 +64,13 @@ adjustment_enabled = true
 adjustment_brightness = 2.85
 adjustment_contrast = 1.67
 adjustment_saturation = 2.56
+
+[sub_resource type="Curve3D" id="Curve3D_lvt4p"]
+_data = {
+"points": PackedVector3Array(11, 0, 0, -11, 0, 0, -2.08862e-12, -19.9852, -2.07468e-12, 0, -11, 0, 0, 11, 0, -19.5322, -0.0503419, -2.08844e-12, -11, 0, 0, 11, 0, 0, -2.07478e-12, 19.6832, -2.08851e-12, 0, 11, 0, 0, -11, 0, 19.5322, 0.0503419, -2.07485e-12, 11, 0, 0, -11, 0, 0, -2.08862e-12, -19.9852, -2.07468e-12),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
 size = Vector3(1000, 1, 1000)
@@ -291,8 +300,66 @@ transform = Transform3D(4.37114e-08, -3.47258e-15, -1, -8.74228e-08, -1, -3.4878
 [node name="FlowingPlatforms" parent="Ground/Areas" instance=ExtResource("6_k66vx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 
-[node name="CartwheelPlatforms" parent="Ground/Areas" instance=ExtResource("7_dym63")]
+[node name="CartwheelPlatforms" type="Node3D" parent="Ground/Areas"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68, 15.5, 33.5)
+
+[node name="Path3D" type="Path3D" parent="Ground/Areas/CartwheelPlatforms"]
+transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("11_1iaew")
+move_speed = 3.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/CartwheelPlatforms/Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08862e-12, -19.9852, -2.07468e-12)
+rotation_mode = 0
+
+[node name="4x4" parent="Ground/Areas/CartwheelPlatforms/Path3D/PathFollow3D" instance=ExtResource("12_e44xq")]
+transform = Transform3D(1, 0, 0, 0, 1, -3.48787e-16, 0, 3.48787e-16, 1, 0, 0, 0)
+
+[node name="Path3D3" type="Path3D" parent="Ground/Areas/CartwheelPlatforms"]
+transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("11_1iaew")
+move_speed = 3.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/CartwheelPlatforms/Path3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117631, -2.08844e-12)
+progress = 30.98
+rotation_mode = 0
+
+[node name="4x4" parent="Ground/Areas/CartwheelPlatforms/Path3D3/PathFollow3D" instance=ExtResource("12_e44xq")]
+transform = Transform3D(1, 0, 0, 0, 1, -3.48787e-16, 0, 3.48787e-16, 1, 0, 0, 0)
+
+[node name="Path3D2" type="Path3D" parent="Ground/Areas/CartwheelPlatforms"]
+transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("11_1iaew")
+move_speed = 3.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/CartwheelPlatforms/Path3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000259402, 19.6832, -2.08851e-12)
+progress = 61.9599
+rotation_mode = 0
+
+[node name="4x4" parent="Ground/Areas/CartwheelPlatforms/Path3D2/PathFollow3D" instance=ExtResource("12_e44xq")]
+transform = Transform3D(1, 0, 0, 0, 1, -3.48787e-16, 0, 3.48787e-16, 1, 0, 0, 0)
+
+[node name="Path3D4" type="Path3D" parent="Ground/Areas/CartwheelPlatforms"]
+transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("11_1iaew")
+move_speed = 3.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/CartwheelPlatforms/Path3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5318, -0.084757, -2.07485e-12)
+progress = 92.9399
+rotation_mode = 0
+
+[node name="4x4" parent="Ground/Areas/CartwheelPlatforms/Path3D4/PathFollow3D" instance=ExtResource("12_e44xq")]
+transform = Transform3D(1, 0, 0, 0, 1, -3.48787e-16, 0, 3.48787e-16, 1, 0, 0, 0)
+
+[node name="1x1" parent="Ground/Areas/CartwheelPlatforms" instance=ExtResource("13_rwgi7")]
+transform = Transform3D(0.5, -0.5, 0.707107, 0.707107, 0.707107, -3.48787e-16, -0.5, 0.5, 0.707107, 0, 0, 0)
 
 [node name="TowerNexus" parent="Ground/Areas" instance=ExtResource("8_pxrbp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68, 19, 23.5)

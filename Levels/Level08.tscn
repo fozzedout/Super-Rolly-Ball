@@ -1,0 +1,452 @@
+[gd_scene load_steps=31 format=3 uid="uid://cl6if02d8xja7"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_nggob"]
+[ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_aqg5x"]
+[ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="3_x3bi6"]
+[ext_resource type="PackedScene" uid="uid://bipwf0j10or6d" path="res://TatScenes/Blocks/RegularPieces/8x8.tscn" id="4_xo3ir"]
+[ext_resource type="PackedScene" uid="uid://dstan672b1h66" path="res://TatScenes/Blocks/RegularPieces/2x5.tscn" id="5_jr031"]
+[ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="6_feec6"]
+[ext_resource type="PackedScene" uid="uid://cg7sut6b2dmkw" path="res://TatScenes/Blocks/RegularPieces/1x10.tscn" id="6_hips0"]
+[ext_resource type="PackedScene" uid="uid://60ryftt000pt" path="res://TatScenes/Blocks/RegularPieces/3x3.tscn" id="7_dxmw6"]
+[ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="7_thd0d"]
+[ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="8_3n25a"]
+[ext_resource type="PackedScene" uid="uid://3vqhkq2c07k4" path="res://TatScenes/Blocks/ExtraPieces/Bowl.tscn" id="8_gdk0j"]
+[ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="9_bf0ey"]
+[ext_resource type="Script" path="res://globals.gd" id="10_vy4ym"]
+[ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="11_8p5mu"]
+[ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="12_igh84"]
+[ext_resource type="AudioStream" uid="uid://dxa1p4f6paw01" path="res://Assets/hit portal.ogg" id="13_7ao28"]
+[ext_resource type="AudioStream" uid="uid://d3i4t3u8lb23m" path="res://Assets/ready start.ogg" id="14_evxke"]
+[ext_resource type="AudioStream" uid="uid://3rpt22iy2xky" path="res://Assets/fall out.ogg" id="15_y6yih"]
+[ext_resource type="AudioStream" uid="uid://cmcp8switxcqt" path="res://Assets/time up.ogg" id="16_pfmn2"]
+[ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="17_gjvho"]
+[ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="18_0ks02"]
+[ext_resource type="PackedScene" uid="uid://c0em3aektw1d4" path="res://TatScenes/Blocks/ExtraPieces/4x2x1ramp.tscn" id="22_g3npo"]
+[ext_resource type="PackedScene" uid="uid://ycj78hm6a24a" path="res://TatScenes/Blocks/ExtraPieces/5x5x3ramp.tscn" id="23_wb0m0"]
+[ext_resource type="PackedScene" uid="uid://dxr0i0kgnssbo" path="res://TatScenes/Blocks/Railings/BumperRailing/bumper_railingx_2.tscn" id="24_6qhxu"]
+[ext_resource type="PackedScene" uid="uid://cbygmkxvqewuh" path="res://TatScenes/Blocks/Railings/BumperRailing/bumper_railingx_5.tscn" id="25_kd5xn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
+size = Vector3(1000, 1, 1000)
+
+[sub_resource type="Animation" id="Animation_x8fa6"]
+resource_name = "FadeStart"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lblLevelResult:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lblLevelResult:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("lblLevelResult:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["START!"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tkawt"]
+_data = {
+"FadeStart": SubResource("Animation_x8fa6")
+}
+
+[sub_resource type="Animation" id="Animation_7dkpc"]
+resource_name = "moving_block_1"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Ground/Areas/2x5")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(1, 1, 30, 4, 33, 3, 1, 30, 35, 33)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Ground/Areas/Bowl")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0.5, 1, 0, 0, 0, 1, 1.3, 1, 0, 0, 0.707, 0.707, 2, 1, 0, 0, 0, 1, 3, 1, 0, 0, 0, 1, 4, 1, 0, 0, 0.707, 0.707)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hj5mv"]
+_data = {
+"moving_block_1": SubResource("Animation_7dkpc")
+}
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_nggob")
+metadata/Level = "Level08"
+
+[node name="Skybox" parent="." instance=ExtResource("2_aqg5x")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.654741, 0.755853, 0, -0.755853, 0.654741, 0, 30.5478, 46.221)
+shadow_enabled = true
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 40)
+fov = 37.8493
+
+[node name="Ball" parent="." instance=ExtResource("3_x3bi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386, 1, 47)
+
+[node name="Player" parent="Ball" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.47422)
+
+[node name="CollisionShape3D" parent="Ball/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.47422)
+
+[node name="CollisionShape3D" parent="Ball" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.47422)
+
+[node name="Ground" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389248, -5.04956, -0.57489)
+
+[node name="Areas" type="Node3D" parent="Ground"]
+
+[node name="8x30" parent="Ground/Areas" instance=ExtResource("4_xo3ir")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.896, 4.18005, -18.935)
+
+[node name="8x31" parent="Ground/Areas" instance=ExtResource("4_xo3ir")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.89601, 4.18005, -34.935)
+
+[node name="8x32" parent="Ground/Areas" instance=ExtResource("4_xo3ir")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.89601, 4.18005, -50.935)
+
+[node name="8x33" parent="Ground/Areas" instance=ExtResource("4_xo3ir")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.89601, 4.18005, -66.935)
+
+[node name="8x10" parent="Ground/Areas" instance=ExtResource("4_xo3ir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6108, 4.04956, 46.0491)
+
+[node name="8x11" parent="Ground/Areas" instance=ExtResource("4_xo3ir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.61075, 4.04956, 46.0491)
+
+[node name="8x12" parent="Ground/Areas" instance=ExtResource("4_xo3ir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.38925, 4.04956, 46.0491)
+
+[node name="2x5" parent="Ground/Areas" instance=ExtResource("5_jr031")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 30, 4, 33)
+
+[node name="BumperRailingx2" parent="Ground/Areas/2x5" instance=ExtResource("24_6qhxu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.19642, 0.0495601, 0.0859756)
+
+[node name="BumperRailingx5" parent="Ground/Areas/2x5" instance=ExtResource("25_kd5xn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225975, 0.0495601, 2.11482)
+
+[node name="1x10" parent="Ground/Areas" instance=ExtResource("6_hips0")]
+transform = Transform3D(-4.2222e-08, -0.258819, -0.965926, -1.13133e-08, 0.965926, -0.258819, 1, 0, -4.37114e-08, 26.9989, 34.1955, 25.5749)
+
+[node name="1x12" parent="Ground/Areas" instance=ExtResource("6_hips0")]
+transform = Transform3D(-4.2222e-08, 0.258819, -0.965926, 1.13133e-08, 0.965926, 0.258819, 1, 0, -4.37114e-08, 24.9989, 34.1955, 25.5749)
+
+[node name="1x11" parent="Ground/Areas" instance=ExtResource("6_hips0")]
+transform = Transform3D(-4.2222e-08, -0.258819, -0.965926, -1.13133e-08, 0.965926, -0.258819, 1, 0, -4.37114e-08, 26.9989, 34.1955, -0.42511)
+
+[node name="1x13" parent="Ground/Areas" instance=ExtResource("6_hips0")]
+transform = Transform3D(-4.2222e-08, 0.258819, -0.965926, 1.13133e-08, 0.965926, 0.258819, 1, 0, -4.37114e-08, 24.9989, 34.1955, -0.42511)
+
+[node name="3x3" parent="Ground/Areas" instance=ExtResource("7_dxmw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1591, 33.9424, 12.6162)
+
+[node name="Bowl" parent="Ground/Areas" instance=ExtResource("8_gdk0j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8143, 29.8574, -19.9604)
+rotation_edit_mode = 1
+
+[node name="4x2x1Ramp" parent="Ground/Areas" instance=ExtResource("22_g3npo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.6108, 4.04956, -9.42511)
+
+[node name="4x2x1Ramp3" parent="Ground/Areas" instance=ExtResource("22_g3npo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.6108, 4.04956, -9.42511)
+
+[node name="4x2x1Ramp2" parent="Ground/Areas" instance=ExtResource("22_g3npo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.61075, 4.04956, -9.42511)
+
+[node name="4x2x1Ramp4" parent="Ground/Areas" instance=ExtResource("22_g3npo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.38925, 4.04956, -9.42511)
+
+[node name="5x5x3Ramp" parent="Ground/Areas" instance=ExtResource("23_wb0m0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6108, 4.04956, -15.4251)
+
+[node name="5x5x3Ramp2" parent="Ground/Areas" instance=ExtResource("23_wb0m0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6108, 4.04956, -25.4251)
+
+[node name="5x5x3Ramp3" parent="Ground/Areas" instance=ExtResource("23_wb0m0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.38925, 4.04956, -25.4251)
+
+[node name="5x5x3Ramp5" parent="Ground/Areas" instance=ExtResource("23_wb0m0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6108, 4.04956, -35.4251)
+
+[node name="5x5x3Ramp6" parent="Ground/Areas" instance=ExtResource("23_wb0m0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.38925, 4.04956, -35.4251)
+
+[node name="5x5x3Ramp4" parent="Ground/Areas" instance=ExtResource("23_wb0m0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.38925, 4.04956, -15.4251)
+
+[node name="flagGreen" parent="Ground" instance=ExtResource("6_feec6")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.324834, 5, 47.9711)
+
+[node name="Goal" parent="Ground" instance=ExtResource("7_thd0d")]
+transform = Transform3D(2, 0, 2.13163e-14, 0, 2, 0, -2.13163e-14, 0, 2, 10.1072, 2.4586, -66.5458)
+
+[node name="MurderDeathKill" type="Area3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389248, -19.9504, 0.57489)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/MurderDeathKill"]
+shape = SubResource("BoxShape3D_tm63d")
+
+[node name="Collectables" type="Node3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.03776, 0)
+
+[node name="donut11" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3n25a")]
+transform = Transform3D(10, -5.68434e-14, 0, -2.11758e-21, -4.37114e-07, -10, 5.68434e-14, 10, -4.37114e-07, 8.67071, 1.72826, -12.6984)
+
+[node name="donut12" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3n25a")]
+transform = Transform3D(10, -5.68434e-14, 0, -2.11758e-21, -4.37114e-07, -10, 5.68434e-14, 10, -4.37114e-07, 8.67071, 1.72826, -20.6984)
+
+[node name="donut21" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3n25a")]
+transform = Transform3D(10, -5.68434e-14, 0, -2.11758e-21, -4.37114e-07, -10, 5.68434e-14, 10, -4.37114e-07, 8.67071, 1.72826, -27.6984)
+
+[node name="donut28" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3n25a")]
+transform = Transform3D(10, -5.68434e-14, 0, -2.11758e-21, -4.37114e-07, -10, 5.68434e-14, 10, -4.37114e-07, 8.67071, 1.72826, -35.6984)
+
+[node name="donut8" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3n25a")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 12.0879, 1.42563, 47.3391)
+
+[node name="donut13" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3n25a")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 25.9155, 31.4619, 33.3391)
+
+[node name="donut14" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3n25a")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 25.9155, 31.4619, 29.3391)
+
+[node name="donut15" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3n25a")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 25.9155, 31.4619, 24.3391)
+
+[node name="donut16" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3n25a")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 25.9155, 31.4619, 19.3391)
+
+[node name="donut17" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3n25a")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 25.9155, 31.4619, 13.3391)
+
+[node name="donut18" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3n25a")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 25.9155, 31.4619, 7.33912)
+
+[node name="donut19" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3n25a")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 25.9155, 31.4619, 1.33912)
+
+[node name="donut20" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3n25a")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 25.9155, 31.4619, -5.66088)
+
+[node name="donut9" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3n25a")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 29.0879, 1.42563, 47.3391)
+
+[node name="donut10" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3n25a")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 21.0879, 1.42563, 47.3391)
+
+[node name="TimerReload" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="TimerStart" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="GoalScreen" type="Node2D" parent="."]
+visible = false
+
+[node name="lblClearScore" type="Label" parent="GoalScreen"]
+offset_left = 128.0
+offset_top = 241.0
+offset_right = 945.0
+offset_bottom = 310.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.55, 0.82, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_bf0ey")
+theme_override_font_sizes/font_size = 50
+text = "Clear Score: 00000000"
+metadata/_edit_use_anchors_ = true
+
+[node name="lblDonutBonus" type="Label" parent="GoalScreen"]
+offset_left = 128.0
+offset_top = 310.0
+offset_right = 902.0
+offset_bottom = 379.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_bf0ey")
+theme_override_font_sizes/font_size = 50
+text = "Star Bonus       ×2"
+metadata/_edit_use_anchors_ = true
+
+[node name="lblLevelScore" type="Label" parent="GoalScreen"]
+offset_left = 128.0
+offset_top = 379.0
+offset_right = 945.0
+offset_bottom = 448.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.45098, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_bf0ey")
+theme_override_font_sizes/font_size = 50
+text = "Level Score: 00000000
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="btnNextLevel" type="Button" parent="GoalScreen"]
+offset_left = 128.0
+offset_top = 528.0
+offset_right = 559.0
+offset_bottom = 632.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../btnMainMenu")
+focus_neighbor_right = NodePath("../btnMainMenu")
+focus_next = NodePath("../btnMainMenu")
+focus_previous = NodePath("../btnMainMenu")
+theme_override_fonts/font = ExtResource("9_bf0ey")
+theme_override_font_sizes/font_size = 40
+text = "Next Level"
+script = ExtResource("10_vy4ym")
+
+[node name="btnMainMenu" type="Button" parent="GoalScreen"]
+offset_left = 601.0
+offset_top = 528.0
+offset_right = 1032.0
+offset_bottom = 632.0
+focus_neighbor_left = NodePath("../btnNextLevel")
+focus_neighbor_right = NodePath("../btnNextLevel")
+focus_next = NodePath("../btnNextLevel")
+focus_previous = NodePath("../btnNextLevel")
+theme_override_fonts/font = ExtResource("9_bf0ey")
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
+script = ExtResource("10_vy4ym")
+
+[node name="lblLevelResult" type="Label" parent="."]
+offset_left = 283.0
+offset_top = 108.0
+offset_right = 839.0
+offset_bottom = 218.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.85098, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_bf0ey")
+theme_override_font_sizes/font_size = 80
+text = "READY"
+horizontal_alignment = 1
+
+[node name="Hud" type="Node2D" parent="."]
+
+[node name="lblDonuts" type="Label" parent="Hud"]
+offset_left = 601.0
+offset_right = 1144.0
+offset_bottom = 65.0
+rotation = 0.00281793
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(1, 1, 0.627451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_bf0ey")
+theme_override_font_sizes/font_size = 47
+text = "Stars: 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="lblTime" type="Label" parent="Hud"]
+offset_left = 15.0
+offset_right = 559.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(1, 0.686275, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_bf0ey")
+theme_override_font_sizes/font_size = 47
+text = "Time: 0"
+vertical_alignment = 1
+
+[node name="ReadyStart" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tkawt")
+}
+autoplay = "FadeStart"
+
+[node name="PlatformMovement" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ReadyStart")
+libraries = {
+"": SubResource("AnimationLibrary_hj5mv")
+}
+autoplay = "moving_block_1"
+speed_scale = 0.5
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("11_8p5mu")
+autoplay = true
+
+[node name="Collected" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("12_igh84")
+
+[node name="HitPortal" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("13_7ao28")
+
+[node name="ReadyStart" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("14_evxke")
+autoplay = true
+
+[node name="FallOut" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("15_y6yih")
+
+[node name="TimeUp" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("16_pfmn2")
+
+[node name="Perfect" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("17_gjvho")
+
+[node name="Goal" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("18_0ks02")
+
+[connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]
+[connection signal="body_entered" from="Ground/MurderDeathKill" to="." method="_on_murder_death_kill_body_entered"]
+[connection signal="timeout" from="TimerReload" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerStart" to="." method="_on_timer_start_timeout"]
+[connection signal="pressed" from="GoalScreen/btnNextLevel" to="GoalScreen/btnNextLevel" method="_on_pressed" binds= ["res://Levels/Level09.tscn"]]
+[connection signal="pressed" from="GoalScreen/btnMainMenu" to="GoalScreen/btnMainMenu" method="_on_pressed" binds= ["res://Scenes/MainMenu.tscn"]]
+
+[editable path="Ball"]

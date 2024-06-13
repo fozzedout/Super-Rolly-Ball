@@ -66,7 +66,8 @@ Assets:
 Kenney: kenney.nl"
 
 [node name="Audio" type="Sprite2D" parent="."]
-position = Vector2(1116, 425)
+position = Vector2(1117, 435)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_1rlk6")
 
 [connection signal="pressed" from="btnStart" to="btnStart" method="_on_pressed" binds= ["res://Levels/Level01.tscn"]]

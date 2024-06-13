@@ -1,23 +1,23 @@
-[gd_scene load_steps=22 format=3 uid="uid://rb8ave721fo8"]
+[gd_scene load_steps=22 format=3 uid="uid://c1730x7jevxhy"]
 
-[ext_resource type="Script" path="res://level.gd" id="1_5ayna"]
-[ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_1oa30"]
-[ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="3_ku7cs"]
-[ext_resource type="PackedScene" uid="uid://bipwf0j10or6d" path="res://TatScenes/Blocks/RegularPieces/8x8.tscn" id="4_8pxs1"]
-[ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="5_45j3q"]
-[ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="6_ieo47"]
-[ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="7_doh66"]
-[ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="8_y0p33"]
-[ext_resource type="Script" path="res://globals.gd" id="9_agddv"]
-[ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="10_pti3q"]
-[ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="11_wus4j"]
-[ext_resource type="AudioStream" uid="uid://dxa1p4f6paw01" path="res://Assets/hit portal.ogg" id="12_s4pgv"]
-[ext_resource type="AudioStream" uid="uid://d3i4t3u8lb23m" path="res://Assets/ready start.ogg" id="13_nfg6e"]
-[ext_resource type="AudioStream" uid="uid://3rpt22iy2xky" path="res://Assets/fall out.ogg" id="14_o2k0q"]
-[ext_resource type="AudioStream" uid="uid://cmcp8switxcqt" path="res://Assets/time up.ogg" id="15_tjx2s"]
-[ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="16_d06x0"]
-[ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="17_eo8c1"]
-[ext_resource type="PackedScene" uid="uid://dcyu7mpfhq72g" path="res://TatScenes/Blocks/RegularPieces/8x1.tscn" id="18_iigcr"]
+[ext_resource type="Script" path="res://level.gd" id="1_x8ngi"]
+[ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_5enyw"]
+[ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="3_u6nh5"]
+[ext_resource type="PackedScene" uid="uid://bipwf0j10or6d" path="res://TatScenes/Blocks/RegularPieces/8x8.tscn" id="4_ilb36"]
+[ext_resource type="PackedScene" uid="uid://dcyu7mpfhq72g" path="res://TatScenes/Blocks/RegularPieces/8x1.tscn" id="5_yiisv"]
+[ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="6_d1ysp"]
+[ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="7_oqdl7"]
+[ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="8_3ec1i"]
+[ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="9_ehyjs"]
+[ext_resource type="Script" path="res://globals.gd" id="10_315lt"]
+[ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="11_5b0tr"]
+[ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="12_26xb0"]
+[ext_resource type="AudioStream" uid="uid://dxa1p4f6paw01" path="res://Assets/hit portal.ogg" id="13_acla5"]
+[ext_resource type="AudioStream" uid="uid://d3i4t3u8lb23m" path="res://Assets/ready start.ogg" id="14_5bb5w"]
+[ext_resource type="AudioStream" uid="uid://3rpt22iy2xky" path="res://Assets/fall out.ogg" id="15_o8wmr"]
+[ext_resource type="AudioStream" uid="uid://cmcp8switxcqt" path="res://Assets/time up.ogg" id="16_qoejc"]
+[ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="17_1j4px"]
+[ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="18_nfumk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
 size = Vector3(1000, 1, 1000)
@@ -68,10 +68,10 @@ _data = {
 }
 
 [node name="Level" type="Node3D"]
-script = ExtResource("1_5ayna")
+script = ExtResource("1_x8ngi")
 metadata/Level = "Level05"
 
-[node name="Skybox" parent="." instance=ExtResource("2_1oa30")]
+[node name="Skybox" parent="." instance=ExtResource("2_5enyw")]
 
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
@@ -80,7 +80,7 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 20)
 fov = 37.8493
 
-[node name="Ball" parent="." instance=ExtResource("3_ku7cs")]
+[node name="Ball" parent="." instance=ExtResource("3_u6nh5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386, 1, 47)
 
 [node name="Ground" type="Node3D" parent="."]
@@ -88,43 +88,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389248, -5.04956, -0.57489)
 
 [node name="Areas" type="Node3D" parent="Ground"]
 
-[node name="8x30" parent="Ground/Areas" instance=ExtResource("4_8pxs1")]
+[node name="8x30" parent="Ground/Areas" instance=ExtResource("4_ilb36")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6108, 4.04956, -34.4251)
 
-[node name="8x31" parent="Ground/Areas" instance=ExtResource("4_8pxs1")]
+[node name="8x31" parent="Ground/Areas" instance=ExtResource("4_ilb36")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.61075, 4.04956, -34.4251)
 
-[node name="8x32" parent="Ground/Areas" instance=ExtResource("4_8pxs1")]
+[node name="8x32" parent="Ground/Areas" instance=ExtResource("4_ilb36")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.38925, 4.04956, -34.4251)
 
-[node name="8x33" parent="Ground/Areas" instance=ExtResource("4_8pxs1")]
+[node name="8x33" parent="Ground/Areas" instance=ExtResource("4_ilb36")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3892, 4.04956, -34.4251)
 
-[node name="8x10" parent="Ground/Areas" instance=ExtResource("4_8pxs1")]
+[node name="8x10" parent="Ground/Areas" instance=ExtResource("4_ilb36")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6108, 4.04956, 45.5749)
 
-[node name="8x11" parent="Ground/Areas" instance=ExtResource("4_8pxs1")]
+[node name="8x11" parent="Ground/Areas" instance=ExtResource("4_ilb36")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.61075, 4.04956, 45.5749)
 
-[node name="8x12" parent="Ground/Areas" instance=ExtResource("4_8pxs1")]
+[node name="8x12" parent="Ground/Areas" instance=ExtResource("4_ilb36")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.38925, 4.04956, 45.5749)
 
-[node name="8x1" parent="Ground/Areas" instance=ExtResource("18_iigcr")]
+[node name="8x1" parent="Ground/Areas" instance=ExtResource("5_yiisv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6108, 4.04956, 29.5749)
 
-[node name="8x2" parent="Ground/Areas" instance=ExtResource("18_iigcr")]
+[node name="8x2" parent="Ground/Areas" instance=ExtResource("5_yiisv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6108, 4.04956, 13.5749)
 
-[node name="8x3" parent="Ground/Areas" instance=ExtResource("18_iigcr")]
+[node name="8x3" parent="Ground/Areas" instance=ExtResource("5_yiisv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6108, 4.04956, -2.42511)
 
-[node name="8x4" parent="Ground/Areas" instance=ExtResource("18_iigcr")]
+[node name="8x4" parent="Ground/Areas" instance=ExtResource("5_yiisv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6108, 4.04956, -18.4251)
 
-[node name="flagGreen" parent="Ground" instance=ExtResource("5_45j3q")]
+[node name="flagGreen" parent="Ground" instance=ExtResource("6_d1ysp")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.324834, 5, 47.4969)
 
-[node name="Goal" parent="Ground" instance=ExtResource("6_ieo47")]
+[node name="Goal" parent="Ground" instance=ExtResource("7_oqdl7")]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -22, 2.32811, -34.6363)
 
 [node name="MurderDeathKill" type="Area3D" parent="Ground"]
@@ -136,37 +136,37 @@ shape = SubResource("BoxShape3D_tm63d")
 [node name="Collectables" type="Node3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.03776, 0)
 
-[node name="donut2" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("7_doh66")]
+[node name="donut2" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3ec1i")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 27.8474, 1.59777, 3.80021)
 
-[node name="donut11" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("7_doh66")]
+[node name="donut11" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3ec1i")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 29.8474, 1.59777, -33.1998)
 
-[node name="donut12" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("7_doh66")]
+[node name="donut12" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3ec1i")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 20.8474, 1.59777, -33.1998)
 
-[node name="donut3" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("7_doh66")]
+[node name="donut3" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3ec1i")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 28.2237, 1.42563, 14.5628)
 
-[node name="donut4" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("7_doh66")]
+[node name="donut4" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3ec1i")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 29.0879, 1.42563, 24.8649)
 
-[node name="donut6" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("7_doh66")]
+[node name="donut6" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3ec1i")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 29.0879, 1.42563, 34.8649)
 
-[node name="donut8" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("7_doh66")]
+[node name="donut8" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3ec1i")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 29.0879, 1.42563, 41.8649)
 
-[node name="donut9" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("7_doh66")]
+[node name="donut9" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3ec1i")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 29.0879, 1.42563, 46.8649)
 
-[node name="donut10" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("7_doh66")]
+[node name="donut10" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3ec1i")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 21.0879, 1.42563, 46.8649)
 
-[node name="donut5" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("7_doh66")]
+[node name="donut5" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3ec1i")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 27.8428, 1.42563, -7.7538)
 
-[node name="donut7" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("7_doh66")]
+[node name="donut7" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("8_3ec1i")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 27.8428, 1.42563, -17.7538)
 
 [node name="TimerReload" type="Timer" parent="."]
@@ -190,7 +190,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.55, 0.82, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("8_y0p33")
+theme_override_fonts/font = ExtResource("9_ehyjs")
 theme_override_font_sizes/font_size = 50
 text = "Clear Score: 00000000"
 metadata/_edit_use_anchors_ = true
@@ -204,7 +204,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 0.627451, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("8_y0p33")
+theme_override_fonts/font = ExtResource("9_ehyjs")
 theme_override_font_sizes/font_size = 50
 text = "Star Bonus       ×2"
 metadata/_edit_use_anchors_ = true
@@ -218,7 +218,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 0.45098, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("8_y0p33")
+theme_override_fonts/font = ExtResource("9_ehyjs")
 theme_override_font_sizes/font_size = 50
 text = "Level Score: 00000000
 "
@@ -235,10 +235,10 @@ focus_neighbor_left = NodePath("../btnMainMenu")
 focus_neighbor_right = NodePath("../btnMainMenu")
 focus_next = NodePath("../btnMainMenu")
 focus_previous = NodePath("../btnMainMenu")
-theme_override_fonts/font = ExtResource("8_y0p33")
+theme_override_fonts/font = ExtResource("9_ehyjs")
 theme_override_font_sizes/font_size = 40
 text = "Next Level"
-script = ExtResource("9_agddv")
+script = ExtResource("10_315lt")
 
 [node name="btnMainMenu" type="Button" parent="GoalScreen"]
 offset_left = 601.0
@@ -249,10 +249,10 @@ focus_neighbor_left = NodePath("../btnNextLevel")
 focus_neighbor_right = NodePath("../btnNextLevel")
 focus_next = NodePath("../btnNextLevel")
 focus_previous = NodePath("../btnNextLevel")
-theme_override_fonts/font = ExtResource("8_y0p33")
+theme_override_fonts/font = ExtResource("9_ehyjs")
 theme_override_font_sizes/font_size = 40
 text = "Main Menu"
-script = ExtResource("9_agddv")
+script = ExtResource("10_315lt")
 
 [node name="lblLevelResult" type="Label" parent="."]
 offset_left = 283.0
@@ -263,7 +263,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 0.85098, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("8_y0p33")
+theme_override_fonts/font = ExtResource("9_ehyjs")
 theme_override_font_sizes/font_size = 80
 text = "READY"
 horizontal_alignment = 1
@@ -279,7 +279,7 @@ size_flags_horizontal = 8
 theme_override_colors/font_color = Color(1, 1, 0.627451, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("8_y0p33")
+theme_override_fonts/font = ExtResource("9_ehyjs")
 theme_override_font_sizes/font_size = 47
 text = "Stars: 0"
 horizontal_alignment = 2
@@ -292,7 +292,7 @@ offset_bottom = 65.0
 theme_override_colors/font_color = Color(1, 0.686275, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("8_y0p33")
+theme_override_fonts/font = ExtResource("9_ehyjs")
 theme_override_font_sizes/font_size = 47
 text = "Time: 0"
 vertical_alignment = 1
@@ -300,30 +300,30 @@ vertical_alignment = 1
 [node name="Audio" type="Node" parent="."]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("10_pti3q")
+stream = ExtResource("11_5b0tr")
 autoplay = true
 
 [node name="Collected" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("11_wus4j")
+stream = ExtResource("12_26xb0")
 
 [node name="HitPortal" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("12_s4pgv")
+stream = ExtResource("13_acla5")
 
 [node name="ReadyStart" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("13_nfg6e")
+stream = ExtResource("14_5bb5w")
 autoplay = true
 
 [node name="FallOut" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("14_o2k0q")
+stream = ExtResource("15_o8wmr")
 
 [node name="TimeUp" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("15_tjx2s")
+stream = ExtResource("16_qoejc")
 
 [node name="Perfect" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("16_d06x0")
+stream = ExtResource("17_1j4px")
 
 [node name="Goal" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("17_eo8c1")
+stream = ExtResource("18_nfumk")
 
 [node name="ReadyStart" type="AnimationPlayer" parent="."]
 libraries = {

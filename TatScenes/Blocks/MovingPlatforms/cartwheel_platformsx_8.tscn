@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6l74jpkro0dk"]
+
+[ext_resource type="PackedScene" uid="uid://bp88iuy1u4sxy" path="res://TatScenes/Blocks/MovingPlatforms/cartwheel_platforms.tscn" id="1_j4cbt"]
+[ext_resource type="Script" path="res://TatScenes/Path3D.gd" id="2_vnx01"]
+[ext_resource type="PackedScene" uid="uid://dj5w56sbl0tn4" path="res://TatScenes/Blocks/RegularPieces/4x4.tscn" id="3_ww5t0"]
+
+[sub_resource type="Curve3D" id="Curve3D_lvt4p"]
+_data = {
+"points": PackedVector3Array(11, 0, 0, -11, 0, 0, -2.08862e-12, -19.9852, -2.07468e-12, 0, -11, 0, 0, 11, 0, -19.5322, -0.0503419, -2.08844e-12, -11, 0, 0, 11, 0, 0, -2.07478e-12, 19.6832, -2.08851e-12, 0, 11, 0, 0, -11, 0, 19.5322, 0.0503419, -2.07485e-12, 11, 0, 0, -11, 0, 0, -2.08862e-12, -19.9852, -2.07468e-12),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="CartwheelPlatformsx8" instance=ExtResource("1_j4cbt")]
+
+[node name="PathFollow3D" parent="Path3D3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117631, -2.08844e-12)
+
+[node name="PathFollow3D" parent="Path3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000259402, 19.6832, -2.08851e-12)
+
+[node name="PathFollow3D" parent="Path3D4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5318, -0.084757, -2.07485e-12)
+
+[node name="Path3D5" type="Path3D" parent="." index="4"]
+transform = Transform3D(0.565685, 0.565685, 1.99054e-23, -0.565685, 0.565685, -3.94607e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("2_vnx01")
+move_speed = 3.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08862e-12, -19.9852, -2.07468e-12)
+rotation_mode = 0
+
+[node name="4x4" parent="Path3D5/PathFollow3D" index="0" instance=ExtResource("3_ww5t0")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Path3D6" type="Path3D" parent="." index="5"]
+transform = Transform3D(0.565685, 0.565685, 1.99054e-23, -0.565685, 0.565685, -3.94607e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("2_vnx01")
+move_speed = 3.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D6" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117631, -2.08844e-12)
+progress = 30.98
+rotation_mode = 0
+
+[node name="4x4" parent="Path3D6/PathFollow3D" index="0" instance=ExtResource("3_ww5t0")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Path3D7" type="Path3D" parent="." index="6"]
+transform = Transform3D(0.565685, 0.565685, 1.99054e-23, -0.565685, 0.565685, -3.94607e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("2_vnx01")
+move_speed = 3.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D7" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000259402, 19.6832, -2.08851e-12)
+progress = 61.9599
+rotation_mode = 0
+
+[node name="4x4" parent="Path3D7/PathFollow3D" index="0" instance=ExtResource("3_ww5t0")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Path3D8" type="Path3D" parent="." index="7"]
+transform = Transform3D(0.565685, 0.565685, 1.99054e-23, -0.565685, 0.565685, -3.94607e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("2_vnx01")
+move_speed = 3.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D8" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5318, -0.084757, -2.07485e-12)
+progress = 92.9399
+rotation_mode = 0
+
+[node name="4x4" parent="Path3D8/PathFollow3D" index="0" instance=ExtResource("3_ww5t0")]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 0, 0, 0)

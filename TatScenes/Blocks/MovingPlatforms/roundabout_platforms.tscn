@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bp88iuy1u4sxy"]
+[gd_scene load_steps=5 format=3 uid="uid://bnydlkfp1b4hv"]
 
-[ext_resource type="Script" path="res://TatScenes/Path3D.gd" id="1_ihi5d"]
-[ext_resource type="PackedScene" uid="uid://dj5w56sbl0tn4" path="res://TatScenes/Blocks/RegularPieces/4x4.tscn" id="2_bxmje"]
-[ext_resource type="PackedScene" uid="uid://cgfh5dx7qcmys" path="res://TatScenes/Blocks/RegularPieces/1x1.tscn" id="3_hfv8p"]
+[ext_resource type="Script" path="res://TatScenes/Path3D.gd" id="1_sqq82"]
+[ext_resource type="PackedScene" uid="uid://dj5w56sbl0tn4" path="res://TatScenes/Blocks/RegularPieces/4x4.tscn" id="2_fp5ww"]
+[ext_resource type="PackedScene" uid="uid://cgfh5dx7qcmys" path="res://TatScenes/Blocks/RegularPieces/1x1.tscn" id="3_frmsb"]
 
 [sub_resource type="Curve3D" id="Curve3D_lvt4p"]
 _data = {
@@ -12,57 +12,62 @@ _data = {
 point_count = 5
 
 [node name="CartwheelPlatforms" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 curve = SubResource("Curve3D_lvt4p")
-script = ExtResource("1_ihi5d")
+script = ExtResource("1_sqq82")
 move_speed = 3.5
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08862e-12, -19.9852, -2.07468e-12)
 rotation_mode = 0
 
-[node name="4x4" parent="Path3D/PathFollow3D" instance=ExtResource("2_bxmje")]
+[node name="4x4" parent="Path3D/PathFollow3D" instance=ExtResource("2_fp5ww")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 
 [node name="Path3D3" type="Path3D" parent="."]
 transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 curve = SubResource("Curve3D_lvt4p")
-script = ExtResource("1_ihi5d")
+script = ExtResource("1_sqq82")
 move_speed = 3.5
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117683, -2.08844e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117631, -2.08844e-12)
 progress = 30.98
 rotation_mode = 0
 
-[node name="4x4" parent="Path3D3/PathFollow3D" instance=ExtResource("2_bxmje")]
+[node name="4x4" parent="Path3D3/PathFollow3D" instance=ExtResource("2_fp5ww")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 
 [node name="Path3D2" type="Path3D" parent="."]
 transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 curve = SubResource("Curve3D_lvt4p")
-script = ExtResource("1_ihi5d")
+script = ExtResource("1_sqq82")
 move_speed = 3.5
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000293735, 19.6832, -2.08851e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000259402, 19.6832, -2.08851e-12)
 progress = 61.9599
 rotation_mode = 0
 
-[node name="4x4" parent="Path3D2/PathFollow3D" instance=ExtResource("2_bxmje")]
+[node name="4x4" parent="Path3D2/PathFollow3D" instance=ExtResource("2_fp5ww")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 
 [node name="Path3D4" type="Path3D" parent="."]
 transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 curve = SubResource("Curve3D_lvt4p")
-script = ExtResource("1_ihi5d")
+script = ExtResource("1_sqq82")
 move_speed = 3.5
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5317, -0.0847798, -2.07485e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5318, -0.084757, -2.07485e-12)
 progress = 92.9399
 rotation_mode = 0
 
-[node name="4x4" parent="Path3D4/PathFollow3D" instance=ExtResource("2_bxmje")]
+[node name="4x4" parent="Path3D4/PathFollow3D" instance=ExtResource("2_fp5ww")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 
-[node name="1x1" parent="." instance=ExtResource("3_hfv8p")]
+[node name="1x1" parent="." instance=ExtResource("3_frmsb")]
 transform = Transform3D(0.5, -0.5, 0.707107, 0.707107, 0.707107, -3.48787e-16, -0.5, 0.5, 0.707107, 0, 0, 0)

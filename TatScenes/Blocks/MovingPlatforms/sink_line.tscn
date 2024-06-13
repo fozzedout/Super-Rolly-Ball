@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://d272bhu05j7f"]
+
+[ext_resource type="PackedScene" uid="uid://cgfh5dx7qcmys" path="res://TatScenes/Blocks/RegularPieces/1x1.tscn" id="1_x3fcy"]
+
+[node name="sinkLine" type="Node3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, -0.85, -287.399)
+
+[node name="1x1" parent="." instance=ExtResource("1_x3fcy")]
+
+[node name="1x2" parent="." instance=ExtResource("1_x3fcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="1x3" parent="." instance=ExtResource("1_x3fcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="1x4" parent="." instance=ExtResource("1_x3fcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="1x5" parent="." instance=ExtResource("1_x3fcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="1x6" parent="." instance=ExtResource("1_x3fcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="1x7" parent="." instance=ExtResource("1_x3fcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)

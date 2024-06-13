@@ -28,13 +28,8 @@ func _physics_process(delta):
 	$Ground.global_translate (-$Ball.global_position)
 	
 	if direction == Vector2.ZERO:
-		var rot = (-$Ground.rotation_degrees.x) / 10
-		if rot: $Ground.transform = $Ground.transform.rotated( Vector3(1, 0, 0), deg_to_rad( rot ) )
-		if abs(rot) < 0.01: $Ground.rotation_degrees.x = 0
-		
-		rot = (-$Ground.rotation_degrees.z) / 10
-		if rot : $Ground.transform = $Ground.transform.rotated( Vector3(0, 0, 1), deg_to_rad( rot ) )
-		if abs(rot) < 0.01: $Ground.rotation_degrees.z = 0
+		$Ground.transform = $Ground.transform.rotated( Vector3(1, 0, 0), deg_to_rad( (-$Ground.rotation_degrees.x) / 10 ) )
+		$Ground.transform = $Ground.transform.rotated( Vector3(0, 0, 1), deg_to_rad( (-$Ground.rotation_degrees.z) / 10 ) )
 	else:
 		if (direction.y < 0 and $Ground.rotation_degrees.x - 0.1 > -10) or (direction.y > 0 and $Ground.rotation_degrees.x + 0.1 < 10):
 			$Ground.transform = $Ground.transform.rotated( Vector3(direction.y, 0, 0).normalized(), 0.01 * abs(direction.y) )

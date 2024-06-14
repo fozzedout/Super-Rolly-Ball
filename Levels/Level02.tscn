@@ -130,12 +130,12 @@ rotation_edit_mode = 1
 fov = 37.8493
 
 [node name="Ball" parent="." instance=ExtResource("2_rns3p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386, 7.636, 43.9994)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386, 0.636, 43.9994)
 
 [node name="Ground" type="Node3D" parent="."]
 
 [node name="flagGreen" parent="Ground" instance=ExtResource("5_aofnd")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.064414, -0.0495601, 46.922)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 1.06441, -0.0495601, 47.922)
 
 [node name="MurderDeathKill" type="Area3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)

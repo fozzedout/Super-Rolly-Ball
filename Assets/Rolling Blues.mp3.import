@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8eyfo2ifjgkn"
+path="res://.godot/imported/Rolling Blues.mp3-9f9efdc5b935ea4cea15107e1617333a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Rolling Blues.mp3"
+dest_files=["res://.godot/imported/Rolling Blues.mp3-9f9efdc5b935ea4cea15107e1617333a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

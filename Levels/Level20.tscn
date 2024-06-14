@@ -72,6 +72,10 @@ metadata/Level = "Level20"
 
 [node name="Skybox" parent="." instance=ExtResource("2_ob4x8")]
 
+[node name="DirectionalLight3D" parent="Skybox" index="0"]
+transform = Transform3D(0.230855, -0.946365, -0.22605, 0.722465, 0.011108, 0.691318, -0.651728, -0.322908, 0.686281, -0.41, 176.877, 46.441)
+shadow_reverse_cull_face = true
+
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
 
@@ -622,6 +626,7 @@ one_shot = true
 autostart = true
 
 [node name="GoalScreen" type="Node2D" parent="."]
+visible = false
 
 [node name="lblClearScore" type="Label" parent="GoalScreen"]
 offset_left = 128.0
@@ -781,4 +786,5 @@ autoplay = "FadeStart"
 [connection signal="pressed" from="GoalScreen/btnNextLevel" to="GoalScreen/btnNextLevel" method="_on_pressed" binds= ["res://Scenes/LevelSelection.tscn"]]
 [connection signal="pressed" from="GoalScreen/btnMainMenu" to="GoalScreen/btnMainMenu" method="_on_pressed" binds= ["res://Scenes/MainMenu.tscn"]]
 
+[editable path="Skybox"]
 [editable path="Ball"]

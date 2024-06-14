@@ -145,7 +145,7 @@ shadow_blur = 0.1
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 40)
 fov = 37.8493
 
 [node name="Ball" parent="." instance=ExtResource("3_gat7f")]
@@ -323,7 +323,7 @@ script = ExtResource("11_1iaew")
 move_speed = 3.5
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/CartwheelPlatforms/Path3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117631, -2.08844e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117639, -2.08844e-12)
 progress = 30.98
 rotation_mode = 0
 
@@ -337,7 +337,7 @@ script = ExtResource("11_1iaew")
 move_speed = 3.5
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/CartwheelPlatforms/Path3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000259402, 19.6832, -2.08851e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000251773, 19.6832, -2.08851e-12)
 progress = 61.9599
 rotation_mode = 0
 

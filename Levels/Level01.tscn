@@ -139,7 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 20)
 fov = 37.8493
 
 [node name="Ball" parent="." instance=ExtResource("2_5v74f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386, 1, 47)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386, -3.05421, 43.6785)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389248, -5.04956, -0.57489)
@@ -194,7 +194,7 @@ mesh = SubResource("BoxMesh_guqmc")
 surface_material_override/0 = SubResource("StandardMaterial3D_mu226")
 
 [node name="flagGreen" parent="Ground" instance=ExtResource("6_lirog")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.324834, 2.40636, 47.4969)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 1.10401, 2.40636, 50.8806)
 
 [node name="Goal" parent="Ground" instance=ExtResource("5_rx5en")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -1.43895, -38.6363)
@@ -209,16 +209,16 @@ shape = SubResource("BoxShape3D_tm63d")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.44412, 0)
 
 [node name="donut2" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("4_m4o4t")]
-transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 3.84736, 1.59777, -0.199787)
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 3.84736, 0.332697, -0.199787)
 
 [node name="donut3" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("4_m4o4t")]
-transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -3.77626, 1.42563, 8.56282)
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -3.77626, 0.160557, 8.56282)
 
 [node name="donut4" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("4_m4o4t")]
-transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 4.08791, 1.42563, 16.8649)
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 4.08791, 0.160557, 16.8649)
 
 [node name="donut5" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("4_m4o4t")]
-transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -3.15716, 1.42563, -11.7538)
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -3.15716, 0.160557, -11.7538)
 
 [node name="Fences" type="Node3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.379782, 0.364732, 0)

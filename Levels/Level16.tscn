@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dj5w56sbl0tn4" path="res://TatScenes/Blocks/RegularPieces/4x4.tscn" id="6_oadoq"]
 [ext_resource type="Script" path="res://TatScenes/Path3D.gd" id="7_jnux2"]
 [ext_resource type="PackedScene" uid="uid://cgfh5dx7qcmys" path="res://TatScenes/Blocks/RegularPieces/1x1.tscn" id="7_jwqob"]
-[ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="11_tnr13"]
+[ext_resource type="PackedScene" uid="uid://bcd1j8thwl6rf" path="res://Assets/TatModels/Flag.glb" id="11_ncx8j"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="12_dlgaw"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="14_fkyss"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="16_v6qyl"]
@@ -352,9 +352,6 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -36.87
 [node name="roundaboutPlatformsx13" parent="Ground/Areas" instance=ExtResource("5_uwnrh")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -36.8702, -4, -1.3339)
 
-[node name="flagGreen" parent="Ground" instance=ExtResource("11_tnr13")]
-transform = Transform3D(2.09292, 0, 2.14934, 0, 3, 0, -2.14934, 0, 2.09292, -1.16062, 0.61211, 100.145)
-
 [node name="Goal" parent="Ground" instance=ExtResource("12_dlgaw")]
 transform = Transform3D(1.59729, -9.76915e-16, -1.2036, 6.97574e-16, 2, -6.97574e-16, 1.2036, 1.37314e-16, 1.59729, -37.8633, -5, -16.6747)
 
@@ -378,6 +375,9 @@ transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -36
 
 [node name="donut14" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -37, -5.44562, 21.618)
+
+[node name="Flag2" parent="Ground" instance=ExtResource("11_ncx8j")]
+transform = Transform3D(0.964544, 0, 0.263924, 0, 1, 0, -0.263924, 0, 0.964544, -2.86194, 0.616355, 105.382)
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

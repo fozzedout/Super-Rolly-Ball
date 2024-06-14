@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://level.gd" id="1_vl8h5"]
 [ext_resource type="Texture2D" uid="uid://b0c1u283xo2nf" path="res://Assets/TatModels/Sky.png" id="2_5dilc"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="2_dt73r"]
-[ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="4_c5f71"]
 [ext_resource type="PackedScene" uid="uid://bipwf0j10or6d" path="res://TatScenes/Blocks/RegularPieces/8x8.tscn" id="4_exugg"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="5_ljx4h"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="6_06jh5"]
+[ext_resource type="PackedScene" uid="uid://bcd1j8thwl6rf" path="res://Assets/TatModels/Flag.glb" id="7_fhu1g"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="9_3x4oj"]
 [ext_resource type="Script" path="res://globals.gd" id="10_13lyp"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="11_pkj68"]
@@ -228,9 +228,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96, 0, 48.6332)
 [node name="8x21" parent="Ground/Areas" instance=ExtResource("4_exugg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96, 0, 32.6332)
 
-[node name="flagGreen" parent="Ground" instance=ExtResource("4_c5f71")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.324834, 5, 47.4969)
-
 [node name="Goal" parent="Ground" instance=ExtResource("5_ljx4h")]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -22, 2.32811, -38.6363)
 
@@ -272,6 +269,9 @@ transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 81.
 
 [node name="donut5" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("6_06jh5")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 27.8428, 1.42563, -7.7538)
+
+[node name="Flag2" parent="Ground" instance=ExtResource("7_fhu1g")]
+transform = Transform3D(0.903575, 0, -0.428431, 0, 1, 0, 0.428431, 0, 0.903575, -3.42997, 5.05805, 46.1507)
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

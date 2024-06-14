@@ -1,10 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://jth5km4qofs4"]
+[gd_scene load_steps=9 format=3 uid="uid://jth5km4qofs4"]
 
-[ext_resource type="Texture2D" uid="uid://cl8w306xxc8i6" path="res://Assets/main-menu-background.jpg" id="1_8bh12"]
 [ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_kx0xj"]
+[ext_resource type="Texture2D" uid="uid://be2xqjsum35p1" path="res://Assets/background.jpg" id="2_xjxcc"]
+[ext_resource type="FontFile" uid="uid://dlvuluvl5n63l" path="res://Assets/Sans Serif Shaded.ttf" id="3_56ofw"]
 [ext_resource type="Script" path="res://globals.gd" id="3_n3t6g"]
 [ext_resource type="Texture2D" uid="uid://fjdqkxbqo4mp" path="res://Assets/audio.png" id="4_1rlk6"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="5_8fgpb"]
+[ext_resource type="Texture2D" uid="uid://bllmrinpjf6o1" path="res://RollyBallLogo.png" id="7_qpf1w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wj2v"]
+bg_color = Color(1, 1, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_detail = 20
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_kx0xj")
@@ -12,28 +24,29 @@ script = ExtResource("1_kx0xj")
 [node name="Main-menu-background" type="Sprite2D" parent="."]
 position = Vector2(576.5, 326.5)
 scale = Vector2(0.600521, 0.60463)
-texture = ExtResource("1_8bh12")
-metadata/_edit_lock_ = true
+texture = ExtResource("2_xjxcc")
 
 [node name="btnStart" type="Button" parent="."]
-offset_left = 464.0
-offset_top = 252.0
-offset_right = 714.0
-offset_bottom = 327.0
+offset_left = 584.0
+offset_top = 453.0
+offset_right = 1135.0
+offset_bottom = 528.0
 focus_neighbor_bottom = NodePath("../btnLevelSelect")
 focus_next = NodePath("../btnLevelSelect")
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("3_56ofw")
+theme_override_font_sizes/font_size = 50
 text = "Start"
 script = ExtResource("3_n3t6g")
 
 [node name="btnLevelSelect" type="Button" parent="."]
-offset_left = 464.0
-offset_top = 350.0
-offset_right = 714.0
-offset_bottom = 425.0
+offset_left = 581.0
+offset_top = 551.0
+offset_right = 1134.0
+offset_bottom = 626.0
 focus_neighbor_top = NodePath("../btnStart")
 focus_previous = NodePath("../btnStart")
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("3_56ofw")
+theme_override_font_sizes/font_size = 50
 text = "Level Selection"
 script = ExtResource("3_n3t6g")
 
@@ -51,24 +64,59 @@ metadata/unmuted_value = 0
 stream = ExtResource("5_8fgpb")
 autoplay = true
 
-[node name="lblCredits" type="Label" parent="."]
-offset_left = 26.0
-offset_top = 425.0
-offset_right = 398.0
-offset_bottom = 635.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "Credits:
-Jaxah
-J.A Tat
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+offset_left = 16.0
+offset_top = 27.0
+offset_right = 422.0
+offset_bottom = 270.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2wj2v")
 
-Assets:
-Kenney: kenney.nl"
+[node name="lblCredits2" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 41.0
+offset_right = 320.0
+offset_bottom = 206.0
+theme_override_colors/font_color = Color(0.662745, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_56ofw")
+theme_override_font_sizes/font_size = 50
+text = "THIS GAME
+WORKS 
+BEST WITH
+CONTROLLER"
+horizontal_alignment = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="."]
+offset_left = 16.0
+offset_top = 395.0
+offset_right = 422.0
+offset_bottom = 638.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2wj2v")
+
+[node name="lblCredits3" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 409.0
+offset_right = 413.0
+offset_bottom = 630.0
+theme_override_colors/font_color = Color(0.662745, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_56ofw")
+theme_override_font_sizes/font_size = 50
+text = "A GAME
+MADE BY:
+JAXAH and
+j.a tat"
+horizontal_alignment = 1
 
 [node name="Audio" type="Sprite2D" parent="."]
 position = Vector2(1117, 435)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_1rlk6")
+
+[node name="RollyBallLogo" type="Sprite2D" parent="."]
+position = Vector2(912, 227.5)
+scale = Vector2(0.336719, 0.336719)
+texture = ExtResource("7_qpf1w")
 
 [connection signal="pressed" from="btnStart" to="btnStart" method="_on_pressed" binds= ["res://Levels/Level01.tscn"]]
 [connection signal="pressed" from="btnLevelSelect" to="btnLevelSelect" method="_on_pressed" binds= ["res://Scenes/LevelSelection.tscn"]]

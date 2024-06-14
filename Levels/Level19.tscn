@@ -16,12 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://xs66yw0c2y51" path="res://TatScenes/Blocks/TunnelsAndHalfpipes/12xHalfpipe.tscn" id="14_bhd0i"]
 [ext_resource type="PackedScene" uid="uid://baqekw55ocr0x" path="res://TatScenes/Blocks/RegularPieces/2x4.tscn" id="15_xy45d"]
 [ext_resource type="PackedScene" uid="uid://c6l74jpkro0dk" path="res://TatScenes/Blocks/MovingPlatforms/cartwheel_platformsx_8.tscn" id="16_53uyu"]
-[ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="17_aweak"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="18_a6yhi"]
 [ext_resource type="Texture2D" uid="uid://bdlhivnxto8c0" path="res://Assets/TatModels/Portal/NewPortal/portal_metal.png" id="18_pb5g6"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="19_e5k0x"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="20_3s4j2"]
 [ext_resource type="Script" path="res://globals.gd" id="20_6kwol"]
+[ext_resource type="PackedScene" uid="uid://bcd1j8thwl6rf" path="res://Assets/TatModels/Flag.glb" id="20_myl5j"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="21_0na1e"]
 [ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="22_va00d"]
 [ext_resource type="AudioStream" uid="uid://dxa1p4f6paw01" path="res://Assets/hit portal.ogg" id="23_18f8t"]
@@ -1034,7 +1034,7 @@ script = ExtResource("6_cb3vd")
 move_speed = 10.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Crusher2/Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0503, -1.01985, -2.08818e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0503, -1.01986, -2.08818e-12)
 progress = 18.6826
 rotation_mode = 0
 
@@ -1336,9 +1336,6 @@ transform = Transform3D(-1, 2.26267e-08, 8.44439e-08, 5.5292e-24, 0.965926, -0.2
 [node name="12xHalfpipe9" parent="Ground/Areas/12xHalfpipe/CartwheelPlatformsx11" instance=ExtResource("14_bhd0i")]
 transform = Transform3D(-0.983625, -0.174086, 0.0466463, -0.179468, 0.922374, -0.342077, 0.0165255, -0.344847, -0.938514, -21.2067, -6.76312, 91.4763)
 
-[node name="flagGreen" parent="Ground" instance=ExtResource("17_aweak")]
-transform = Transform3D(2.09292, 0, 2.14934, 0, 3, 0, -2.14934, 0, 2.09292, -15.7318, 25.3251, 111.512)
-
 [node name="Goal" type="Area3D" parent="Ground"]
 transform = Transform3D(1.92621, 2.88828e-08, -0.538243, 6.67444e-15, 2, 7.1563e-08, 0.538243, -1.03363e-07, 1.92621, -17.1778, 25.5546, 106.099)
 
@@ -1412,6 +1409,9 @@ transform = Transform3D(10, 5.73338e-07, -4.80853e-09, 4.34704e-07, -2.82979e-07
 
 [node name="donut30" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("20_3s4j2")]
 transform = Transform3D(5.50408, 8.34896, -7.76673e-07, 4.34703e-07, -2.82979e-07, -10, -8.34896, 5.50408, -5.06265e-07, 95.1418, 137.792, 135.372)
+
+[node name="Flag2" parent="Ground" instance=ExtResource("20_myl5j")]
+transform = Transform3D(0.999937, 0, 0.0112397, 0, 1, 0, -0.0112397, 0, 0.999937, -17.5891, 26.2094, 112.077)
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

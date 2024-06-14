@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://level.gd" id="1_50bgq"]
 [ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_ob4x8"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="3_ge0ik"]
-[ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="5_3uu5q"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="6_0a0ud"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="7_ut4ip"]
+[ext_resource type="PackedScene" uid="uid://bcd1j8thwl6rf" path="res://Assets/TatModels/Flag.glb" id="7_wvfap"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="8_snu1v"]
 [ext_resource type="Script" path="res://globals.gd" id="9_n1frw"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="10_pt0y4"]
@@ -358,9 +358,6 @@ transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107
 [node name="2x18" parent="Ground/Areas" instance=ExtResource("17_rpdn4")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 43.527, 4.04956, -1.01115)
 
-[node name="flagGreen" parent="Ground" instance=ExtResource("5_3uu5q")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.324834, 5, 47.4969)
-
 [node name="Goal" parent="Ground" instance=ExtResource("6_0a0ud")]
 transform = Transform3D(2, 0, 2.13163e-14, 0, 2, 0, -2.13163e-14, 0, 2, -60.4591, 2.32811, 34.3637)
 
@@ -615,6 +612,9 @@ transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 46.
 
 [node name="donut43" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("7_ut4ip")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 30.8428, 1.42563, -2.7538)
+
+[node name="Flag2" parent="Ground" instance=ExtResource("7_wvfap")]
+transform = Transform3D(0.999937, 0, 0.0112397, 0, 1, 0, -0.0112397, 0, 0.999937, -4.81002, 4.25165, 47.5545)
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

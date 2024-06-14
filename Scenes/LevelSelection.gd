@@ -1,5 +1,4 @@
 extends Node2D
-
 func _ready():
 	var globals = get_node("/root/Globals")
 	globals.load_game()

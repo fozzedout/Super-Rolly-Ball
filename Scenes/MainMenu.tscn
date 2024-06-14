@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_kx0xj"]
 [ext_resource type="Texture2D" uid="uid://be2xqjsum35p1" path="res://Assets/background.jpg" id="2_xjxcc"]
-[ext_resource type="FontFile" path="res://Assets/Sans Serif Shaded.ttf" id="3_56ofw"]
+[ext_resource type="FontFile" uid="uid://dlvuluvl5n63l" path="res://Assets/Sans Serif Shaded.ttf" id="3_56ofw"]
 [ext_resource type="Script" path="res://globals.gd" id="3_n3t6g"]
 [ext_resource type="Texture2D" uid="uid://fjdqkxbqo4mp" path="res://Assets/audio.png" id="4_1rlk6"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="5_8fgpb"]
-[ext_resource type="Texture2D" path="res://RollyBallLogo.png" id="7_qpf1w"]
+[ext_resource type="Texture2D" uid="uid://bllmrinpjf6o1" path="res://RollyBallLogo.png" id="7_qpf1w"]
 [ext_resource type="Texture2D" uid="uid://b3fl04bjk3p7o" path="res://Assets/Video_game_controller_icon_designed_by_Maico_Amorim.png" id="8_qx1pu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wj2v"]
@@ -35,10 +35,10 @@ offset_bottom = 350.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2wj2v")
 
 [node name="btnStart" type="Button" parent="."]
-offset_left = 584.0
-offset_top = 453.0
-offset_right = 1135.0
-offset_bottom = 528.0
+offset_left = 509.0
+offset_top = 451.0
+offset_right = 1060.0
+offset_bottom = 526.0
 focus_neighbor_bottom = NodePath("../btnLevelSelect")
 focus_next = NodePath("../btnLevelSelect")
 theme_override_fonts/font = ExtResource("3_56ofw")
@@ -47,10 +47,10 @@ text = "Start"
 script = ExtResource("3_n3t6g")
 
 [node name="btnLevelSelect" type="Button" parent="."]
-offset_left = 581.0
-offset_top = 551.0
-offset_right = 1134.0
-offset_bottom = 626.0
+offset_left = 506.0
+offset_top = 549.0
+offset_right = 1059.0
+offset_bottom = 624.0
 focus_neighbor_top = NodePath("../btnStart")
 focus_previous = NodePath("../btnStart")
 theme_override_fonts/font = ExtResource("3_56ofw")

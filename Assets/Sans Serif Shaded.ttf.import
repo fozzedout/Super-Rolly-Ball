@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://dlvuluvl5n63l"
+path="res://.godot/imported/Sans Serif Shaded.ttf-2eca621bde1207c0a966ee62dde5d71f.fontdata"
+
+[deps]
+
+source_file="res://Assets/Sans Serif Shaded.ttf"
+dest_files=["res://.godot/imported/Sans Serif Shaded.ttf-2eca621bde1207c0a966ee62dde5d71f.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

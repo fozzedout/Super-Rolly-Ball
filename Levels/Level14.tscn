@@ -13,11 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://cdsd3iw7jfemt" path="res://TatScenes/Blocks/Railings/BumperRailing/bumper_railingx_8.tscn" id="11_t5kwh"]
 [ext_resource type="Script" path="res://TatScenes/Path3D.gd" id="12_2spm2"]
 [ext_resource type="PackedScene" uid="uid://dj5w56sbl0tn4" path="res://TatScenes/Blocks/RegularPieces/4x4.tscn" id="12_sgav7"]
-[ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="13_mcqg1"]
 [ext_resource type="PackedScene" uid="uid://fesiyi16mddv" path="res://TatScenes/Blocks/RegularPieces/4x5.tscn" id="14_2hitv"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="14_y6k2h"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="17_1kvsp"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="17_f6btb"]
+[ext_resource type="PackedScene" uid="uid://bcd1j8thwl6rf" path="res://Assets/TatModels/Flag.glb" id="17_jwh80"]
 [ext_resource type="Texture2D" uid="uid://b0c1u283xo2nf" path="res://Assets/TatModels/Sky.png" id="17_k4pf0"]
 [ext_resource type="Script" path="res://globals.gd" id="18_pxeif"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="19_of8d1"]
@@ -210,9 +210,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator/PathFollow3D/5x5"]
 shape = SubResource("BoxShape3D_5005c")
-
-[node name="flagGreen" parent="Ground/Areas/Elevator/PathFollow3D" instance=ExtResource("13_mcqg1")]
-transform = Transform3D(2.84284, -6.57313e-16, 0.958266, 1.04636e-15, 3, -1.04636e-15, -0.958266, 1.32577e-15, 2.84284, 1.65875, 0, 6.23824)
 
 [node name="2xTunnelWide" parent="Ground/Areas" instance=ExtResource("5_6t1ya")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -37.5294)
@@ -888,6 +885,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 
 [node name="1x7" parent="Ground/sinkLine23" instance=ExtResource("10_wnpqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="Flag2" parent="Ground" instance=ExtResource("17_jwh80")]
+transform = Transform3D(0.999937, 0, 0.0112397, 0, 1, 0, -0.0112397, 0, 0.999937, -0.046575, -1.86157, 3.67429)
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

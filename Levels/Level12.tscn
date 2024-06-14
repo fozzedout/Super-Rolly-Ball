@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bipwf0j10or6d" path="res://TatScenes/Blocks/RegularPieces/8x8.tscn" id="4_p7gag"]
 [ext_resource type="PackedScene" uid="uid://cu1oflu0fnew6" path="res://TatScenes/Blocks/Railings/railingx10.tscn" id="5_7ubto"]
 [ext_resource type="PackedScene" uid="uid://xs66yw0c2y51" path="res://TatScenes/Blocks/TunnelsAndHalfpipes/12xHalfpipe.tscn" id="5_lejs2"]
-[ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="6_awiom"]
 [ext_resource type="PackedScene" uid="uid://bqn0padau2lu7" path="res://TatScenes/Blocks/MovingPlatforms/flowing_platforms.tscn" id="6_k66vx"]
 [ext_resource type="PackedScene" uid="uid://bho4nvmpn2xwa" path="res://TatScenes/Blocks/MovingPlatforms/Fatpusher.tscn" id="6_r120o"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="7_b0yvk"]
@@ -30,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="16_d7kny"]
 [ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="17_r8u6d"]
 [ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="18_kwt6i"]
+[ext_resource type="PackedScene" uid="uid://bcd1j8thwl6rf" path="res://Assets/TatModels/Flag.glb" id="20_gqjy7"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6nyyj"]
 panorama = ExtResource("2_nt1y1")
@@ -323,7 +323,7 @@ script = ExtResource("11_1iaew")
 move_speed = 3.5
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/CartwheelPlatforms/Path3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117639, -2.08844e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117631, -2.08844e-12)
 progress = 30.98
 rotation_mode = 0
 
@@ -337,7 +337,7 @@ script = ExtResource("11_1iaew")
 move_speed = 3.5
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/CartwheelPlatforms/Path3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000251773, 19.6832, -2.08851e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000259402, 19.6832, -2.08851e-12)
 progress = 61.9599
 rotation_mode = 0
 
@@ -384,9 +384,6 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.1057
 
 [node name="BumperRailingx8" parent="Ground/Areas" instance=ExtResource("15_ekmbw")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.94448, 0.049737, 26.9871)
-
-[node name="flagGreen" parent="Ground" instance=ExtResource("6_awiom")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -5.76982, -1.90735e-06, 45.4392)
 
 [node name="Goal" parent="Ground" instance=ExtResource("7_b0yvk")]
 transform = Transform3D(2, -6.97574e-16, 6.97574e-16, 6.97574e-16, 2, -6.97574e-16, -6.97574e-16, 6.97574e-16, 2, 0.0706118, 0.528056, 21.0605)
@@ -441,6 +438,9 @@ transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -42
 
 [node name="donut5" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("16_d7kny")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -57.3573, -2, 44)
+
+[node name="Flag2" parent="Ground" instance=ExtResource("20_gqjy7")]
+transform = Transform3D(0.903575, 0, -0.428431, 0, 1, 0, 0.428431, 0, 0.903575, -3.42997, 1.26822, 46.1507)
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

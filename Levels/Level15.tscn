@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b0y2t7gffhmxe"]
+[gd_scene load_steps=33 format=3 uid="uid://b0y2t7gffhmxe"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_62yro"]
 [ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_ouax1"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="12_v1vhc"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="13_kbuvd"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="15_7v5yy"]
+[ext_resource type="PackedScene" uid="uid://bcd1j8thwl6rf" path="res://Assets/TatModels/Flag.glb" id="16_2axkg"]
 [ext_resource type="Script" path="res://globals.gd" id="16_qq84k"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="17_gpfe0"]
 [ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="18_lly87"]
@@ -448,6 +449,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 53.075
 
 [node name="1x19" parent="Ground" instance=ExtResource("12_s7kod")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 55.0751, -0.0220566, 63.1919)
+
+[node name="Flag2" parent="Ground" instance=ExtResource("16_2axkg")]
+transform = Transform3D(0.999937, 0, 0.0112397, 0, 1, 0, -0.0112397, 0, 0.999937, -32.003, 21.3955, 81.3446)
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

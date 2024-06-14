@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="3_x3bi6"]
 [ext_resource type="PackedScene" uid="uid://bipwf0j10or6d" path="res://TatScenes/Blocks/RegularPieces/8x8.tscn" id="4_xo3ir"]
 [ext_resource type="PackedScene" uid="uid://dstan672b1h66" path="res://TatScenes/Blocks/RegularPieces/2x5.tscn" id="5_jr031"]
-[ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="6_feec6"]
 [ext_resource type="PackedScene" uid="uid://cg7sut6b2dmkw" path="res://TatScenes/Blocks/RegularPieces/1x10.tscn" id="6_hips0"]
 [ext_resource type="PackedScene" uid="uid://60ryftt000pt" path="res://TatScenes/Blocks/RegularPieces/3x3.tscn" id="7_dxmw6"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="7_thd0d"]
@@ -24,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://c0em3aektw1d4" path="res://TatScenes/Blocks/ExtraPieces/4x2x1ramp.tscn" id="22_g3npo"]
 [ext_resource type="PackedScene" uid="uid://ycj78hm6a24a" path="res://TatScenes/Blocks/ExtraPieces/5x5x3ramp.tscn" id="23_wb0m0"]
 [ext_resource type="PackedScene" uid="uid://dxr0i0kgnssbo" path="res://TatScenes/Blocks/Railings/BumperRailing/bumper_railingx_2.tscn" id="24_6qhxu"]
+[ext_resource type="PackedScene" uid="uid://bcd1j8thwl6rf" path="res://Assets/TatModels/Flag.glb" id="25_5xnip"]
 [ext_resource type="PackedScene" uid="uid://cbygmkxvqewuh" path="res://TatScenes/Blocks/Railings/BumperRailing/bumper_railingx_5.tscn" id="25_kd5xn"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6nyyj"]
@@ -254,9 +254,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.389
 [node name="5x5x3Ramp4" parent="Ground/Areas" instance=ExtResource("23_wb0m0")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.38925, 4.04956, -15.4251)
 
-[node name="flagGreen" parent="Ground" instance=ExtResource("6_feec6")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.324834, 5, 47.9711)
-
 [node name="Goal" parent="Ground" instance=ExtResource("7_thd0d")]
 transform = Transform3D(2, 0, 2.13163e-14, 0, 2, 0, -2.13163e-14, 0, 2, 10.1072, 2.4586, -66.5458)
 
@@ -483,6 +480,9 @@ stream = ExtResource("17_gjvho")
 
 [node name="Goal" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("18_0ks02")
+
+[node name="Flag2" parent="." instance=ExtResource("25_5xnip")]
+transform = Transform3D(0.903575, 0, -0.428431, 0, 1, 0, 0.428431, 0, 0.903575, 0.915131, -0.368386, 46.1507)
 
 [connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Ground/Goal" to="." method="_on_goal_body_entered"]

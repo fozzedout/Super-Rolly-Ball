@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://level.gd" id="1_5ayna"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="3_ku7cs"]
 [ext_resource type="PackedScene" uid="uid://bipwf0j10or6d" path="res://TatScenes/Blocks/RegularPieces/8x8.tscn" id="4_8pxs1"]
-[ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="5_45j3q"]
 [ext_resource type="PackedScene" uid="uid://xs66yw0c2y51" path="res://TatScenes/Blocks/TunnelsAndHalfpipes/12xHalfpipe.tscn" id="5_mykfl"]
 [ext_resource type="PackedScene" uid="uid://c1qo2mk6w1jwh" path="res://TatScenes/Blocks/ExtraPieces/DangerBowl.tscn" id="6_g6xph"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="7_doh66"]
@@ -11,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cx2nv665qcqv3" path="res://Assets/TatModels/Portal/NewPortal/portalCore_PublicDomainMilkyWay_.png" id="8_4xe67"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="8_y0p33"]
 [ext_resource type="Script" path="res://globals.gd" id="9_agddv"]
+[ext_resource type="PackedScene" uid="uid://bcd1j8thwl6rf" path="res://Assets/TatModels/Flag.glb" id="10_funtl"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="10_pti3q"]
 [ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="11_wus4j"]
 [ext_resource type="AudioStream" uid="uid://dxa1p4f6paw01" path="res://Assets/hit portal.ogg" id="12_s4pgv"]
@@ -256,12 +256,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 10.7354, -74.7768, -164.298)
 [node name="2xTunnelWide3" parent="Ground/Areas" instance=ExtResource("7_hx3ee")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 31.6104, -74.7768, -164.298)
 
-[node name="flagGreen" parent="Ground" instance=ExtResource("5_45j3q")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.324834, 5, 47.4969)
-
-[node name="flagGreen2" parent="Ground" instance=ExtResource("5_45j3q")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 11.5302, -72.5784, -160.87)
-
 [node name="Goal" type="Area3D" parent="Ground"]
 transform = Transform3D(-1.96701e-07, -4.5, -1.96701e-07, 0, -1.96701e-07, 4.5, -4.5, 1.96701e-07, 8.59808e-15, 4.99235, -73.5887, -224.439)
 
@@ -330,6 +324,9 @@ transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 21.
 
 [node name="donut5" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("7_doh66")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 18.8428, 1.42563, 36.2462)
+
+[node name="Flag2" parent="Ground" instance=ExtResource("10_funtl")]
+transform = Transform3D(0.903575, 0, -0.428431, 0, 1, 0, 0.428431, 0, 0.903575, -3.42997, 5.05805, 46.1507)
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

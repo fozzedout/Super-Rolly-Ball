@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b0y2t7gffhmxe"]
+[gd_scene load_steps=32 format=3 uid="uid://b0y2t7gffhmxe"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_62yro"]
 [ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_ouax1"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bxvqwixeooeg1" path="res://TatScenes/Blocks/RegularPieces/5x5.tscn" id="8_3o2qc"]
 [ext_resource type="PackedScene" uid="uid://cxkis50lunbny" path="res://TatScenes/Blocks/ExtraPieces/5x5bump.tscn" id="9_6uty8"]
 [ext_resource type="PackedScene" uid="uid://cdsd3iw7jfemt" path="res://TatScenes/Blocks/Railings/BumperRailing/bumper_railingx_8.tscn" id="10_6bw72"]
-[ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="12_bqqeh"]
 [ext_resource type="PackedScene" uid="uid://25t6dtdgx5nn" path="res://Assets/TatModels/Collectibles/Star.glb" id="12_gepml"]
 [ext_resource type="PackedScene" uid="uid://cg7sut6b2dmkw" path="res://TatScenes/Blocks/RegularPieces/1x10.tscn" id="12_s7kod"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="12_v1vhc"]
@@ -65,7 +64,7 @@ tracks/1/path = NodePath("lblLevelResult:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1, 1.9),
+"times": PackedFloat32Array(0, 1.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -375,9 +374,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.3526, 0, 39)
 
 [node name="BumperRailingx9" parent="Ground/Areas" instance=ExtResource("10_6bw72")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.3526, 0, 39)
-
-[node name="flagGreen" parent="Ground" instance=ExtResource("12_bqqeh")]
-transform = Transform3D(-0.62988, 0, 2.93313, 0, 3, 0, -2.93313, 0, -0.62988, -29.7747, 22.9786, 82.6832)
 
 [node name="Goal" parent="Ground" instance=ExtResource("13_kbuvd")]
 transform = Transform3D(1.44724, -2.33111e-17, 1.3804, 6.97574e-16, 2, -6.97574e-16, -1.3804, 9.86243e-16, 1.44724, 2.41846, -0.00771856, 6.15154)

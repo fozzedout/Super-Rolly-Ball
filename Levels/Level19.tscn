@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://lhiakesmlbap"]
+[gd_scene load_steps=44 format=3 uid="uid://lhiakesmlbap"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_gx2r0"]
 [ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_sa6np"]
@@ -31,6 +31,10 @@
 [ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="27_hfcv4"]
 [ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="28_6cujk"]
 [ext_resource type="PackedScene" uid="uid://biwag6pywyoyx" path="res://Assets/TatModels/Player/Player.glb" id="31_a1y25"]
+[ext_resource type="PackedScene" uid="uid://cpqsp3x4d256e" path="res://TatScenes/Blocks/ExtraPieces/pit.tscn" id="32_i8b7v"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tyypp"]
+radius = 1.0
 
 [sub_resource type="Curve3D" id="Curve3D_lvt4p"]
 _data = {
@@ -122,7 +126,7 @@ tracks/1/path = NodePath("lblLevelResult:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1, 1.9),
+"times": PackedFloat32Array(0, 1.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -145,9 +149,6 @@ _data = {
 "FadeStart": SubResource("Animation_x8fa6")
 }
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_tyypp"]
-radius = 1.0
-
 [node name="Level" type="Node3D"]
 script = ExtResource("1_gx2r0")
 metadata/Level = "Level19"
@@ -164,6 +165,19 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 20)
 fov = 37.8493
+
+[node name="Ball" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.446, 22.1703, 116.355)
+
+[node name="Player" parent="Ball" instance=ExtResource("31_a1y25")]
+
+[node name="Area3D" type="Area3D" parent="Ball"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball/Area3D"]
+shape = SubResource("SphereShape3D_tyypp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
+shape = SubResource("SphereShape3D_tyypp")
 
 [node name="Ground" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389248, -5.04956, -0.57489)
@@ -1354,7 +1368,7 @@ shape = SubResource("ConcavePolygonShape3D_p5xoh")
 transform = Transform3D(1.39903, 7.66947e-08, -1.42924, 5.96265e-15, 2, 7.1563e-08, 1.42924, -7.50736e-08, 1.39903, 113.821, 125.405, 99.099)
 
 [node name="MurderDeathKill" type="Area3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389248, -120.073, 0.57489)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389248, -49.1089, 0.57489)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/MurderDeathKill"]
 shape = SubResource("BoxShape3D_tm63d")
@@ -1412,6 +1426,15 @@ transform = Transform3D(5.50408, 8.34896, -7.76673e-07, 4.34703e-07, -2.82979e-0
 
 [node name="Flag2" parent="Ground" instance=ExtResource("20_myl5j")]
 transform = Transform3D(0.999937, 0, 0.0112397, 0, 1, 0, -0.0112397, 0, 0.999937, -17.5891, 26.2094, 112.077)
+
+[node name="Checkpoint" parent="Ground" groups=["checkpoints"] instance=ExtResource("32_i8b7v")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 95.774, 92.2519, 112.74)
+
+[node name="Checkpoint3" parent="Ground" groups=["checkpoints"] instance=ExtResource("32_i8b7v")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 76.4967, 45.8242, 131.887)
+
+[node name="Checkpoint2" parent="Ground" groups=["checkpoints"] instance=ExtResource("32_i8b7v")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 123.487, 159.427, 26.8087)
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0
@@ -1575,25 +1598,12 @@ libraries = {
 }
 autoplay = "FadeStart"
 
-[node name="Ball" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.446, 22.1703, 116.355)
-
-[node name="Player" parent="Ball" instance=ExtResource("31_a1y25")]
-
-[node name="Area3D" type="Area3D" parent="Ball"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball/Area3D"]
-shape = SubResource("SphereShape3D_tyypp")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
-shape = SubResource("SphereShape3D_tyypp")
-
+[connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Ground/Goal2" to="." method="_on_goal_body_entered"]
 [connection signal="body_entered" from="Ground/MurderDeathKill" to="." method="_on_murder_death_kill_body_entered"]
 [connection signal="timeout" from="TimerReload" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerStart" to="." method="_on_timer_start_timeout"]
 [connection signal="pressed" from="GoalScreen/btnNextLevel" to="GoalScreen/btnNextLevel" method="_on_pressed" binds= ["res://Levels/Level20.tscn"]]
 [connection signal="pressed" from="GoalScreen/btnMainMenu" to="GoalScreen/btnMainMenu" method="_on_pressed" binds= ["res://Scenes/MainMenu.tscn"]]
-[connection signal="area_entered" from="Ball/Area3D" to="." method="_on_area_3d_area_entered"]
 
 [editable path="Skybox"]

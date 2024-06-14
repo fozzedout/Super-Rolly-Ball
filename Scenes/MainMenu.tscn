@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://jth5km4qofs4"]
+[gd_scene load_steps=11 format=3 uid="uid://jth5km4qofs4"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_kx0xj"]
 [ext_resource type="Texture2D" uid="uid://be2xqjsum35p1" path="res://Assets/background.jpg" id="2_xjxcc"]
 [ext_resource type="FontFile" uid="uid://dlvuluvl5n63l" path="res://Assets/Sans Serif Shaded.ttf" id="3_56ofw"]
+[ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="3_fds7h"]
 [ext_resource type="Script" path="res://globals.gd" id="3_n3t6g"]
 [ext_resource type="Texture2D" uid="uid://fjdqkxbqo4mp" path="res://Assets/audio.png" id="4_1rlk6"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="5_8fgpb"]
@@ -15,7 +16,7 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 0.541176)
 border_blend = true
 corner_detail = 20
 
@@ -27,13 +28,6 @@ position = Vector2(576.5, 326.5)
 scale = Vector2(0.600521, 0.60463)
 texture = ExtResource("2_xjxcc")
 
-[node name="PanelContainer4" type="PanelContainer" parent="."]
-offset_left = 366.0
-offset_top = 242.0
-offset_right = 502.0
-offset_bottom = 350.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_2wj2v")
-
 [node name="btnStart" type="Button" parent="."]
 offset_left = 509.0
 offset_top = 451.0
@@ -41,8 +35,8 @@ offset_right = 1060.0
 offset_bottom = 526.0
 focus_neighbor_bottom = NodePath("../btnLevelSelect")
 focus_next = NodePath("../btnLevelSelect")
-theme_override_fonts/font = ExtResource("3_56ofw")
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("3_fds7h")
+theme_override_font_sizes/font_size = 40
 text = "Start"
 script = ExtResource("3_n3t6g")
 
@@ -53,8 +47,8 @@ offset_right = 1059.0
 offset_bottom = 624.0
 focus_neighbor_top = NodePath("../btnStart")
 focus_previous = NodePath("../btnStart")
-theme_override_fonts/font = ExtResource("3_56ofw")
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("3_fds7h")
+theme_override_font_sizes/font_size = 40
 text = "Level Selection"
 script = ExtResource("3_n3t6g")
 
@@ -79,15 +73,21 @@ offset_right = 422.0
 offset_bottom = 269.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2wj2v")
 
+[node name="PanelContainer4" type="PanelContainer" parent="."]
+offset_left = 366.0
+offset_top = 242.0
+offset_right = 502.0
+offset_bottom = 350.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2wj2v")
+
 [node name="lblCredits2" type="Label" parent="."]
 offset_left = 26.0
 offset_top = 41.0
-offset_right = 320.0
-offset_bottom = 206.0
+offset_right = 413.0
+offset_bottom = 254.0
 theme_override_colors/font_color = Color(0.662745, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_56ofw")
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("3_fds7h")
+theme_override_font_sizes/font_size = 40
 text = "THIS GAME
 WORKS 
 BEST WITH

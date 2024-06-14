@@ -29,8 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="16_d7kny"]
 [ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="17_r8u6d"]
 [ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="18_kwt6i"]
-[ext_resource type="PackedScene" uid="uid://cpqsp3x4d256e" path="res://TatScenes/Blocks/ExtraPieces/pit.tscn" id="31_y0avy"]
 [ext_resource type="PackedScene" uid="uid://bcd1j8thwl6rf" path="res://Assets/TatModels/Flag.glb" id="20_gqjy7"]
+[ext_resource type="PackedScene" uid="uid://cpqsp3x4d256e" path="res://TatScenes/Blocks/ExtraPieces/pit.tscn" id="31_y0avy"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6nyyj"]
 panorama = ExtResource("2_nt1y1")
@@ -98,7 +98,7 @@ tracks/1/path = NodePath("lblLevelResult:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1, 1.9),
+"times": PackedFloat32Array(0, 1.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -333,7 +333,7 @@ script = ExtResource("11_1iaew")
 move_speed = 3.5
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/CartwheelPlatforms/Path3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117631, -2.08844e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117639, -2.08844e-12)
 progress = 30.98
 rotation_mode = 0
 
@@ -347,7 +347,7 @@ script = ExtResource("11_1iaew")
 move_speed = 3.5
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/CartwheelPlatforms/Path3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000259402, 19.6832, -2.08851e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000251773, 19.6832, -2.08851e-12)
 progress = 61.9599
 rotation_mode = 0
 

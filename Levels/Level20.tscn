@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://tu8dkqd35ih3"]
+[gd_scene load_steps=22 format=3 uid="uid://tu8dkqd35ih3"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_50bgq"]
 [ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_ob4x8"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="16_5gj16"]
 [ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="17_h1ydf"]
 [ext_resource type="PackedScene" uid="uid://dstan672b1h66" path="res://TatScenes/Blocks/RegularPieces/2x5.tscn" id="17_rpdn4"]
+[ext_resource type="PackedScene" uid="uid://cpqsp3x4d256e" path="res://TatScenes/Blocks/ExtraPieces/pit.tscn" id="18_2ip76"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
 size = Vector3(1000, 1, 1000)
@@ -43,7 +44,7 @@ tracks/1/path = NodePath("lblLevelResult:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1, 1.9),
+"times": PackedFloat32Array(0, 1.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -615,6 +616,26 @@ transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 30.
 
 [node name="Flag2" parent="Ground" instance=ExtResource("7_wvfap")]
 transform = Transform3D(0.999937, 0, 0.0112397, 0, 1, 0, -0.0112397, 0, 0.999937, -4.81002, 4.25165, 47.5545)
+
+[node name="Checkpoints" type="Node3D" parent="Ground"]
+
+[node name="Checkpoint3" parent="Ground/Checkpoints" groups=["checkpoints"] instance=ExtResource("18_2ip76")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 37.1074, 4.87378, -21.5379)
+
+[node name="Checkpoint4" parent="Ground/Checkpoints" groups=["checkpoints"] instance=ExtResource("18_2ip76")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, -17.8926, 4.87378, -9.5379)
+
+[node name="Checkpoint5" parent="Ground/Checkpoints" groups=["checkpoints"] instance=ExtResource("18_2ip76")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 14.1074, 4.87378, 20.4621)
+
+[node name="Checkpoint6" parent="Ground/Checkpoints" groups=["checkpoints"] instance=ExtResource("18_2ip76")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, -15.8926, 4.87378, 42.4621)
+
+[node name="Checkpoint7" parent="Ground/Checkpoints" groups=["checkpoints"] instance=ExtResource("18_2ip76")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 5.10744, 4.87378, 63.4621)
+
+[node name="Checkpoint8" parent="Ground/Checkpoints" groups=["checkpoints"] instance=ExtResource("18_2ip76")]
+transform = Transform3D(0.0282843, 0, 0.0282843, 0, 0.04, 0, -0.0282843, 0, 0.0282843, -63.8926, 4.87378, -1.5379)
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

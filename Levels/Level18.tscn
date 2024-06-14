@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cp3cn3xvfk2b0"]
+[gd_scene load_steps=40 format=3 uid="uid://cp3cn3xvfk2b0"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_22sny"]
 [ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_gsuvj"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://bcd1j8thwl6rf" path="res://Assets/TatModels/Flag.glb" id="19_8iqd2"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="19_ydagy"]
 [ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="20_nfnyt"]
+[ext_resource type="PackedScene" uid="uid://cpqsp3x4d256e" path="res://TatScenes/Blocks/ExtraPieces/pit.tscn" id="20_vb00r"]
 [ext_resource type="PackedScene" uid="uid://biwag6pywyoyx" path="res://Assets/TatModels/Player/Player.glb" id="30_cwrk1"]
 
 [sub_resource type="Curve3D" id="Curve3D_lvt4p"]
@@ -84,7 +85,7 @@ tracks/1/path = NodePath("lblLevelResult:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1, 1.9),
+"times": PackedFloat32Array(0, 1.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -124,7 +125,7 @@ shadow_reverse_cull_face = true
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 30)
 fov = 37.8493
 
 [node name="Ground" type="Node3D" parent="."]
@@ -691,7 +692,7 @@ script = ExtResource("4_4leqg")
 move_speed = 10.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Crusher2/Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0503, -1.01986, -2.08818e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0503, -1.01985, -2.08818e-12)
 progress = 18.6826
 rotation_mode = 0
 
@@ -1043,6 +1044,9 @@ transform = Transform3D(10, 5.73338e-07, -4.80853e-09, 4.34704e-07, -2.82979e-07
 
 [node name="Flag2" parent="Ground" instance=ExtResource("19_8iqd2")]
 transform = Transform3D(0.999937, 0, 0.0112397, 0, 1, 0, -0.0112397, 0, 0.999937, 2.69495, 0.0727353, 96.8976)
+
+[node name="Checkpoint" parent="Ground" groups=["checkpoints"] instance=ExtResource("20_vb00r")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 83.0686, 14.0269, 60.8803)
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

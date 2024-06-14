@@ -11,6 +11,7 @@ func _ready():
 	$Ball.freeze = true
 	AudioServer.set_bus_volume_db(globals.bus_index, linear_to_db(globals.ts["Volume"]))
 func _physics_process(delta):
+	if Input.is_action_just_pressed("Restart"): get_tree().reload_current_scene()
 	if doTimer: time -= delta
 	if time <= 0 and $TimerReload.is_stopped():
 		time = 0

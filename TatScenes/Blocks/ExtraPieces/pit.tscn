@@ -43,7 +43,7 @@ size = Vector3(100, 10, 100)
 [node name="Pit" type="Area3D"]
 
 [node name="Pit" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-1, 0, 0, 0, -0.1, 0, 0, 0, -1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_e08sr")
 skeleton = NodePath("")
 

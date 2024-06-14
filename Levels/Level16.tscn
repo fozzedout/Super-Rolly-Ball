@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b54tgi4ilfhv3"]
+[gd_scene load_steps=28 format=3 uid="uid://b54tgi4ilfhv3"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_u0hs2"]
 [ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_ffliu"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cgfh5dx7qcmys" path="res://TatScenes/Blocks/RegularPieces/1x1.tscn" id="7_jwqob"]
 [ext_resource type="PackedScene" uid="uid://bcd1j8thwl6rf" path="res://Assets/TatModels/Flag.glb" id="11_ncx8j"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="12_dlgaw"]
+[ext_resource type="PackedScene" uid="uid://cpqsp3x4d256e" path="res://TatScenes/Blocks/ExtraPieces/pit.tscn" id="12_v6hal"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="14_fkyss"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="16_v6qyl"]
 [ext_resource type="Script" path="res://globals.gd" id="17_tu1nj"]
@@ -61,7 +62,7 @@ tracks/1/path = NodePath("lblLevelResult:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1, 1.9),
+"times": PackedFloat32Array(0, 1.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -97,7 +98,7 @@ transform = Transform3D(0.924301, 0.369036, 0.0973654, -0.355737, 0.740583, 0.57
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 40)
 fov = 37.8493
 
 [node name="Ball" parent="." instance=ExtResource("3_osdnh")]
@@ -110,6 +111,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389248, -5.04956, -0.57489)
 
 [node name="TowerNexus" parent="Ground/Areas" instance=ExtResource("4_kll5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.8, 101)
+
+[node name="TowerNexus2" parent="Ground/Areas" instance=ExtResource("4_kll5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.2497, -14.2091, 36.9817)
+
+[node name="TowerNexus4" parent="Ground/Areas" instance=ExtResource("4_kll5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.2497, -14.2091, 76.1072)
+
+[node name="TowerNexus3" parent="Ground/Areas" instance=ExtResource("4_kll5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0046, -14.2091, 36.9817)
+
+[node name="TowerNexus5" parent="Ground/Areas" instance=ExtResource("4_kll5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3993, -16.2116, -0.444904)
 
 [node name="roundaboutPlatformsx8" type="Node3D" parent="Ground/Areas"]
 transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 74.6661)
@@ -356,7 +369,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -36.87
 transform = Transform3D(1.59729, -9.76915e-16, -1.2036, 6.97574e-16, 2, -6.97574e-16, 1.2036, 1.37314e-16, 1.59729, -37.8633, -5, -16.6747)
 
 [node name="MurderDeathKill" type="Area3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389248, -120.073, 0.57489)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389248, -55.4386, 0.57489)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/MurderDeathKill"]
 shape = SubResource("BoxShape3D_tm63d")
@@ -376,8 +389,68 @@ transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -36
 [node name="donut14" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -37, -5.44562, 21.618)
 
+[node name="donut15" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -13.4314, -7.34397, 2.29157)
+
+[node name="donut16" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -7.96354, -7.34397, 2.29157)
+
+[node name="donut17" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -7.96354, -7.34397, -2.84578)
+
+[node name="donut18" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -13.1969, -7.34397, -2.84578)
+
+[node name="donut19" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -65.0826, -5.80186, 39.7588)
+
+[node name="donut20" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -59.6148, -5.80186, 39.7588)
+
+[node name="donut21" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -59.6148, -5.80186, 34.6214)
+
+[node name="donut22" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -64.8482, -5.80186, 34.6214)
+
+[node name="donut23" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -65.0826, -5.80186, 78.3907)
+
+[node name="donut24" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -59.6148, -5.80186, 78.3907)
+
+[node name="donut25" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -59.6148, -5.80186, 73.2534)
+
+[node name="donut26" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -64.8482, -5.80186, 73.2534)
+
+[node name="donut27" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 22.2801, -5.80186, 39.2636)
+
+[node name="donut28" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 27.7479, -5.80186, 39.2636)
+
+[node name="donut29" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 27.7479, -5.80186, 34.1262)
+
+[node name="donut30" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("14_fkyss")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 22.5145, -5.80186, 34.1262)
+
 [node name="Flag2" parent="Ground" instance=ExtResource("11_ncx8j")]
 transform = Transform3D(0.964544, 0, 0.263924, 0, 1, 0, -0.263924, 0, 0.964544, -2.86194, 0.616355, 105.382)
+
+[node name="Checkpoint" parent="Ground" groups=["checkpoints"] instance=ExtResource("12_v6hal")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -62.9314, -1.4443, 75.8803)
+
+[node name="Checkpoint2" parent="Ground" groups=["checkpoints"] instance=ExtResource("12_v6hal")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -62.9314, -1.4443, 36.6952)
+
+[node name="Checkpoint3" parent="Ground" groups=["checkpoints"] instance=ExtResource("12_v6hal")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 25.5637, -1.4443, 36.6952)
+
+[node name="Checkpoint4" parent="Ground" groups=["checkpoints"] instance=ExtResource("12_v6hal")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -11.1424, -3.44722, -1.59945)
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

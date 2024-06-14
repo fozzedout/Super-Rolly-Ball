@@ -148,7 +148,7 @@ tracks/1/path = NodePath("lblLevelResult:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1, 1.9),
+"times": PackedFloat32Array(0, 1.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -891,7 +891,7 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -2.18987, -1.63564, 
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -1.73417, -1.65617, -140.702)
 
 [node name="Flag2" parent="Ground" instance=ExtResource("17_jwh80")]
-transform = Transform3D(0.999937, 0, 0.0112397, 0, 1, 0, -0.0112397, 0, 0.999937, -0.046575, -1.86157, 3.67429)
+transform = Transform3D(0.999937, 0, 0.0112397, 0, 1, 0, -0.0112397, 0, 0.999937, -9.4501, -1.86157, -6.63313)
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

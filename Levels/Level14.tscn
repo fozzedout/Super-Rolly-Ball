@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://crv3txjtdhkpe"]
+[gd_scene load_steps=42 format=3 uid="uid://crv3txjtdhkpe"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_0sym7"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="3_qg1gk"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="13_mcqg1"]
 [ext_resource type="PackedScene" uid="uid://fesiyi16mddv" path="res://TatScenes/Blocks/RegularPieces/4x5.tscn" id="14_2hitv"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="14_y6k2h"]
+[ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="17_1kvsp"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="17_f6btb"]
 [ext_resource type="Texture2D" uid="uid://b0c1u283xo2nf" path="res://Assets/TatModels/Sky.png" id="17_k4pf0"]
 [ext_resource type="Script" path="res://globals.gd" id="18_pxeif"]
@@ -772,6 +773,36 @@ shape = SubResource("BoxShape3D_tm63d")
 
 [node name="Collectables" type="Node3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.243336, 5.03777, -0.102921)
+
+[node name="donut2" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0, -4.90436, -12.0069)
+
+[node name="donut3" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0.4, -4.90436, -37.6949)
+
+[node name="donut4" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -8.1927, -4.90436, -70.4599)
+
+[node name="donut5" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 9.48066, -4.90436, -70.4599)
+
+[node name="donut6" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -8.1927, -1.90436, -95.8042)
+
+[node name="donut7" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 9.48066, -1.90436, -95.8042)
+
+[node name="donut8" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 1.0063, -1.90436, -151.675)
+
+[node name="donut9" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0.231813, -1.90436, -185.72)
+
+[node name="donut10" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0.766474, -1.90436, -198.902)
+
+[node name="donut11" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 1.76647, -6.20245, -211.606)
 
 [node name="sinkLine19" type="Node3D" parent="Ground"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.99908, -0.88562, -221.535)

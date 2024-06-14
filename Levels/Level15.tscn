@@ -152,7 +152,7 @@ script = ExtResource("7_uca6v")
 move_speed = 3.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher/Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1361, 52.1212, -0.0762939)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1361, 52.1213, -0.0762939)
 progress = 93.6297
 rotation_mode = 0
 
@@ -170,7 +170,7 @@ script = ExtResource("7_uca6v")
 move_speed = 3.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher2/Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1361, 52.1212, -0.0762939)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1361, 52.1213, -0.0762939)
 progress = 93.6297
 rotation_mode = 0
 
@@ -188,7 +188,7 @@ script = ExtResource("7_uca6v")
 move_speed = 3.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher3/Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1361, 52.1212, -0.0762939)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1361, 52.1213, -0.0762939)
 progress = 93.6297
 rotation_mode = 0
 
@@ -348,7 +348,7 @@ script = ExtResource("7_uca6v")
 move_speed = 3.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/FatPusher6/Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1361, 52.1212, -0.0762939)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1361, 52.1213, -0.0762939)
 progress = 93.6297
 rotation_mode = 0
 

@@ -1,14 +1,15 @@
-[gd_scene load_steps=27 format=3 uid="uid://d2e78wma2tsq0"]
+[gd_scene load_steps=26 format=3 uid="uid://d2e78wma2tsq0"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_5d8c1"]
-[ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_efqvo"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="2_rns3p"]
-[ext_resource type="Texture2D" uid="uid://bddov3xqvd1os" path="res://Assets/TatModels/RegularParts(Converted)/8x8_wood1.png" id="4_4uogi"]
+[ext_resource type="Texture2D" uid="uid://b0c1u283xo2nf" path="res://Assets/TatModels/Sky.png" id="2_wyii2"]
 [ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="5_aofnd"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="6_g065k"]
-[ext_resource type="PackedScene" uid="uid://dbgfrc1dy6qkh" path="res://Assets-Scenes/railing.tscn" id="7_p56t5"]
+[ext_resource type="PackedScene" uid="uid://bipwf0j10or6d" path="res://TatScenes/Blocks/RegularPieces/8x8.tscn" id="7_7f8v0"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="8_228wm"]
+[ext_resource type="PackedScene" uid="uid://cdsd3iw7jfemt" path="res://TatScenes/Blocks/Railings/BumperRailing/bumper_railingx_8.tscn" id="8_f8mvn"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="8_sxars"]
+[ext_resource type="PackedScene" uid="uid://coj83kwlivl3d" path="res://TatScenes/Blocks/Railings/BumperRailing/bumper_railing_corner.tscn" id="9_0sfcx"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="10_o4a1o"]
 [ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="11_j6b47"]
 [ext_resource type="Script" path="res://globals.gd" id="11_jx6vc"]
@@ -19,22 +20,39 @@
 [ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="17_cv5wq"]
 [ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="18_d2rjc"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jo5da"]
-size = Vector3(30, 10, 100)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6nyyj"]
+panorama = ExtResource("2_wyii2")
 
-[sub_resource type="BoxMesh" id="BoxMesh_2lhob"]
-size = Vector3(30, 10, 100)
+[sub_resource type="Sky" id="Sky_1noyv"]
+sky_material = SubResource("PanoramaSkyMaterial_6nyyj")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kujuy"]
-albedo_texture = ExtResource("4_4uogi")
-uv1_triplanar = true
-uv2_triplanar = true
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_uglra"]
-size = Vector3(60, 10, 30)
-
-[sub_resource type="BoxMesh" id="BoxMesh_fs4nh"]
-size = Vector3(60, 10, 30)
+[sub_resource type="Environment" id="Environment_y4lmy"]
+background_mode = 2
+background_color = Color(0.00447858, 0.00638158, 0.0458453, 1)
+sky = SubResource("Sky_1noyv")
+sky_rotation = Vector3(3.14159, 3.48787e-16, 3.48787e-16)
+ambient_light_source = 1
+ambient_light_color = Color(0.0316549, 0.0316549, 0.0316549, 1)
+ambient_light_energy = 7.48
+reflected_light_source = 1
+tonemap_mode = 2
+tonemap_exposure = 1.17
+tonemap_white = 1.84
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 0.56
+glow_normalized = true
+glow_intensity = 2.57
+glow_strength = 1.02
+glow_bloom = 1.0
+glow_blend_mode = 1
+glow_hdr_luminance_cap = 42.99
+fog_enabled = true
+fog_light_color = Color(0.561814, 0.596245, 0.650348, 1)
+fog_light_energy = 0.1
+adjustment_enabled = true
+adjustment_brightness = 2.85
+adjustment_contrast = 1.67
+adjustment_saturation = 2.56
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwnik"]
 size = Vector3(1000, 1, 1000)
@@ -88,7 +106,20 @@ _data = {
 script = ExtResource("1_5d8c1")
 metadata/Level = "Level02"
 
-[node name="Skybox" parent="." instance=ExtResource("2_efqvo")]
+[node name="Skybox" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_y4lmy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Skybox"]
+transform = Transform3D(0.850896, 0.182421, -0.492645, 0.182421, 0.776819, 0.602724, 0.492645, -0.602724, 0.627715, 0, 30.5478, 46.221)
+rotation_edit_mode = 1
+light_energy = 1.5
+light_indirect_energy = 1.373
+shadow_enabled = true
+shadow_bias = 0.656
+shadow_normal_bias = 4.172
+shadow_transmittance_bias = 0.61
+shadow_opacity = 0.1
+shadow_blur = 0.1
 
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
@@ -99,31 +130,9 @@ rotation_edit_mode = 1
 fov = 37.8493
 
 [node name="Ball" parent="." instance=ExtResource("2_rns3p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386, 7.636, 47)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386, 7.636, 43.9994)
 
 [node name="Ground" type="Node3D" parent="."]
-
-[node name="GroundArea" type="StaticBody3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389248, -5.04956, -0.57489)
-rotation_edit_mode = 1
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/GroundArea"]
-shape = SubResource("BoxShape3D_jo5da")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/GroundArea"]
-mesh = SubResource("BoxMesh_2lhob")
-surface_material_override/0 = SubResource("StandardMaterial3D_kujuy")
-
-[node name="GroundArea2" type="StaticBody3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.3892, -5.04956, -35.5749)
-rotation_edit_mode = 1
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/GroundArea2"]
-shape = SubResource("BoxShape3D_uglra")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/GroundArea2"]
-mesh = SubResource("BoxMesh_fs4nh")
-surface_material_override/0 = SubResource("StandardMaterial3D_kujuy")
 
 [node name="flagGreen" parent="Ground" instance=ExtResource("5_aofnd")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.064414, -0.0495601, 46.922)
@@ -167,218 +176,148 @@ transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 49.
 [node name="Fences" type="Node3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00946602, -2.09119, -0.57489)
 
-[node name="Railing" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 14.7927, 1.26594, 46.6779)
-
-[node name="Railing2" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 14.7927, 1.26594, 41.6779)
-
-[node name="Railing3" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 14.7927, 1.26594, 36.6779)
-
-[node name="Railing4" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 14.7927, 1.26594, 31.6779)
-
-[node name="Railing5" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 14.7927, 1.26594, 26.6779)
-
-[node name="Railing6" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 14.7927, 1.26594, 21.6779)
-
-[node name="Railing7" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 14.7927, 1.26594, 16.6779)
-
-[node name="Railing8" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 14.7927, 1.26594, 11.6779)
-
-[node name="Railing9" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 14.7927, 1.26594, 6.67792)
-
-[node name="Railing10" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 14.7927, 1.26594, 1.67792)
-
-[node name="Railing11" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 14.7927, 1.26594, -3.32208)
-
-[node name="Railing12" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 14.7927, 1.26594, -8.32208)
-
-[node name="Railing13" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 14.7927, 1.26594, -13.3221)
-
-[node name="Railing14" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 14.7927, 1.26594, -18.3221)
-
-[node name="Railing15" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 74.7927, 1.26594, -23.3221)
-
-[node name="Railing16" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 74.7927, 1.26594, -28.3221)
-
-[node name="Railing17" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 74.7927, 1.26594, -33.3221)
-
-[node name="Railing18" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 74.7927, 1.26594, -38.3221)
-
-[node name="Railing19" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 74.7927, 1.26594, -43.3221)
-
-[node name="Railing20" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 74.7927, 1.26594, -48.3221)
-
-[node name="Railing27" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, 46.6779)
-
-[node name="Railing28" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, 41.6779)
-
-[node name="Railing29" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, 36.6779)
-
-[node name="Railing30" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, 31.6779)
-
-[node name="Railing31" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, 26.6779)
-
-[node name="Railing32" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, 21.6779)
-
-[node name="Railing33" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, 16.6779)
-
-[node name="Railing34" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, 11.6779)
-
-[node name="Railing35" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, 6.67792)
-
-[node name="Railing36" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, 1.67792)
-
-[node name="Railing37" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, -3.32208)
-
-[node name="Railing38" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, -8.32208)
-
-[node name="Railing39" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, -13.3221)
-
-[node name="Railing40" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, -18.3221)
-
-[node name="Railing41" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, -23.3221)
-
-[node name="Railing42" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, -28.3221)
-
-[node name="Railing43" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, -33.3221)
-
-[node name="Railing44" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, -38.3221)
-
-[node name="Railing45" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, -43.3221)
-
-[node name="Railing46" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -14.2073, 1.26594, -48.3221)
-
-[node name="Railing21" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 12.2927, 1.26594, -49.8221)
-
-[node name="Railing22" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 7.29267, 1.26594, -49.8221)
-
-[node name="Railing23" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 2.29267, 1.26594, -49.8221)
-
-[node name="Railing24" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -2.70733, 1.26594, -49.8221)
-
-[node name="Railing25" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -7.70733, 1.26594, -49.8221)
-
-[node name="Railing26" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -12.7073, 1.26594, -49.8221)
-
-[node name="Railing53" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 42.2927, 1.26594, -49.8221)
-
-[node name="Railing54" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 37.2927, 1.26594, -49.8221)
-
-[node name="Railing55" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 32.2927, 1.26594, -49.8221)
-
-[node name="Railing56" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 27.2927, 1.26594, -49.8221)
-
-[node name="Railing57" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 22.2927, 1.26594, -49.8221)
-
-[node name="Railing58" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 17.2927, 1.26594, -49.8221)
-
-[node name="Railing59" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 72.2927, 1.26594, -49.8221)
-
-[node name="Railing60" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 67.2927, 1.26594, -49.8221)
-
-[node name="Railing61" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 62.2927, 1.26594, -49.8221)
-
-[node name="Railing62" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 57.2927, 1.26594, -49.8221)
-
-[node name="Railing63" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 52.2927, 1.26594, -49.8221)
-
-[node name="Railing64" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 47.2927, 1.26594, -49.8221)
-
-[node name="Railing65" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 37.2927, 1.26594, -20.8221)
-
-[node name="Railing66" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 32.2927, 1.26594, -20.8221)
-
-[node name="Railing67" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 27.2927, 1.26594, -20.8221)
-
-[node name="Railing68" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 22.2927, 1.26594, -20.8221)
-
-[node name="Railing69" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 17.2927, 1.26594, -20.8221)
-
-[node name="Railing70" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 47.2927, 1.26594, -20.8221)
-
-[node name="Railing71" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 42.2927, 1.26594, -20.8221)
-
-[node name="Railing72" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 72.2927, 1.26594, -20.8221)
-
-[node name="Railing73" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 67.2927, 1.26594, -20.8221)
-
-[node name="Railing74" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 62.2927, 1.26594, -20.8221)
-
-[node name="Railing75" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 57.2927, 1.26594, -20.8221)
-
-[node name="Railing76" parent="Ground/Fences" instance=ExtResource("7_p56t5")]
-transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 52.2927, 1.26594, -20.8221)
-
 [node name="Goal" parent="Ground" instance=ExtResource("8_sxars")]
 transform = Transform3D(-1.31134e-07, 1.04636e-15, 3, 1.04636e-15, 3, -1.04636e-15, -3, 1.04636e-15, -1.31134e-07, 68.892, -1.31138, -32.0861)
+
+[node name="Area" type="Node3D" parent="Ground"]
+
+[node name="8x8" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -1, 40)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x8" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 0, -0.118782)
+
+[node name="8x9" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -1, 40)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x9" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, -0.118782)
+
+[node name="8x10" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -1, 24)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x10" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 0, -0.118782)
+
+[node name="8x11" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -1, 24)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x11" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, -0.118782)
+
+[node name="8x12" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -1, 8)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x12" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 0, -0.118782)
+
+[node name="8x13" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -1, 8)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x13" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, -0.118782)
+
+[node name="8x14" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -1, -8)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x14" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 0, -0.118782)
+
+[node name="8x15" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -1, -8)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x15" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, -0.118782)
+
+[node name="8x16" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -1, -24)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x16" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 0, -0.118782)
+
+[node name="8x17" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -1, -24)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x17" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -25.1188)
+
+[node name="8x18" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -1, -40)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x18" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 0, -0.118782)
+
+[node name="BumperRailingCorner2" parent="Ground/Area/8x18/BumperRailingx8" instance=ExtResource("9_0sfcx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0)
+
+[node name="8x19" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -1, -40)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x19" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.11878)
+
+[node name="8x20" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24, -1, -40)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x20" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 0, -0.118782)
+
+[node name="8x21" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24, -1, -24)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x21" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, -0.118782)
+
+[node name="8x22" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40, -1, -40)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x22" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 0, -0.118782)
+
+[node name="8x23" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40, -1, -24)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x23" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, -0.118782)
+
+[node name="8x24" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 56, -1, -40)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x24" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 0, -0.118782)
+
+[node name="8x25" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 56, -1, -24)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x25" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, -0.118782)
+
+[node name="BumperRailingx9" parent="Ground/Area/8x25" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.72205e-06, 0, -25.1188)
+
+[node name="BumperRailingx10" parent="Ground/Area/8x25" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -16, 0, -25.1188)
+
+[node name="8x26" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 72, -1, -40)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x26" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 0, -0.118782)
+
+[node name="BumperRailingx9" parent="Ground/Area/8x26" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 0, -0.118782)
+
+[node name="BumperRailingCorner2" parent="Ground/Area/8x26/BumperRailingx9" instance=ExtResource("9_0sfcx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0)
+
+[node name="8x27" parent="Ground/Area" instance=ExtResource("7_7f8v0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 72, -1, -24)
+
+[node name="BumperRailingx8" parent="Ground/Area/8x27" instance=ExtResource("8_f8mvn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, -0.118782)
+
+[node name="BumperRailingCorner2" parent="Ground/Area/8x27/BumperRailingx8" instance=ExtResource("9_0sfcx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, 0)
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

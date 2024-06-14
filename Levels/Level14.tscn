@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://crv3txjtdhkpe"]
+[gd_scene load_steps=43 format=3 uid="uid://crv3txjtdhkpe"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_0sym7"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="3_qg1gk"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="17_1kvsp"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="17_f6btb"]
 [ext_resource type="Texture2D" uid="uid://b0c1u283xo2nf" path="res://Assets/TatModels/Sky.png" id="17_k4pf0"]
+[ext_resource type="PackedScene" uid="uid://cpqsp3x4d256e" path="res://TatScenes/Blocks/ExtraPieces/pit.tscn" id="18_8mjbq"]
 [ext_resource type="Script" path="res://globals.gd" id="18_pxeif"]
 [ext_resource type="AudioStream" uid="uid://xq51s74o5iw8" path="res://Assets/Flowing Rocks.ogg" id="19_of8d1"]
 [ext_resource type="AudioStream" uid="uid://bnw1rj5dtwdal" path="res://Assets/powerup.wav" id="20_7idr4"]
@@ -170,7 +171,7 @@ _data = {
 "FadeStart": SubResource("Animation_x8fa6")
 }
 
-[node name="Level2" type="Node3D"]
+[node name="Level" type="Node3D"]
 script = ExtResource("1_0sym7")
 metadata/Level = "Level14"
 
@@ -197,7 +198,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 rotation_mode = 1
 
 [node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator/PathFollow3D"]
@@ -210,9 +211,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator/PathFollow3D/5x5"]
 shape = SubResource("BoxShape3D_5005c")
-
-[node name="flagGreen" parent="Ground/Areas/Elevator/PathFollow3D" instance=ExtResource("13_mcqg1")]
-transform = Transform3D(2.84284, -6.57313e-16, 0.958266, 1.04636e-15, 3, -1.04636e-15, -0.958266, 1.32577e-15, 2.84284, 1.65875, 0, 6.23824)
 
 [node name="2xTunnelWide" parent="Ground/Areas" instance=ExtResource("5_6t1ya")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -37.5294)
@@ -455,13 +453,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.0999999, -75.458)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 
 [node name="3x4" parent="Ground/Areas/Elevated/Laybye" instance=ExtResource("4_txlad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.120092, -3, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 50, -0.120092, -3, -67.9687)
 
 [node name="3x6" parent="Ground/Areas/Elevated/Laybye" instance=ExtResource("4_txlad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.46949, -3, 0)
 
 [node name="3x7" parent="Ground/Areas/Elevated/Laybye" instance=ExtResource("4_txlad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.58958, -3, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 50, -4.58958, -3, -67.9687)
 
 [node name="3x5" parent="Ground/Areas/Elevated/Laybye" instance=ExtResource("4_txlad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -6)
@@ -699,7 +697,7 @@ script = ExtResource("12_2spm2")
 move_speed = 5.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevated3/CartwheelPlatforms/Path3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117631, -2.08844e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117639, -2.08844e-12)
 progress = 30.98
 rotation_mode = 0
 
@@ -713,7 +711,7 @@ script = ExtResource("12_2spm2")
 move_speed = 5.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevated3/CartwheelPlatforms/Path3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000259402, 19.6832, -2.08851e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000251773, 19.6832, -2.08851e-12)
 progress = 61.9599
 rotation_mode = 0
 
@@ -752,14 +750,90 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -2.89, -76.1957)
 [node name="8x15" parent="Ground/Areas/Elevated3" instance=ExtResource("5_ah1il")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -3, -51)
 
-[node name="8x16" parent="Ground/Areas/Elevated3" instance=ExtResource("5_ah1il")]
-transform = Transform3D(1, -8.44439e-08, -6.47961e-08, 8.44439e-08, 0.258819, 0.965926, -6.47961e-08, -0.965926, 0.258819, -2, -3, -48)
+[node name="sinkLine19" type="Node3D" parent="Ground/Areas"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.99908, -0.88562, -221.535)
 
-[node name="8x17" parent="Ground/Areas/Elevated3" instance=ExtResource("5_ah1il")]
-transform = Transform3D(-1.29645e-07, -1, 2.3859e-08, 7.61095e-08, 3.47302e-08, 1, -1, 1.26568e-07, 6.46278e-08, 4.93502, -3, -55)
+[node name="1x3" parent="Ground/Areas/sinkLine19" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
-[node name="8x18" parent="Ground/Areas/Elevated3" instance=ExtResource("5_ah1il")]
-transform = Transform3D(-1.29645e-07, -1, 2.3859e-08, 7.61095e-08, 3.47302e-08, 1, -1, 1.26568e-07, 6.46278e-08, -9.06498, -3, -55)
+[node name="1x5" parent="Ground/Areas/sinkLine19" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="1x6" parent="Ground/Areas/sinkLine19" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="1x7" parent="Ground/Areas/sinkLine19" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="sinkLine20" type="Node3D" parent="Ground/Areas"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.99908, -0.88562, -219.535)
+
+[node name="1x1" parent="Ground/Areas/sinkLine20" instance=ExtResource("10_wnpqn")]
+
+[node name="1x3" parent="Ground/Areas/sinkLine20" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="1x5" parent="Ground/Areas/sinkLine20" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="1x6" parent="Ground/Areas/sinkLine20" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="1x7" parent="Ground/Areas/sinkLine20" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="sinkLine21" type="Node3D" parent="Ground/Areas"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.99908, -0.88562, -217.535)
+
+[node name="1x1" parent="Ground/Areas/sinkLine21" instance=ExtResource("10_wnpqn")]
+
+[node name="1x3" parent="Ground/Areas/sinkLine21" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="1x5" parent="Ground/Areas/sinkLine21" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="1x6" parent="Ground/Areas/sinkLine21" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="1x7" parent="Ground/Areas/sinkLine21" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="sinkLine22" type="Node3D" parent="Ground/Areas"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.99908, -0.88562, -223.535)
+
+[node name="1x2" parent="Ground/Areas/sinkLine22" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="1x3" parent="Ground/Areas/sinkLine22" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="1x4" parent="Ground/Areas/sinkLine22" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="1x5" parent="Ground/Areas/sinkLine22" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="1x6" parent="Ground/Areas/sinkLine22" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="1x7" parent="Ground/Areas/sinkLine22" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="sinkLine23" type="Node3D" parent="Ground/Areas"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.99908, -0.88562, -225.535)
+
+[node name="1x3" parent="Ground/Areas/sinkLine23" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="1x5" parent="Ground/Areas/sinkLine23" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="1x6" parent="Ground/Areas/sinkLine23" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="1x7" parent="Ground/Areas/sinkLine23" instance=ExtResource("10_wnpqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 
 [node name="Goal" parent="Ground" instance=ExtResource("14_y6k2h")]
 transform = Transform3D(2, -6.97574e-16, 6.97574e-16, 6.97574e-16, 2, -6.97574e-16, -6.97574e-16, 6.97574e-16, 2, 2, -2.71683, -237.58)
@@ -804,90 +878,20 @@ transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0.7
 [node name="donut11" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 1.76647, -6.20245, -211.606)
 
-[node name="sinkLine19" type="Node3D" parent="Ground"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.99908, -0.88562, -221.535)
+[node name="flagGreen" parent="Ground" instance=ExtResource("13_mcqg1")]
+transform = Transform3D(2.84918, -6.66161e-16, 0.939242, 1.04636e-15, 3, -1.04636e-15, -0.939242, 1.32135e-15, 2.84918, -9.41572, -2.856, -5.21786)
 
-[node name="1x3" parent="Ground/sinkLine19" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+[node name="Checkpoints" type="Node3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55457, 2.42268, 39.3744)
 
-[node name="1x5" parent="Ground/sinkLine19" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+[node name="Checkpoint2" parent="Ground/Checkpoints" groups=["checkpoints"] instance=ExtResource("18_8mjbq")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -1.5872, -1.63564, -191.382)
 
-[node name="1x6" parent="Ground/sinkLine19" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+[node name="Checkpoint3" parent="Ground/Checkpoints" groups=["checkpoints"] instance=ExtResource("18_8mjbq")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -2.18987, -1.63564, -235.262)
 
-[node name="1x7" parent="Ground/sinkLine19" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
-
-[node name="sinkLine20" type="Node3D" parent="Ground"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.99908, -0.88562, -219.535)
-
-[node name="1x1" parent="Ground/sinkLine20" instance=ExtResource("10_wnpqn")]
-
-[node name="1x3" parent="Ground/sinkLine20" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-
-[node name="1x5" parent="Ground/sinkLine20" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
-
-[node name="1x6" parent="Ground/sinkLine20" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
-
-[node name="1x7" parent="Ground/sinkLine20" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
-
-[node name="sinkLine21" type="Node3D" parent="Ground"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.99908, -0.88562, -217.535)
-
-[node name="1x1" parent="Ground/sinkLine21" instance=ExtResource("10_wnpqn")]
-
-[node name="1x3" parent="Ground/sinkLine21" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-
-[node name="1x5" parent="Ground/sinkLine21" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
-
-[node name="1x6" parent="Ground/sinkLine21" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
-
-[node name="1x7" parent="Ground/sinkLine21" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
-
-[node name="sinkLine22" type="Node3D" parent="Ground"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.99908, -0.88562, -223.535)
-
-[node name="1x2" parent="Ground/sinkLine22" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-
-[node name="1x3" parent="Ground/sinkLine22" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-
-[node name="1x4" parent="Ground/sinkLine22" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-
-[node name="1x5" parent="Ground/sinkLine22" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
-
-[node name="1x6" parent="Ground/sinkLine22" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
-
-[node name="1x7" parent="Ground/sinkLine22" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
-
-[node name="sinkLine23" type="Node3D" parent="Ground"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.99908, -0.88562, -225.535)
-
-[node name="1x3" parent="Ground/sinkLine23" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-
-[node name="1x5" parent="Ground/sinkLine23" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
-
-[node name="1x6" parent="Ground/sinkLine23" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
-
-[node name="1x7" parent="Ground/sinkLine23" instance=ExtResource("10_wnpqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+[node name="Checkpoint" parent="Ground/Checkpoints" groups=["checkpoints"] instance=ExtResource("18_8mjbq")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -1.73417, -1.65617, -140.702)
 
 [node name="TimerReload" type="Timer" parent="."]
 wait_time = 2.0

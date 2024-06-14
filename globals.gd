@@ -20,7 +20,7 @@ var ts = { "Volume" : 0,
 "Level17" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
 "Level18" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
 "Level19" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
-"Level20" : {"Time" : 0, "Par" : 60, "Score" : 0} }
+"Level20" : {"Time" : 0, "Par" : 360, "Score" : 0} }
 var bus_index : int = AudioServer.get_bus_index("Master")
 
 func save_game():

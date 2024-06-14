@@ -100,7 +100,7 @@ transform = Transform3D(0.478634, -0.379546, 0.791741, -0.379546, 0.723696, 0.57
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 30)
 fov = 37.8493
 
 [node name="Ball" parent="." instance=ExtResource("3_gwox4")]
@@ -376,7 +376,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.3526, 0, 39)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.3526, 0, 39)
 
 [node name="flagGreen" parent="Ground" instance=ExtResource("12_bqqeh")]
-transform = Transform3D(-0.62988, 0, 2.93313, 0, 3, 0, -2.93313, 0, -0.62988, -27.0694, 13.2384, 82.6832)
+transform = Transform3D(-0.62988, 0, 2.93313, 0, 3, 0, -2.93313, 0, -0.62988, -29.7747, 22.9786, 82.6832)
 
 [node name="Goal" parent="Ground" instance=ExtResource("13_kbuvd")]
 transform = Transform3D(1.44724, -2.33111e-17, 1.3804, 6.97574e-16, 2, -6.97574e-16, -1.3804, 9.86243e-16, 1.44724, 2.41846, -0.00771856, 6.15154)

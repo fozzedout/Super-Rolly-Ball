@@ -1,10 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://c8fosf3euevf"]
+[gd_scene load_steps=24 format=3 uid="uid://c8fosf3euevf"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_vl8h5"]
+[ext_resource type="Texture2D" uid="uid://b0c1u283xo2nf" path="res://Assets/TatModels/Sky.png" id="2_5dilc"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="2_dt73r"]
-[ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_u53t4"]
-[ext_resource type="Texture2D" uid="uid://bddov3xqvd1os" path="res://Assets/TatModels/RegularParts(Converted)/8x8_wood1.png" id="4_38gqf"]
 [ext_resource type="PackedScene" uid="uid://dkv4lecmp48d6" path="res://Assets/flagGreen.glb" id="4_c5f71"]
+[ext_resource type="PackedScene" uid="uid://bipwf0j10or6d" path="res://TatScenes/Blocks/RegularPieces/8x8.tscn" id="4_exugg"]
 [ext_resource type="PackedScene" uid="uid://tkwvwr6l4ipo" path="res://TatScenes/Portal/portal.tscn" id="5_ljx4h"]
 [ext_resource type="PackedScene" uid="uid://dugtji6l40t6b" path="res://Assets-Scenes/donut.tscn" id="6_06jh5"]
 [ext_resource type="FontFile" uid="uid://jk53t7iv2q4s" path="res://Assets/RubikMonoOne-Regular.ttf" id="9_3x4oj"]
@@ -18,28 +18,39 @@
 [ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="17_cv7nw"]
 [ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="18_25wpp"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_c6pdw"]
-size = Vector3(30, 10, 100)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6nyyj"]
+panorama = ExtResource("2_5dilc")
 
-[sub_resource type="BoxMesh" id="BoxMesh_guqmc"]
-size = Vector3(30, 10, 100)
+[sub_resource type="Sky" id="Sky_1noyv"]
+sky_material = SubResource("PanoramaSkyMaterial_6nyyj")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cu0h4"]
-albedo_texture = ExtResource("4_38gqf")
-uv1_triplanar = true
-uv2_triplanar = true
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_381m5"]
-size = Vector3(30, 10, 58)
-
-[sub_resource type="BoxMesh" id="BoxMesh_8si8j"]
-size = Vector3(30, 10, 58)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2kh8r"]
-size = Vector3(30, 10, 100)
-
-[sub_resource type="BoxMesh" id="BoxMesh_uqkke"]
-size = Vector3(30, 10, 100)
+[sub_resource type="Environment" id="Environment_y4lmy"]
+background_mode = 2
+background_color = Color(0.00447858, 0.00638158, 0.0458453, 1)
+sky = SubResource("Sky_1noyv")
+sky_rotation = Vector3(3.14159, 3.48787e-16, 3.48787e-16)
+ambient_light_source = 1
+ambient_light_color = Color(0.0316549, 0.0316549, 0.0316549, 1)
+ambient_light_energy = 7.48
+reflected_light_source = 1
+tonemap_mode = 2
+tonemap_exposure = 1.17
+tonemap_white = 1.84
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 0.56
+glow_normalized = true
+glow_intensity = 2.57
+glow_strength = 1.02
+glow_bloom = 1.0
+glow_blend_mode = 1
+glow_hdr_luminance_cap = 42.99
+fog_enabled = true
+fog_light_color = Color(0.561814, 0.596245, 0.650348, 1)
+fog_light_energy = 0.1
+adjustment_enabled = true
+adjustment_brightness = 2.85
+adjustment_contrast = 1.67
+adjustment_saturation = 2.56
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
 size = Vector3(1000, 1, 1000)
@@ -93,7 +104,20 @@ _data = {
 script = ExtResource("1_vl8h5")
 metadata/Level = "Level03"
 
-[node name="Skybox" parent="." instance=ExtResource("2_u53t4")]
+[node name="Skybox" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_y4lmy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Skybox"]
+transform = Transform3D(0.6163, -0.538694, 0.574441, 0.170974, 0.803568, 0.570129, -0.768727, -0.253156, 0.587342, 0, 30.5478, 52.0148)
+rotation_edit_mode = 1
+light_energy = 1.5
+light_indirect_energy = 1.373
+shadow_enabled = true
+shadow_bias = 0.656
+shadow_normal_bias = 4.172
+shadow_transmittance_bias = 0.61
+shadow_opacity = 0.1
+shadow_blur = 0.1
 
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)
@@ -109,42 +133,100 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.386, 1, 47)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389248, -5.04956, -0.57489)
 
 [node name="Areas" type="Node3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, 0)
 
-[node name="Area" type="StaticBody3D" parent="Ground/Areas"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 39, 0, 48)
-rotation_edit_mode = 1
+[node name="8x8" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 48.6332)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Area"]
-shape = SubResource("BoxShape3D_c6pdw")
+[node name="8x9" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32.6332)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Areas/Area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-mesh = SubResource("BoxMesh_guqmc")
-surface_material_override/0 = SubResource("StandardMaterial3D_cu0h4")
+[node name="8x10" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 48.6332)
 
-[node name="Area2" type="StaticBody3D" parent="Ground/Areas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, -17)
-rotation_edit_mode = 1
+[node name="8x11" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 32.6332)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Area2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22)
-shape = SubResource("BoxShape3D_381m5")
+[node name="8x12" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 48.6332)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Areas/Area2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 22)
-mesh = SubResource("BoxMesh_8si8j")
-surface_material_override/0 = SubResource("StandardMaterial3D_cu0h4")
+[node name="8x13" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 32.6332)
 
-[node name="Area3" type="StaticBody3D" parent="Ground/Areas"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, -39)
-rotation_edit_mode = 1
+[node name="8x22" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 16.6332)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Area3"]
-shape = SubResource("BoxShape3D_2kh8r")
+[node name="8x23" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0.633213)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Areas/Area3"]
-mesh = SubResource("BoxMesh_uqkke")
-surface_material_override/0 = SubResource("StandardMaterial3D_cu0h4")
+[node name="8x24" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, -15.3668)
+
+[node name="8x25" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, -31.3668)
+
+[node name="8x26" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, -47.3668)
+
+[node name="8x27" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, -31.3668)
+
+[node name="8x28" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0, -47.3668)
+
+[node name="8x29" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, -31.3668)
+
+[node name="8x30" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, -47.3668)
+
+[node name="8x31" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, 0, -31.3668)
+
+[node name="8x32" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76, 0, -47.3668)
+
+[node name="8x33" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -31.3668)
+
+[node name="8x34" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -47.3668)
+
+[node name="8x35" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -31.3668)
+
+[node name="8x36" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -47.3668)
+
+[node name="8x39" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -31.3668)
+
+[node name="8x40" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -47.3668)
+
+[node name="8x14" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 48.6332)
+
+[node name="8x15" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 32.6332)
+
+[node name="8x16" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 0, 48.6332)
+
+[node name="8x17" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 0, 32.6332)
+
+[node name="8x18" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 48.6332)
+
+[node name="8x19" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 32.6332)
+
+[node name="8x20" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96, 0, 48.6332)
+
+[node name="8x21" parent="Ground/Areas" instance=ExtResource("4_exugg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96, 0, 32.6332)
 
 [node name="flagGreen" parent="Ground" instance=ExtResource("4_c5f71")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.324834, 5, 47.4969)

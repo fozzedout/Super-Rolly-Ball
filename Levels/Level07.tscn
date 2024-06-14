@@ -1,7 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://bhckj52bg5aqg"]
+[gd_scene load_steps=27 format=3 uid="uid://bhckj52bg5aqg"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_aagwc"]
-[ext_resource type="PackedScene" uid="uid://d01bknlxvp10s" path="res://TatScenes/skybox.tscn" id="2_4yg60"]
+[ext_resource type="Texture2D" uid="uid://b0c1u283xo2nf" path="res://Assets/TatModels/Sky.png" id="2_npssr"]
 [ext_resource type="PackedScene" uid="uid://dkdvg1uw6o3tv" path="res://Assets-Scenes/ball.tscn" id="3_3qm2d"]
 [ext_resource type="PackedScene" uid="uid://bipwf0j10or6d" path="res://TatScenes/Blocks/RegularPieces/8x8.tscn" id="4_efg6x"]
 [ext_resource type="PackedScene" uid="uid://dstan672b1h66" path="res://TatScenes/Blocks/RegularPieces/2x5.tscn" id="5_coxi0"]
@@ -18,6 +18,40 @@
 [ext_resource type="AudioStream" uid="uid://cmcp8switxcqt" path="res://Assets/time up.ogg" id="16_lsbqc"]
 [ext_resource type="AudioStream" uid="uid://ismtxgupemn8" path="res://Assets/perfect.ogg" id="17_jt4dr"]
 [ext_resource type="AudioStream" uid="uid://oripf5yxu22q" path="res://Assets/goal.ogg" id="18_7iq7u"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6nyyj"]
+panorama = ExtResource("2_npssr")
+
+[sub_resource type="Sky" id="Sky_1noyv"]
+sky_material = SubResource("PanoramaSkyMaterial_6nyyj")
+
+[sub_resource type="Environment" id="Environment_y4lmy"]
+background_mode = 2
+background_color = Color(0.00447858, 0.00638158, 0.0458453, 1)
+sky = SubResource("Sky_1noyv")
+sky_rotation = Vector3(3.14159, 3.48787e-16, 3.48787e-16)
+ambient_light_source = 1
+ambient_light_color = Color(0.0316549, 0.0316549, 0.0316549, 1)
+ambient_light_energy = 7.48
+reflected_light_source = 1
+tonemap_mode = 2
+tonemap_exposure = 1.17
+tonemap_white = 1.84
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 0.56
+glow_normalized = true
+glow_intensity = 2.57
+glow_strength = 1.02
+glow_bloom = 1.0
+glow_blend_mode = 1
+glow_hdr_luminance_cap = 42.99
+fog_enabled = true
+fog_light_color = Color(0.561814, 0.596245, 0.650348, 1)
+fog_light_energy = 0.1
+adjustment_enabled = true
+adjustment_brightness = 2.85
+adjustment_contrast = 1.67
+adjustment_saturation = 2.56
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tm63d"]
 size = Vector3(1000, 1, 1000)
@@ -88,11 +122,20 @@ _data = {
 script = ExtResource("1_aagwc")
 metadata/Level = "Level07"
 
-[node name="Skybox" parent="." instance=ExtResource("2_4yg60")]
+[node name="Skybox" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_y4lmy")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.654741, 0.755853, 0, -0.755853, 0.654741, 0, 30.5478, 46.221)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Skybox"]
+transform = Transform3D(0.561296, -0.359962, 0.745234, -0.359962, 0.704647, 0.611474, -0.745234, -0.611474, 0.265943, 0, 30.5478, 46.221)
+rotation_edit_mode = 1
+light_energy = 1.5
+light_indirect_energy = 1.373
 shadow_enabled = true
+shadow_bias = 0.656
+shadow_normal_bias = 4.172
+shadow_transmittance_bias = 0.61
+shadow_opacity = 0.1
+shadow_blur = 0.1
 
 [node name="CameraPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.386248, 84.9504, 89.4251)

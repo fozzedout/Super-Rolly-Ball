@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://drqyt6sr7qxan"]
+
+[ext_resource type="Script" path="res://TatScenes/Path3D.gd" id="1_jm0om"]
+[ext_resource type="PackedScene" uid="uid://cq64jd86rh3q5" path="res://TatScenes/Blocks/RegularPieces/2x2.tscn" id="2_rs5d7"]
+[ext_resource type="PackedScene" uid="uid://cgfh5dx7qcmys" path="res://TatScenes/Blocks/RegularPieces/1x1.tscn" id="3_dg32p"]
+
+[sub_resource type="Curve3D" id="Curve3D_lvt4p"]
+_data = {
+"points": PackedVector3Array(11, 0, 0, -11, 0, 0, -2.08862e-12, -19.9852, -2.07468e-12, 0, -11, 0, 0, 11, 0, -19.5322, -0.0503419, -2.08844e-12, -11, 0, 0, 11, 0, 0, -2.07478e-12, 19.6832, -2.08851e-12, 0, 11, 0, 0, -11, 0, 19.5322, 0.0503419, -2.07485e-12, 11, 0, 0, -11, 0, 0, -2.08862e-12, -19.9852, -2.07468e-12),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="CartwheelObstacles" type="Node3D"]
+
+[node name="CartwheelPlatforms" type="Node3D" parent="."]
+
+[node name="Path3D" type="Path3D" parent="CartwheelPlatforms"]
+transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("1_jm0om")
+move_speed = 3.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CartwheelPlatforms/Path3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.08862e-12, -19.9852, -2.07468e-12)
+
+[node name="2x2" parent="CartwheelPlatforms/Path3D/PathFollow3D" instance=ExtResource("2_rs5d7")]
+
+[node name="2x3" parent="CartwheelPlatforms/Path3D/PathFollow3D" instance=ExtResource("2_rs5d7")]
+transform = Transform3D(1, 1.32349e-23, -7.93127e-23, -7.93127e-23, 1, 7.93127e-23, 1.32349e-23, -1.32349e-23, 1, -6.54045e-16, -1.87541, 6.54045e-16)
+
+[node name="Path3D3" type="Path3D" parent="CartwheelPlatforms"]
+transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("1_jm0om")
+move_speed = 3.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CartwheelPlatforms/Path3D3"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -19.5321, -0.117631, -2.08844e-12)
+progress = 30.98
+
+[node name="2x2" parent="CartwheelPlatforms/Path3D3/PathFollow3D" instance=ExtResource("2_rs5d7")]
+
+[node name="2x3" parent="CartwheelPlatforms/Path3D3/PathFollow3D" instance=ExtResource("2_rs5d7")]
+transform = Transform3D(1, 1.32349e-23, -7.93127e-23, -7.93127e-23, 1, 7.93127e-23, 1.32349e-23, -1.32349e-23, 1, -6.54045e-16, -1.87541, 6.54045e-16)
+
+[node name="Path3D2" type="Path3D" parent="CartwheelPlatforms"]
+transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("1_jm0om")
+move_speed = 3.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CartwheelPlatforms/Path3D2"]
+transform = Transform3D(4.37095e-08, -1.23531e-05, -1, -1.50996e-07, -1, 1.23531e-05, -1, 1.50995e-07, -4.37114e-08, 0.000259402, 19.6832, -2.08851e-12)
+progress = 61.9599
+
+[node name="2x2" parent="CartwheelPlatforms/Path3D2/PathFollow3D" instance=ExtResource("2_rs5d7")]
+
+[node name="2x3" parent="CartwheelPlatforms/Path3D2/PathFollow3D" instance=ExtResource("2_rs5d7")]
+transform = Transform3D(1, 1.32349e-23, -7.93127e-23, -7.93127e-23, 1, 7.93127e-23, 1.32349e-23, -1.32349e-23, 1, -6.54045e-16, -1.87541, 6.54045e-16)
+
+[node name="Path3D4" type="Path3D" parent="CartwheelPlatforms"]
+transform = Transform3D(0.8, -2.79029e-16, 2.79029e-16, 2.79029e-16, 0.8, -2.79029e-16, -2.79029e-16, 2.79029e-16, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("1_jm0om")
+move_speed = 3.5
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CartwheelPlatforms/Path3D4"]
+transform = Transform3D(-4.37114e-08, -0.99998, 0.00635699, 0, 0.00635699, 0.99998, -1, 4.37105e-08, -2.77873e-10, 19.5318, -0.084757, -2.07485e-12)
+progress = 92.9399
+
+[node name="2x2" parent="CartwheelPlatforms/Path3D4/PathFollow3D" instance=ExtResource("2_rs5d7")]
+
+[node name="2x3" parent="CartwheelPlatforms/Path3D4/PathFollow3D" instance=ExtResource("2_rs5d7")]
+transform = Transform3D(1, 1.32349e-23, -7.93127e-23, -7.93127e-23, 1, 7.93127e-23, 1.32349e-23, -1.32349e-23, 1, -6.54045e-16, -1.87541, 6.54045e-16)
+
+[node name="1x1" parent="CartwheelPlatforms" instance=ExtResource("3_dg32p")]
+transform = Transform3D(0.5, -0.5, 0.707107, 0.707107, 0.707107, -3.48787e-16, -0.5, 0.5, 0.707107, 0, 0, 0)

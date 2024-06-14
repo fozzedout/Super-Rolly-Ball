@@ -14,12 +14,12 @@ var ts = { "Volume" : 0,
 "Level11" : {"Time" : 0, "Par" : 70, "Score" : 0}, 
 "Level12" : {"Time" : 0, "Par" : 100, "Score" : 0}, 
 "Level13" : {"Time" : 0, "Par" : 50, "Score" : 0}, 
-"Level14" : {"Time" : 0, "Par" : 150, "Score" : 0}, 
+"Level14" : {"Time" : 0, "Par" : 120, "Score" : 0}, 
 "Level15" : {"Time" : 0, "Par" : 70, "Score" : 0}, 
-"Level16" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
-"Level17" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
-"Level18" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
-"Level19" : {"Time" : 0, "Par" : 60, "Score" : 0}, 
+"Level16" : {"Time" : 0, "Par" : 150, "Score" : 0}, 
+"Level17" : {"Time" : 0, "Par" : 110, "Score" : 0}, 
+"Level18" : {"Time" : 0, "Par" : 100, "Score" : 0}, 
+"Level19" : {"Time" : 0, "Par" : 210, "Score" : 0}, 
 "Level20" : {"Time" : 0, "Par" : 360, "Score" : 0} }
 var bus_index : int = AudioServer.get_bus_index("Master")
 

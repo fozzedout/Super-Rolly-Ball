@@ -1034,7 +1034,7 @@ script = ExtResource("6_cb3vd")
 move_speed = 10.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Crusher2/Path3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0503, -1.01986, -2.08818e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0503, -1.01985, -2.08818e-12)
 progress = 18.6826
 rotation_mode = 0
 

@@ -878,9 +878,6 @@ transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0.7
 [node name="donut11" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 1.76647, -6.20245, -211.606)
 
-[node name="flagGreen" parent="Ground" instance=ExtResource("13_mcqg1")]
-transform = Transform3D(2.84918, -6.66161e-16, 0.939242, 1.04636e-15, 3, -1.04636e-15, -0.939242, 1.32135e-15, 2.84918, -9.41572, -2.856, -5.21786)
-
 [node name="Checkpoints" type="Node3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55457, 2.42268, 39.3744)
 

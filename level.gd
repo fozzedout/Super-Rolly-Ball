@@ -9,7 +9,7 @@ func _ready():
 	globals = get_node("/root/Globals")
 	globals.load_game()
 	time = globals.ts[get_meta("Level")]["Par"]
-	$Ball.global_position = Vector3 ($Ground/flagGreen.global_position.x, $Ground/flagGreen.global_position.y + 5, $Ground/flagGreen.global_position.z)
+	$Ball.global_position = Vector3 ($Ground/Flag2.global_position.x, $Ground/Flag2.global_position.y + 5, $Ground/Flag2.global_position.z)
 	$Ball.freeze = true
 
 	AudioServer.set_bus_volume_db(globals.bus_index, linear_to_db(globals.ts["Volume"]))
@@ -52,7 +52,7 @@ func _on_area_3d_area_entered(area):
 		stars += 1
 		area.queue_free()
 	elif area.is_in_group("checkpoints"):
-		$Ground/flagGreen.global_position = area.global_position
+		$Ground/Flag2.global_position = area.global_position
 
 
 func _on_murder_death_kill_body_entered(_body):
@@ -68,7 +68,7 @@ func goal_screen(title):
 	match $lblLevelResult.text:
 		"GOAL!": $Audio/HitPortal.play(); $Audio/Goal.play()
 		"PERFECT!" : $Audio/HitPortal.play(); $Audio/Perfect.play()
-		"FALL OUT!" : $Audio/FallOut.play(); $Ball.global_position = Vector3 ($Ground/flagGreen.global_position.x, $Ground/flagGreen.global_position.y + 5, $Ground/flagGreen.global_position.z); $lblLevelResult.hide(); $Ball.freeze = false; doTimer = true; return
+		"FALL OUT!" : $Audio/FallOut.play(); $Ball.global_position = Vector3 ($Ground/Flag2.global_position.x, $Ground/Flag2.global_position.y + 5, $Ground/Flag2.global_position.z); $lblLevelResult.hide(); $Ball.freeze = false; doTimer = true; return
 		"TIME UP!" : $Audio/TimeUp.play()
 
 	if title == "GOAL!":

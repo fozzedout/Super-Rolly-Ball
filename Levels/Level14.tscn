@@ -198,7 +198,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 rotation_mode = 1
 
 [node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator/PathFollow3D"]
@@ -210,6 +210,446 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator2" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator2"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 14.9999)
+progress = 15.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator2/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator2/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator2/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator3" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator3"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 29.9999)
+progress = 30.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator3/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator3/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator3/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator4" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator4"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 44.9999)
+progress = 45.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator4/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator4/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator4/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator5" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator5"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 60)
+progress = 60.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator5/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator5/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator5/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator6" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator6"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 75)
+progress = 75.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator6/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator6/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator6/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator7" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator7"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 90)
+progress = 90.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator7/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator7/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator7/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator8" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator8"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 105)
+progress = 105.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator8/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator8/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator8/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator9" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator9"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 120)
+progress = 120.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator9/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator9/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator9/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator10" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator10"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 135)
+progress = 135.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator10/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator10/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator10/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator11" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator11"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 150)
+progress = 150.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator11/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator11/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator11/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator12" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator12"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 165)
+progress = 165.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator12/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator12/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator12/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator13" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator13"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 180)
+progress = 180.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator13/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator13/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator13/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator14" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator14"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 195)
+progress = 195.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator14/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator14/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator14/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator15" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator15"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 210)
+progress = 210.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator15/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator15/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator15/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator16" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator16"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 225)
+progress = 225.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator16/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator16/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator16/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator17" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator17"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 240)
+progress = 240.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator17/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator17/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator17/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator18" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator18"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 255)
+progress = 255.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator18/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator18/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator18/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator19" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator19"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 270)
+progress = 270.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator19/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator19/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator19/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator20" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator20"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 285)
+progress = 285.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator20/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator20/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator20/PathFollow3D/5x5"]
+shape = SubResource("BoxShape3D_5005c")
+
+[node name="Elevator21" type="Path3D" parent="Ground/Areas"]
+transform = Transform3D(-0.999978, 0, 0.00668464, 0, 1, 0, -0.00668464, 0, -0.999978, 0.1, -2.856, 2.08165e-12)
+curve = SubResource("Curve3D_lvt4p")
+script = ExtResource("12_2spm2")
+move_speed = 2
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator21"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 300)
+progress = 300.0
+rotation_mode = 1
+
+[node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator21/PathFollow3D"]
+
+[node name="5x5" type="MeshInstance3D" parent="Ground/Areas/Elevator21/PathFollow3D/5x5"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("ArrayMesh_66f6o")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a8pp4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Areas/Elevator21/PathFollow3D/5x5"]
 shape = SubResource("BoxShape3D_5005c")
 
 [node name="2xTunnelWide" parent="Ground/Areas" instance=ExtResource("5_6t1ya")]
@@ -452,14 +892,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0.0999999, -75.458)
 [node name="3x3" parent="Ground/Areas/Elevated/Laybye" instance=ExtResource("4_txlad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 
-[node name="3x4" parent="Ground/Areas/Elevated/Laybye" instance=ExtResource("4_txlad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 50, -0.120092, -3, -67.9687)
-
 [node name="3x6" parent="Ground/Areas/Elevated/Laybye" instance=ExtResource("4_txlad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.46949, -3, 0)
-
-[node name="3x7" parent="Ground/Areas/Elevated/Laybye" instance=ExtResource("4_txlad")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 50, -4.58958, -3, -67.9687)
 
 [node name="3x5" parent="Ground/Areas/Elevated/Laybye" instance=ExtResource("4_txlad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -6)
@@ -472,6 +906,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 
 [node name="3x4" parent="Ground/Areas/Elevated/Laybye2" instance=ExtResource("4_txlad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 6)
+
+[node name="3x8" parent="Ground/Areas/Elevated/Laybye2" instance=ExtResource("4_txlad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -3, 6)
+
+[node name="3x9" parent="Ground/Areas/Elevated/Laybye2" instance=ExtResource("4_txlad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, -3, 6)
 
 [node name="3x6" parent="Ground/Areas/Elevated/Laybye2" instance=ExtResource("4_txlad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.00497, -3, 0)
@@ -697,7 +1137,7 @@ script = ExtResource("12_2spm2")
 move_speed = 5.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevated3/CartwheelPlatforms/Path3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117639, -2.08844e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117631, -2.08844e-12)
 progress = 30.98
 rotation_mode = 0
 
@@ -711,7 +1151,7 @@ script = ExtResource("12_2spm2")
 move_speed = 5.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevated3/CartwheelPlatforms/Path3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000251773, 19.6832, -2.08851e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000259402, 19.6832, -2.08851e-12)
 progress = 61.9599
 rotation_mode = 0
 
@@ -735,6 +1175,24 @@ transform = Transform3D(2, 0, 0, 0, -4.37114e-08, -2, 0, 1, -8.74228e-08, 0, 0, 
 [node name="1x1" parent="Ground/Areas/Elevated3/CartwheelPlatforms" instance=ExtResource("10_wnpqn")]
 transform = Transform3D(0.5, -0.5, 0.707107, 0.707107, 0.707107, -3.48787e-16, -0.5, 0.5, 0.707107, 0, 0, 0)
 
+[node name="8x8" parent="Ground/Areas/Elevated3/CartwheelPlatforms" instance=ExtResource("5_ah1il")]
+transform = Transform3D(0.965925, 0.258819, -1.96477e-08, -1.8087e-09, -6.91629e-08, -1, -0.258819, 0.965925, -6.63381e-08, 7.33333, 0, -3.93707)
+
+[node name="8x10" parent="Ground/Areas/Elevated3/CartwheelPlatforms" instance=ExtResource("5_ah1il")]
+transform = Transform3D(0.965925, 0.258819, -1.96477e-08, -1.8087e-09, -6.91629e-08, -1, -0.258819, 0.965925, -6.63381e-08, 7.33333, 16.6667, -3.93706)
+
+[node name="8x9" parent="Ground/Areas/Elevated3/CartwheelPlatforms" instance=ExtResource("5_ah1il")]
+transform = Transform3D(0.965925, 0.258819, -1.96477e-08, -1.8087e-09, -6.91629e-08, -1, -0.258819, 0.965925, -6.63381e-08, 7.33333, -16.6667, -3.93707)
+
+[node name="8x11" parent="Ground/Areas/Elevated3/CartwheelPlatforms" instance=ExtResource("5_ah1il")]
+transform = Transform3D(0.965925, -0.258819, 2.56056e-08, 1.9276e-08, -2.69935e-08, -0.999999, 0.258819, 0.965925, -2.10847e-08, -7.66667, 0, -3.93706)
+
+[node name="8x12" parent="Ground/Areas/Elevated3/CartwheelPlatforms" instance=ExtResource("5_ah1il")]
+transform = Transform3D(0.965925, -0.258819, 2.56056e-08, 1.9276e-08, -2.69935e-08, -0.999999, 0.258819, 0.965925, -2.10847e-08, -7.66667, 16.6667, -3.93706)
+
+[node name="8x13" parent="Ground/Areas/Elevated3/CartwheelPlatforms" instance=ExtResource("5_ah1il")]
+transform = Transform3D(0.965925, -0.258819, 2.56056e-08, 1.9276e-08, -2.69935e-08, -0.999999, 0.258819, 0.965925, -2.10847e-08, -7.66666, -16.6667, -3.93707)
+
 [node name="4x5" parent="Ground/Areas/Elevated3" instance=ExtResource("14_2hitv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.4, -2, -82.1957)
 
@@ -748,6 +1206,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -2, -82.1957)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, -2.89, -76.1957)
 
 [node name="8x15" parent="Ground/Areas/Elevated3" instance=ExtResource("5_ah1il")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -3, -51)
+
+[node name="8x17" parent="Ground/Areas/Elevated3" instance=ExtResource("5_ah1il")]
+transform = Transform3D(1, -8.44439e-08, -6.47961e-08, 8.44439e-08, 0.258819, 0.965926, -6.47961e-08, -0.965926, 0.258819, -2, 0.790754, -40.4761)
+
+[node name="8x20" parent="Ground/Areas/Elevated3" instance=ExtResource("5_ah1il")]
+transform = Transform3D(1, -8.74228e-08, -8.74228e-08, 8.74228e-08, -4.37114e-08, 1, -8.74228e-08, -1, -4.37114e-08, -2, 6.65239, -42)
+
+[node name="8x18" parent="Ground/Areas/Elevated3" instance=ExtResource("5_ah1il")]
+transform = Transform3D(1, -8.74228e-08, -8.74228e-08, 8.74228e-08, -4.37114e-08, 1, -8.74228e-08, -1, -4.37114e-08, -18, 2, -42)
+
+[node name="8x19" parent="Ground/Areas/Elevated3" instance=ExtResource("5_ah1il")]
+transform = Transform3D(1, -8.74228e-08, -8.74228e-08, 8.74228e-08, -4.37114e-08, 1, -8.74228e-08, -1, -4.37114e-08, 14, 2, -42)
+
+[node name="8x16" parent="Ground/Areas/Elevated3" instance=ExtResource("5_ah1il")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -3, -51)
 
 [node name="sinkLine19" type="Node3D" parent="Ground/Areas"]
@@ -835,6 +1308,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 [node name="1x7" parent="Ground/Areas/sinkLine23" instance=ExtResource("10_wnpqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 
+[node name="4x4" parent="Ground/Areas" instance=ExtResource("12_sgav7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.11666, -2.87228, -6.8822)
+
 [node name="Goal" parent="Ground" instance=ExtResource("14_y6k2h")]
 transform = Transform3D(2, -6.97574e-16, 6.97574e-16, 6.97574e-16, 2, -6.97574e-16, -6.97574e-16, 6.97574e-16, 2, 2, -2.71683, -237.58)
 
@@ -859,6 +1335,12 @@ transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -8.
 
 [node name="donut5" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 9.48066, -4.90436, -70.4599)
+
+[node name="donut12" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -8.1927, -4.90436, -128.46)
+
+[node name="donut13" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 9.48066, -4.90436, -128.46)
 
 [node name="donut6" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, -8.1927, -1.90436, -95.8042)
@@ -885,7 +1367,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55457, 2.42268, 39.3744)
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -1.5872, -1.63564, -191.382)
 
 [node name="Checkpoint3" parent="Ground/Checkpoints" groups=["checkpoints"] instance=ExtResource("18_8mjbq")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -2.18987, -1.63564, -235.262)
+transform = Transform3D(0.0500945, 0, 0, 0, 0.0500945, 0, 0, 0, 0.0500945, -2.18987, -1.63564, -235.262)
 
 [node name="Checkpoint" parent="Ground/Checkpoints" groups=["checkpoints"] instance=ExtResource("18_8mjbq")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -1.73417, -1.65617, -140.702)

@@ -5,6 +5,6 @@ func save_game():
 	FileAccess.open("user://savegame.save", FileAccess.WRITE).store_line(JSON.stringify(ts))
 func load_game():
 	if not FileAccess.file_exists("user://savegame.save"): return # Error! We don't have a save to load.
-	ts = JSON.parse_string(FileAccess.open("user://savegame.save", FileAccess.READ).get_line())
+	#ts = JSON.parse_string(FileAccess.open("user://savegame.save", FileAccess.READ).get_line())
 func _on_pressed(extra_arg_0):
 	get_tree().change_scene_to_file(extra_arg_0)

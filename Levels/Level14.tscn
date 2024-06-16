@@ -198,7 +198,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 rotation_mode = 1
 
 [node name="5x5" type="StaticBody3D" parent="Ground/Areas/Elevator/PathFollow3D"]
@@ -219,7 +219,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator2"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 14.9999)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 14.9998)
 progress = 15.0
 rotation_mode = 1
 
@@ -241,7 +241,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator3"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 29.9999)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 29.9999)
 progress = 30.0
 rotation_mode = 1
 
@@ -263,7 +263,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator4"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 44.9999)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 44.9999)
 progress = 45.0
 rotation_mode = 1
 
@@ -285,7 +285,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator5"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 60)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 60)
 progress = 60.0
 rotation_mode = 1
 
@@ -307,7 +307,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator6"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 75)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 75)
 progress = 75.0
 rotation_mode = 1
 
@@ -329,7 +329,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator7"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 90)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 90)
 progress = 90.0
 rotation_mode = 1
 
@@ -351,7 +351,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator8"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 105)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 105)
 progress = 105.0
 rotation_mode = 1
 
@@ -373,7 +373,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator9"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 120)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 120)
 progress = 120.0
 rotation_mode = 1
 
@@ -395,7 +395,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator10"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 135)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 135)
 progress = 135.0
 rotation_mode = 1
 
@@ -417,7 +417,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator11"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 150)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 150)
 progress = 150.0
 rotation_mode = 1
 
@@ -439,7 +439,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator12"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 165)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 165)
 progress = 165.0
 rotation_mode = 1
 
@@ -461,7 +461,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator13"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 180)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 180)
 progress = 180.0
 rotation_mode = 1
 
@@ -483,7 +483,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator14"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 195)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 195)
 progress = 195.0
 rotation_mode = 1
 
@@ -505,7 +505,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator15"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 210)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 210)
 progress = 210.0
 rotation_mode = 1
 
@@ -527,7 +527,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator16"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 225)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 225)
 progress = 225.0
 rotation_mode = 1
 
@@ -549,7 +549,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator17"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 240)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 240)
 progress = 240.0
 rotation_mode = 1
 
@@ -571,7 +571,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator18"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 255)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 255)
 progress = 255.0
 rotation_mode = 1
 
@@ -593,7 +593,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator19"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 270)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 270)
 progress = 270.0
 rotation_mode = 1
 
@@ -615,7 +615,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator20"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 285)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 285)
 progress = 285.0
 rotation_mode = 1
 
@@ -637,7 +637,7 @@ script = ExtResource("12_2spm2")
 move_speed = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevator21"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 2.08165e-12, 2.08165e-12, 300)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08165e-12, 2.08165e-12, 300)
 progress = 300.0
 rotation_mode = 1
 
@@ -1137,7 +1137,7 @@ script = ExtResource("12_2spm2")
 move_speed = 5.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevated3/CartwheelPlatforms/Path3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117631, -2.08844e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5321, -0.117639, -2.08844e-12)
 progress = 30.98
 rotation_mode = 0
 
@@ -1151,7 +1151,7 @@ script = ExtResource("12_2spm2")
 move_speed = 5.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Ground/Areas/Elevated3/CartwheelPlatforms/Path3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000259402, 19.6832, -2.08851e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000251773, 19.6832, -2.08851e-12)
 progress = 61.9599
 rotation_mode = 0
 
@@ -1358,7 +1358,7 @@ transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0.2
 transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0.766474, -1.90436, -198.902)
 
 [node name="donut11" parent="Ground/Collectables" groups=["collectables"] instance=ExtResource("17_1kvsp")]
-transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 1.76647, -6.20245, -211.606)
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 1.76647, -5.47221, -211.606)
 
 [node name="Checkpoints" type="Node3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55457, 2.42268, 39.3744)
